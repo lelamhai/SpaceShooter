@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InputKeyBoard : MonoBehaviour
+public class InputKeyboard : MonoBehaviour
 {
     public Vector2 _MovementPos { get; private set; }
 

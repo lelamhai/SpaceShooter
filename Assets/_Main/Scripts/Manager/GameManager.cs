@@ -16,12 +16,12 @@ public enum GameStates
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private GameStates _currentStage = GameStates.None;
+    [SerializeField] private GameStates _currentGameStage = GameStates.None;
     public UnityAction _StartGame, _SetupLevel, _GameOver, _ResetGame, _FinishLevel, _NextLevelUp, _FinishGame;
 
     private void UpdateGameStates()
     {
-        switch (_currentStage)
+        switch (_currentGameStage)
         {
             case GameStates.StartGame:
                 _StartGame?.Invoke();
@@ -59,7 +59,7 @@ public class GameManager : Singleton<GameManager>
 
     public void SetStage(GameStates state)
     {
-        _currentStage = state;
+        _currentGameStage = state;
         UpdateGameStates();
     }
 
