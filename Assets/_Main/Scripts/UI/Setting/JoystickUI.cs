@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class JoystickUI : BaseMonoBehaviour
 {
     [SerializeField] private Toggle _toggle;
+    [SerializeField] private JoystickSO _joystickSO;
 
     private void Start()
     {
+        _toggle.isOn = _joystickSO.ShowJoystick;
         _toggle.onValueChanged.AddListener(delegate {
             ToggleValueChanged(_toggle);
         });
@@ -17,6 +19,7 @@ public class JoystickUI : BaseMonoBehaviour
     void ToggleValueChanged(Toggle change)
     {
         UIManager.Instance.Joystick(change.isOn);
+        _joystickSO.ShowJoystick = change.isOn;
     }
 
     protected override void SetDefaultValue()

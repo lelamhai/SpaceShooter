@@ -90,7 +90,7 @@ public class UIManager : Singleton<UIManager>
     private void LoadAllUI()
     {
         _gamePlay = this.transform.Find("GamePlay").gameObject;
-        _gamePlay.SetActive(true);
+        _gamePlay.SetActive(false);
 
         _mainMenu = this.transform.Find("MainMenu").gameObject;
         _mainMenu.SetActive(false);

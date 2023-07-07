@@ -133,14 +133,13 @@ GameObject:
   m_Component:
   - component: {fileID: 65633295}
   - component: {fileID: 65633297}
-  - component: {fileID: 65633296}
   m_Layer: 5
   m_Name: Page1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &65633295
 RectTransform:
   m_ObjectHideFlags: 0
@@ -163,18 +162,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &65633296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65633294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 434e80163e725614db337bc1990db868, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &65633297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,8 +376,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 200056191}
+  - component: {fileID: 200056192}
   m_Layer: 5
-  m_Name: Body
+  m_Name: Tabs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -418,6 +406,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &200056192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200056190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7fc6ccacbd98bb4297667a962a9c33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &231281450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,7 +1834,7 @@ GameObject:
   - component: {fileID: 426140661}
   - component: {fileID: 426140662}
   m_Layer: 5
-  m_Name: Tabs
+  m_Name: TabArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1903,7 +1903,8 @@ MonoBehaviour:
   _listTabButton:
   - {fileID: 586267834}
   - {fileID: 696380460}
-  _selectedTabButton: {fileID: 0}
+  _spriteEnable: {fileID: 21300000, guid: 447768b4b54dfa947a442354ab0e7ec6, type: 3}
+  _spriteDisanble: {fileID: 21300000, guid: 08f56130d7767e144bdb10520d449633, type: 3}
 --- !u!1 &456462587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,6 +1915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 456462588}
   - component: {fileID: 456462589}
+  - component: {fileID: 456462590}
   m_Layer: 5
   m_Name: SliderBGSound
   m_TagString: Untagged
@@ -1995,6 +1997,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &456462590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456462587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 084909ef0764abd4aa735d67f3b4b0d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 456462589}
+  _bGSoundSO: {fileID: 11400000, guid: 6ccf0536ea7bc854782efed760b813aa, type: 2}
 --- !u!1 &460581426
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,6 +2059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 515379699}
   - component: {fileID: 515379700}
+  - component: {fileID: 515379701}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -2119,6 +2136,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!114 &515379701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515379698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21eb74b9e8096e14db7395fb0278ef14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _toggle: {fileID: 515379700}
+  _muteSO: {fileID: 11400000, guid: 764cda6dd7384ff42a6c30ce34451c18, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2625,7 +2656,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b8d74e0d735024abef37af297817cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tabArea: {fileID: 426140662}
+  _button: {fileID: 586267831}
+  _spriteEnable: {fileID: 21300000, guid: 447768b4b54dfa947a442354ab0e7ec6, type: 3}
 --- !u!1 &607282319
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,6 +3314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _toggle: {fileID: 694902759}
+  _joystickSO: {fileID: 11400000, guid: 22f1394796e7ea743852052274a9e074, type: 2}
 --- !u!1 &696380455
 GameObject:
   m_ObjectHideFlags: 0
@@ -3417,7 +3450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b8d74e0d735024abef37af297817cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tabArea: {fileID: 426140662}
+  _button: {fileID: 696380457}
+  _spriteEnable: {fileID: 21300000, guid: 447768b4b54dfa947a442354ab0e7ec6, type: 3}
 --- !u!1 &709432494
 GameObject:
   m_ObjectHideFlags: 0
@@ -5043,7 +5077,7 @@ GameObject:
   - component: {fileID: 946122296}
   - component: {fileID: 946122297}
   m_Layer: 5
-  m_Name: Pages
+  m_Name: PageArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5634,7 +5668,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!114 &1100385958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5648,6 +5682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _toggle: {fileID: 1100385957}
+  _autoShootingSO: {fileID: 11400000, guid: 088dca8b7793cf94db30ff2cddf8f00f, type: 2}
 --- !u!1 &1112800871
 GameObject:
   m_ObjectHideFlags: 0
@@ -7617,7 +7652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1611758376
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8023,7 +8058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1714826152
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8681,6 +8716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1835556862}
   - component: {fileID: 1835556863}
+  - component: {fileID: 1835556864}
   m_Layer: 5
   m_Name: SliderFXSound
   m_TagString: Untagged
@@ -8762,6 +8798,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1835556864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835556861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563ac61e64895fb438623b885d729020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 1835556863}
+  _fXSoundSO: {fileID: 11400000, guid: 214f791d16d79d240a7505540fec4230, type: 2}
 --- !u!1 &1843896127
 GameObject:
   m_ObjectHideFlags: 0
@@ -8808,7 +8858,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1862105611}
   - component: {fileID: 1862105612}
-  - component: {fileID: 1862105613}
   m_Layer: 5
   m_Name: Page2
   m_TagString: Untagged
@@ -8865,18 +8914,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1862105613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862105610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 434e80163e725614db337bc1990db868, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1947424637
 GameObject:
   m_ObjectHideFlags: 0
