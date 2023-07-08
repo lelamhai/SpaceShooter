@@ -35,6 +35,7 @@ public class InputMouse : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+
         }
     }
 

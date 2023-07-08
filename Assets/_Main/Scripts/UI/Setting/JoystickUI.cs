@@ -10,7 +10,6 @@ public class JoystickUI : BaseMonoBehaviour
 
     private void Start()
     {
-        _toggle.isOn = _joystickSO.ShowJoystick;
         _toggle.onValueChanged.AddListener(delegate {
             ToggleValueChanged(_toggle);
         });

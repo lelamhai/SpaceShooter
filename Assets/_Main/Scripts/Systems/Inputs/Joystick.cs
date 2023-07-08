@@ -7,13 +7,14 @@ public class Joystick : BaseMonoBehaviour, IPointerDownHandler, IPointerUpHandle
 {
     [SerializeField] private RectTransform _joystick = null;
     [SerializeField] private RectTransform _innerCircle = null;
-    public Vector2 _Pos { get; private set; }
+    [SerializeField] private Vector3 _position = Vector3.zero;
 
     public void OnDrag(PointerEventData eventData)
     {
         CalculateInnerCirclePosition(eventData.position);
         CalculateInputVector();
         CalculateInnerCircleRotation();
+        InputManager.Instance.Movement(_position);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -25,7 +26,8 @@ public class Joystick : BaseMonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         _innerCircle.anchoredPosition = Vector2.zero;
         _innerCircle.localRotation = Quaternion.identity;
-        _Pos = Vector2.zero;
+        _position = Vector2.zero;
+        InputManager.Instance.Movement(_position);
     }
 
     private void CalculateInnerCirclePosition(Vector2 position)
@@ -38,12 +40,12 @@ public class Joystick : BaseMonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     private void CalculateInputVector()
     {
-        _Pos = _innerCircle.anchoredPosition / (_joystick.rect.size / 2f);
+        _position = _innerCircle.anchoredPosition / (_joystick.rect.size / 2f);
     }
 
     private void CalculateInnerCircleRotation()
     {
-        _innerCircle.localRotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, _Pos));
+        _innerCircle.localRotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, _position));
     }
 
     protected override void SetDefaultValue()

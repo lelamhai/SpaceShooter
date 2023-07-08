@@ -27,6 +27,21 @@ public class UIManager : Singleton<UIManager>
     private void Start()
     {
         SetPanelStage(_currentUIStage, null);
+        #if UNITY_EDITOR
+            Joystick(false);
+        #endif
+
+        #if UNITY_IOS
+            Debug.Log("iOS");
+        #endif
+
+        #if UNITY_STANDALONE_OSX
+            Debug.Log("Standalone OSX");
+        #endif
+
+        #if UNITY_STANDALONE_WIN
+            Joystick(false);
+        #endif
     }
 
     private void UpdatePanelStage(GameObject oldPanel = null)

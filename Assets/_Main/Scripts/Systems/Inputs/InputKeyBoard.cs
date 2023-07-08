@@ -6,8 +6,8 @@ public class InputKeyboard : MonoBehaviour
 
     private void Update()
     {
-        //Movement2D();
-        //Space();
+        Movement2D();
+        Space();
     }
 
     private void Movement2D()
@@ -16,7 +16,8 @@ public class InputKeyboard : MonoBehaviour
         var y = Input.GetAxisRaw("Vertical");
         var z = 0;
 
-        _MovementPos = new Vector3(x, y, z);
+        var pos = new Vector3(x, y, z);
+        InputManager.Instance.Movement(pos);
     }
 
     private void Space()

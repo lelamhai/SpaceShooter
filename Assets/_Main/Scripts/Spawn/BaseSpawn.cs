@@ -7,6 +7,7 @@ public abstract class BaseSpawn : BaseMonoBehaviour
     [Header("Base Spawn")]
     [SerializeField] protected BasePrefabs _basePrefabs = null;
     [SerializeField] protected BaseHolders _baseHolders = null;
+    [SerializeField] protected Transform _point = null;
 
     public void SpawnGameObject(string name, Vector3 point)
     {
@@ -39,6 +40,8 @@ public abstract class BaseSpawn : BaseMonoBehaviour
 
         Transform holder = transform.Find("Holders");
         _baseHolders = holder.GetComponent<BaseHolders>();
+
+        _point = transform.Find("Point");
     }
 
     public void AddGameObjectPool(Transform gameobject)
