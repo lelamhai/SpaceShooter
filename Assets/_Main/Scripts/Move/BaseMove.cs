@@ -15,4 +15,16 @@ public abstract class BaseMove : BaseMonoBehaviour
     }
 
     protected abstract void Movement(Vector3 pos);
+
+    public void SetRotation(Vector3 dir)
+    {
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        //Option 1
+        //Quaternion targetRotation = Quaternion.Euler(new Vector3(0,0,angle));
+        //this.transform.rotation = targetRotation;
+
+        //Option 2
+        this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
 }

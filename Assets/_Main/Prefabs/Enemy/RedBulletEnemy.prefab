@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3127322878334751657}
   - component: {fileID: 5874838435265532255}
   - component: {fileID: 2770320530687442340}
+  - component: {fileID: 7773736641429008728}
   m_Layer: 0
   m_Name: RedBulletEnemy
   m_TagString: Untagged
@@ -203,6 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseDamage: {fileID: 3127322878334751657}
+  _TagGameObject: 0
 --- !u!114 &2770320530687442340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,3 +219,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 1
   _currentHealth: 1
+--- !u!114 &7773736641429008728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8818109674668500734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e4d552916276448a4e37d388465ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cureentDistance: 0

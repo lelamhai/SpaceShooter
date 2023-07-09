@@ -18,11 +18,6 @@ public class ScreenWidthHeight : Singleton<ScreenWidthHeight>
         set { _widthCamera = value; }
     }
 
-    private void Awake()
-    {
-        LoadCamera();
-    }
-
     private void LoadCamera()
     {
         _cam = Camera.main;
@@ -32,4 +27,10 @@ public class ScreenWidthHeight : Singleton<ScreenWidthHeight>
 
     protected override void SetDefaultValue()
     { }
+
+    protected override void LoadComponent()
+    {
+        base.LoadComponent();
+        LoadCamera();
+    }
 }

@@ -9,20 +9,23 @@ public abstract class BaseSpawn : BaseMonoBehaviour
     [SerializeField] protected BaseHolders _baseHolders = null;
     [SerializeField] protected Transform _point = null;
 
-    public void SpawnGameObject(string name, Vector3 point)
+    public Transform SpawnGameObject(string name, Vector3 point)
     {
+        Transform gameObject = null;
         if (_baseHolders.CountPool(name) > 0)
         {
-            Transform undoGameObject = _baseHolders.UndoGameObject(name);
-            if (undoGameObject == null) return;
-            SetUndoGameObject(undoGameObject, name, point);
-            RemoveGameObjectPool(undoGameObject);
+            gameObject = _baseHolders.UndoGameObject(name);
+            if (gameObject == null) return null;
+            SetUndoGameObject(gameObject, name, point);
+            RemoveGameObjectPool(gameObject);
         } else
         {
-            Transform cloneGameObject = _basePrefabs.CloneGameObject(name);
-            if (cloneGameObject == null) return;
-            SetUndoGameObject(cloneGameObject, name, point);
+            gameObject = _basePrefabs.CloneGameObject(name);
+            if (gameObject == null) return null;
+            SetUndoGameObject(gameObject, name, point);
         }
+
+        return gameObject;
     }
 
     private void SetUndoGameObject(Transform gameObject, string name, Vector3 point)
@@ -52,5 +55,15 @@ public abstract class BaseSpawn : BaseMonoBehaviour
     public void RemoveGameObjectPool(Transform gameobject)
     {
         _baseHolders.RemoveObjectPool(gameobject);
+    }
+
+
+    public Vector2 RandomPoint(float x = 0)
+    {
+        var posX = Random.Range(-x, x);
+        var posY = _point.position.y;
+        var posZ = 0;
+
+        return new Vector3(posX, posY, posZ);
     }
 }

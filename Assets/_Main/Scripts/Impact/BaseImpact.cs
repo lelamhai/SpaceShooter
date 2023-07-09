@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseImpact : BaseMonoBehaviour, ITypeCharactor
+public abstract class BaseImpact : BaseMonoBehaviour, ITag
 {
     [SerializeField] protected BaseDamage _baseDamage = null;
-    [SerializeField] protected TypeCharactorGame _typeCharactorGame = TypeCharactorGame.Enemy;
+    [SerializeField] protected Tag _TagGameObject = Tag.Enemy;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        TypeCharactorGame target = collision.gameObject.GetComponent<ITypeCharactor>().TypeCharactor();
-        TypeCharactorGame current = this.gameObject.GetComponent<ITypeCharactor>().TypeCharactor();
+        Tag target = collision.gameObject.GetComponent<ITag>().TypeCharactor();
+        Tag current = this.gameObject.GetComponent<ITag>().TypeCharactor();
 
         if (target == current) return;
         BaseReceiveDamage receiveDamage = collision.transform.GetComponent<BaseReceiveDamage>();
@@ -19,8 +19,8 @@ public abstract class BaseImpact : BaseMonoBehaviour, ITypeCharactor
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        TypeCharactorGame target = collision.gameObject.GetComponent<ITypeCharactor>().TypeCharactor();
-        TypeCharactorGame current = this.gameObject.GetComponent<ITypeCharactor>().TypeCharactor();
+        Tag target = collision.gameObject.GetComponent<ITag>().TypeCharactor();
+        Tag current = this.gameObject.GetComponent<ITag>().TypeCharactor();
 
         if (target == current) return;
         BaseReceiveDamage receiveDamage = collision.transform.GetComponent<BaseReceiveDamage>();
@@ -39,8 +39,8 @@ public abstract class BaseImpact : BaseMonoBehaviour, ITypeCharactor
         _baseDamage = this.GetComponent<BaseDamage>();
     }
 
-    public TypeCharactorGame TypeCharactor()
+    public Tag TypeCharactor()
     {
-        return _typeCharactorGame;
+        return _TagGameObject;
     }
 }

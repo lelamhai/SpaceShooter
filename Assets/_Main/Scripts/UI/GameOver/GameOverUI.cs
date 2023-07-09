@@ -22,7 +22,7 @@ public class GameOverUI : BaseMonoBehaviour
 
     private void ResetGame()
     {
-        GameManager.Instance.SetStage(GameStates.ResetGame);
+        GameManager.Instance.SetGameStage(GameStates.ResetGame);
     }
 
     protected override void SetDefaultValue()

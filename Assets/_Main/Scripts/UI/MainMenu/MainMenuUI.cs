@@ -7,7 +7,7 @@ public class MainMenuUI : MonoBehaviour
     public void ButtonStartGame()
     {
         UIManager.Instance.SetPanelStage(TypePanelUI.GamePlay, this.gameObject);
-        GameManager.Instance.SetStage(GameStates.StartGame);
+        GameManager.Instance.SetGameStage(GameStates.StartGame);
     }
 
     public void ButtonToturial()

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public abstract class BaseAttack : BaseMonoBehaviour
 {
-    [SerializeField] protected bool _canShooting = true;
+    [SerializeField] protected bool _canShoot = true;
     [SerializeField] protected bool _isDelay = true;
     [SerializeField] protected float _durationDelayShooting = 2f;
     [SerializeField] protected Transform _point = null;
 
     private void Update()
     {
-        if (!_canShooting) return;
+        if (!_canShoot) return;
         if (!_isDelay) return;
         StartCoroutine(Shoot());
     }
