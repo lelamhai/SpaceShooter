@@ -7003,9 +7003,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c949b9e978b911b4cb33ed61fde264fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cam: {fileID: 0}
-  _heightCamera: 0
-  _widthCamera: 0
+  _cam: {fileID: 519420031}
+  _heightCamera: 10
+  _widthCamera: 17.777779
 --- !u!1 &1558124175
 GameObject:
   m_ObjectHideFlags: 0
@@ -7350,7 +7350,7 @@ MonoBehaviour:
   _toturialGame: {fileID: 817804270}
   _pauseGame: {fileID: 2110567802}
   _quitGame: {fileID: 840645177}
-  _currentUIStage: 1
+  _currentUIStage: 0
 --- !u!1 &1577900164
 GameObject:
   m_ObjectHideFlags: 0
@@ -10005,7 +10005,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6206064636163193365}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10185,11 +10185,12 @@ GameObject:
   - component: {fileID: 7787757407635862292}
   - component: {fileID: 376910777922347906}
   - component: {fileID: 5192220251054026568}
+  - component: {fileID: 7787757407635862293}
+  - component: {fileID: 7787757407635862294}
   - component: {fileID: 1987835500137839754}
   - component: {fileID: 2676791882319479277}
   - component: {fileID: 4260551889374513351}
   - component: {fileID: 5420474750118466645}
-  - component: {fileID: 7787757407635862293}
   m_Layer: 0
   m_Name: Boss1
   m_TagString: Untagged
@@ -10453,7 +10454,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6206064636163193365}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3be0bde04dd1f364bb844d271872e2f4, type: 3}
   m_Name: 
@@ -10462,8 +10463,28 @@ MonoBehaviour:
   _isDelay: 1
   _durationDelayShooting: 2
   _point: {fileID: 3516119906988185208}
+  _bulletAmount: 10
+  _angle: 0
+--- !u!114 &7787757407635862294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6206064636163193365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f06186fe1f32e428fcf61d8f65696b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canShoot: 1
+  _isDelay: 1
+  _durationDelayShooting: 2
+  _point: {fileID: 3516119906988185208}
   _bulletAmount: 4
-  angle: 0
+  _startAngle: 90
+  _endAngle: 270
+  _pointBegin: 22.5
 --- !u!1001 &8246394379412923211
 PrefabInstance:
   m_ObjectHideFlags: 0

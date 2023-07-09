@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shoot360 : BaseAttack
 {
     [SerializeField] private int _bulletAmount = 10;
-    [SerializeField] private float angle = 0;
+    [SerializeField] private float _angle = 0;
 
     protected override void SpawnBullet()
     {
@@ -13,8 +13,8 @@ public class Shoot360 : BaseAttack
 
         for (int i = 0; i < _bulletAmount; i++)
         {
-            float bulletDirX = this.transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180);
-            float bulletDirY = this.transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180);
+            float bulletDirX = this.transform.position.x + Mathf.Sin((_angle * Mathf.PI) / 180);
+            float bulletDirY = this.transform.position.y + Mathf.Cos((_angle * Mathf.PI) / 180);
 
             Vector3 bulletMoveVector = new Vector3(bulletDirX, bulletDirY, 0);
             Vector2 buletDir = (bulletMoveVector - this.transform.position).normalized;
@@ -22,7 +22,7 @@ public class Shoot360 : BaseAttack
             Transform bullet = SpawnBulletEnemy.Instance.SpawnGameObject(TypeBulletEnemy.RedBulletEnemy.ToString(), _point.position);
 
             bullet.GetComponent<BaseMove>().SetRotation(buletDir);
-            angle += angleStep;
+            _angle += angleStep;
         }
     }
 
