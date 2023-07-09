@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 4146805780924810382}
   - component: {fileID: 7404270012344916851}
   - component: {fileID: 1654645552814898179}
+  - component: {fileID: 7895847212119177236}
   - component: {fileID: 6630072503756931838}
   - component: {fileID: 9127280643663607716}
   - component: {fileID: 2979122512663816478}
@@ -50,7 +51,7 @@ GameObject:
   - component: {fileID: 5071362971883483851}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +112,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6203df7fa630c594487b2e18b273bf7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -255,6 +256,19 @@ PolygonCollider2D:
       - {x: 0.089999996, y: -0.95}
       - {x: 0.24, y: -0.95}
   m_UseDelaunayMesh: 0
+--- !u!114 &7895847212119177236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2634111561540215588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35338a75c0428f048b14c22312ff35be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TagGameObject: 0
 --- !u!114 &6630072503756931838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b0caae6cb75a14196a7e3f495c514b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canShooting: 1
+  _canShoot: 0
   _isDelay: 1
   _durationDelayShooting: 0.5
   _point: {fileID: 4835138450094082990}

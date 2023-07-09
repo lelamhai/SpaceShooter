@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2302680973969972804}
   - component: {fileID: 3444394160303625202}
   - component: {fileID: 1233322600693734205}
+  - component: {fileID: 7184563923538912860}
   - component: {fileID: 1121087433310619994}
   - component: {fileID: 6956569101917974565}
   - component: {fileID: 4445144818648616376}
@@ -23,7 +24,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2302680973969972804
 Transform:
   m_ObjectHideFlags: 0
@@ -31,7 +32,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70914484889060917}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.89, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
@@ -195,6 +196,19 @@ PolygonCollider2D:
       - {x: 0.185, y: -1.06}
       - {x: 0.205, y: -0.97999996}
   m_UseDelaunayMesh: 0
+--- !u!114 &7184563923538912860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70914484889060917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a1f95b485d9164dbc73a8a25150294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TagGameObject: 1
 --- !u!114 &1121087433310619994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 704376988d9c8fb42bfbf8cdd0293c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canShoot: 1
+  _canShoot: 0
   _isDelay: 1
   _durationDelayShooting: 3
   _point: {fileID: 8749537047427899000}
@@ -252,7 +266,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseDamage: {fileID: 4445144818648616376}
-  _TagGameObject: 0
 --- !u!114 &8208532408287701882
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,8 +9,6 @@ public class ShootEnemy : BaseAttack
         SpawnBulletEnemy.Instance.SpawnGameObject(TypeBulletEnemy.RedBulletEnemy.ToString(), _point.position);
     }
 
-
-
     protected override void SetDefaultValue()
     {
         _durationDelayShooting = 3f;

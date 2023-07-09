@@ -5,11 +5,11 @@ using UnityEngine;
 public class Shoot360 : BaseAttack
 {
     [SerializeField] private int _bulletAmount = 10;
-    [SerializeField] private float _angle = 0;
 
     protected override void SpawnBullet()
     {
         float angleStep = 360 / _bulletAmount;
+        float _angle = 0;
 
         for (int i = 0; i < _bulletAmount; i++)
         {

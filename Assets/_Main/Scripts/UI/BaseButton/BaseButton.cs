@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BaseButton : BaseMonoBehaviour
+public abstract class BaseButton : BaseMonoBehaviour
 {
     [SerializeField] private Button _button;
 
@@ -13,11 +13,7 @@ public class BaseButton : BaseMonoBehaviour
         _button.onClick.AddListener(TaskOnClick);
     }
 
-    private void TaskOnClick()
-    {
-        UIManager.Instance.SetPanelStage(TypePanelUI.GamePlay, this.gameObject);
-        GameManager.Instance.SetGameStage(GameStates.GamePlay);
-    }
+    protected abstract void TaskOnClick();
 
     protected override void SetDefaultValue()
     {}

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Shoot180 : BaseAttack
 {
-    [SerializeField] private int _bulletAmount = 3;
-    [SerializeField] private float _startAngle = 0, _endAngle = 180f;
-    [SerializeField] private float _pointBegin = 30;
+    [SerializeField] private int _bulletAmount = 10;
+    [SerializeField] private float _startAngle = 90f, _endAngle = 270f;
+
     protected override void SpawnBullet()
     {
         float angleStep = (_endAngle - _startAngle) / _bulletAmount;
-        float _angle = _pointBegin;
+        float _angle = angleStep/2;
         for (int i = 0; i < _bulletAmount; i++)
         {
             float bulletDirX = this.transform.position.x + Mathf.Sin((_angle * Mathf.PI) / 180);
