@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6095381748183583796}
   - component: {fileID: 1323221282568005526}
   - component: {fileID: 4391564091770033711}
+  - component: {fileID: 6667724232261591124}
   - component: {fileID: 4689528654415421694}
   - component: {fileID: 8786771110423446313}
   - component: {fileID: 5227251988822741578}
@@ -244,6 +245,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tagGameObject: 1
+--- !u!114 &6667724232261591124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300788165108290739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5900ce329b39f434493ba9f5993e2e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveVerticalBoss: {fileID: 5227251988822741578}
+  _moveHorizontalBoss: {fileID: 8786771110423446313}
+  _shootEnemy: {fileID: 6220719037672364284}
 --- !u!114 &4689528654415421694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,9 +287,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ce444e914bc4742979afc840575a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canMove: 1
+  _canMove: 0
   _moveSpeed: 2
   _direction: {x: -1, y: 0, z: 0}
+  _timeExecuteSkill: 3
 --- !u!114 &5227251988822741578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,9 +303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2d2cc41b8351d4fa0b5a7a62da7779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canMove: 1
+  _canMove: 0
   _moveSpeed: 2
   _direction: {x: 0, y: -1, z: 0}
+  _timeExecuteSkill: 3
 --- !u!114 &6220719037672364284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,10 +319,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 704376988d9c8fb42bfbf8cdd0293c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canShoot: 1
+  _canShoot: 0
   _isDelay: 1
-  _durationDelayShooting: 3
+  _durationDelayShooting: 1
   _point: {fileID: 5172946789527335248}
+  _timeExecuteSkill: 3
 --- !u!114 &2157610045316366999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +348,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5300788165108290739}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46f06186fe1f32e428fcf61d8f65696b, type: 3}
   m_Name: 

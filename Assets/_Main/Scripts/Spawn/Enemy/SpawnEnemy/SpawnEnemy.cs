@@ -5,7 +5,8 @@ using UnityEngine;
 public enum TypeEnemy
 {
     Enemy1,
-    Enemy2
+    Enemy2,
+    Boss1
 }
 
 public class SpawnEnemy : SingletonSpawn<SpawnEnemy>
