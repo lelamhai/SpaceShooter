@@ -388,7 +388,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseDamage: {fileID: 8243113163362460272}
   _tag: {fileID: 4391564091770033711}
-  _baseSoundEffect: {fileID: 4645364186217112809}
 --- !u!114 &6683926287080163291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,8 +400,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b8b3e30aa97e2439b1811531d207a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 2
+  _maxHealth: 1
   _currentHealth: 1
+  _baseSoundEffect: {fileID: 4645364186217112809}
+  _model: {fileID: 6095381748183583796}
 --- !u!114 &6159311086766678212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,5 +430,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioClipDeadGamobject: {fileID: 8300000, guid: 0094d512cec2d994da2a6f811c7d8d71, type: 3}
-  _audioClipHitGamobject: {fileID: 0}
+  _audioClipHitGamobject: {fileID: 8300000, guid: c9049f83aa7173042810db85c6892184, type: 3}
   _audioClipAttackGamobject: {fileID: 0}

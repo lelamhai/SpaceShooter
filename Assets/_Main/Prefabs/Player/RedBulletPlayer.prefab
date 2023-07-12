@@ -220,7 +220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseDamage: {fileID: 8350282813088093216}
   _tag: {fileID: 6412173713073996101}
-  _baseSoundEffect: {fileID: 2231102659639630898}
 --- !u!114 &421366164427448708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 1
   _currentHealth: 1
+  _baseSoundEffect: {fileID: 2231102659639630898}
+  _model: {fileID: 384994203292069623}
 --- !u!114 &2138525172017911949
 MonoBehaviour:
   m_ObjectHideFlags: 0
