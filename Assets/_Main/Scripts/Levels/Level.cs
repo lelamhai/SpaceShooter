@@ -40,6 +40,9 @@ public class Level : MonoBehaviour
             if (_currentIndexWave < _listWaveData.Count)
             {
                 StartCoroutine(SpawnData());
+            } else
+            {
+                StopAllCoroutines();
             }
         }
         else
@@ -62,6 +65,9 @@ public class Level : MonoBehaviour
         if (_timer < duration)
         {
             StartCoroutine(SpawnWave(wave, duration));
+        } else
+        {
+            StopCoroutine(SpawnWave(wave, duration));
         }
     }
 }

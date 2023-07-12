@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ImpactBulletPlayer : BaseImpact
 {
-    protected override void HitGameObject(Collision2D collision)
+    protected override void DeadGameObject(Transform transform)
     {
-        //Debug.Log("ImpactBulletPlayer");
+        base.DeadGameObject(transform);
+        transform.gameObject.SetActive(false);
     }
 }

@@ -3,9 +3,4 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ImpactPlayer : BaseImpact
-{
-    protected override void HitGameObject(Collision2D collision)
-    {
-        //Debug.Log("ImpactPlayer");
-    }
-}
+{}

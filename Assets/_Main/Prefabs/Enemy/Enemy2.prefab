@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2710199938577062846}
   - component: {fileID: 8208532408287701882}
   - component: {fileID: 5415046923388805046}
+  - component: {fileID: 6689635296305854802}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -208,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a1f95b485d9164dbc73a8a25150294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TagGameObject: 1
+  _tagGameObject: 1
 --- !u!114 &1121087433310619994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +241,7 @@ MonoBehaviour:
   _isDelay: 1
   _durationDelayShooting: 3
   _point: {fileID: 8749537047427899000}
+  _timeExecuteSkill: 3
 --- !u!114 &4445144818648616376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseDamage: {fileID: 4445144818648616376}
+  _tag: {fileID: 7184563923538912860}
+  _baseSoundEffect: {fileID: 6689635296305854802}
 --- !u!114 &8208532408287701882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +297,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cureentDistance: 0
+--- !u!114 &6689635296305854802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70914484889060917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f53bc54a975f9234ba2d50e4f975c276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClipDeadGamobject: {fileID: 8300000, guid: 0094d512cec2d994da2a6f811c7d8d71, type: 3}
+  _audioClipHitGamobject: {fileID: 0}
+  _audioClipAttackGamobject: {fileID: 0}
 --- !u!1 &8298617388040129097
 GameObject:
   m_ObjectHideFlags: 0

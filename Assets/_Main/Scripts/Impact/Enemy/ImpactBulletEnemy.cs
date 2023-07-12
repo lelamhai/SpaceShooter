@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class ImpactBulletEnemy : BaseImpact
 {
-    protected override void HitGameObject(Collision2D collision)
-    {
-    }
+
 }

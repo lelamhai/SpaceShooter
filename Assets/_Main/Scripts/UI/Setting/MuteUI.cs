@@ -10,11 +10,15 @@ public class MuteUI : BaseMonoBehaviour
 
     private void Start()
     {
-        _toggle.isOn = _muteSO.Mute;
-
+        LoadValueToggle();
         _toggle.onValueChanged.AddListener(delegate {
             ToggleValueChanged(_toggle);
         });
+    }
+
+    private void LoadValueToggle()
+    {
+        _toggle.isOn = _muteSO.Mute;
     }
 
     void ToggleValueChanged(Toggle change)
@@ -23,11 +27,23 @@ public class MuteUI : BaseMonoBehaviour
     }
 
     protected override void SetDefaultValue()
-    { }
+    {}
 
     protected override void LoadComponent()
     {
         base.LoadComponent();
+        LoadToggle();
+        LoadMuteSO();
+    }
+
+    private void LoadToggle()
+    {
         _toggle = this.GetComponent<Toggle>();
+    }
+
+    private void LoadMuteSO()
+    {
+        string path = "Audio/MuteSO";
+        this._muteSO = Resources.Load<MuteSO>(path);
     }
 }

@@ -1,28 +1,26 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SliderFXSoundUI : BaseMonoBehaviour
+public class SliderFXSoundUI : BaseSlider
 {
-    [SerializeField] private Slider _slider;
-    [SerializeField] private FXSoundSO _fXSoundSO;
+    [SerializeField] private AudioSO _audioSO;
 
-    private void Start()
+    public override void ValueChangeCheck()
     {
-        _slider.value = _fXSoundSO.Volume;
-        _slider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+        base.ValueChangeCheck();
+        _audioSO._volume = _slider.value;
+        AudioManager.Instance.EffectAudio(_slider.value);
     }
-
-    public void ValueChangeCheck()
-    {
-        _fXSoundSO.Volume = _slider.value;
-    }
-
-    protected override void SetDefaultValue()
-    { }
 
     protected override void LoadComponent()
     {
         base.LoadComponent();
-        _slider = this.GetComponent<Slider>();
+        LoadAudioSO();
+    }
+
+    private void LoadAudioSO()
+    {
+        string path = "Audio/EffectAudioSO";
+        this._audioSO = Resources.Load<AudioSO>(path);
     }
 }

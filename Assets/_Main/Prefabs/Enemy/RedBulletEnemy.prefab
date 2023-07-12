@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5874838435265532255}
   - component: {fileID: 2770320530687442340}
   - component: {fileID: 7773736641429008728}
+  - component: {fileID: 5636905801633245365}
   m_Layer: 0
   m_Name: RedBulletEnemy
   m_TagString: Untagged
@@ -218,7 +219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseDamage: {fileID: 3127322878334751657}
-  _tag: {fileID: 0}
+  _tag: {fileID: 8529553707034662516}
+  _baseSoundEffect: {fileID: 5636905801633245365}
 --- !u!114 &2770320530687442340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,3 +248,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cureentDistance: 0
+--- !u!114 &5636905801633245365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8818109674668500734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f53bc54a975f9234ba2d50e4f975c276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClipDeadGamobject: {fileID: 8300000, guid: c9049f83aa7173042810db85c6892184, type: 3}
+  _audioClipHitGamobject: {fileID: 0}
+  _audioClipAttackGamobject: {fileID: 0}
