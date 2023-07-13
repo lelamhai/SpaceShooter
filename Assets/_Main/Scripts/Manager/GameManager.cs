@@ -17,7 +17,7 @@ public enum GameStates
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private GameStates _currentGameStage = GameStates.None;
-    public UnityAction _StartGame, _SetupLevel, _GameOver, _RestartGame, _FinishLevel, _NextLevelUp, _FinishGame;
+    public UnityAction _StartGame, _SetupLevel, _GameOver, _RestartGame, _NextLevelUp, _FinishLevel,  _FinishGame;
 
     private void UpdateGameStates()
     {
@@ -64,5 +64,5 @@ public class GameManager : Singleton<GameManager>
     }
 
     protected override void SetDefaultValue()
-    { }
+    {}
 }

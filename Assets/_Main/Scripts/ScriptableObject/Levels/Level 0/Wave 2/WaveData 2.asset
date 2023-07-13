@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48c08e404f94f6f459e14641725647ab, type: 3}
-  m_Name: WaveData 3
+  m_Name: WaveData 2
   m_EditorClassIdentifier: 
   _lisWave:
-  - {fileID: 11400000, guid: ddc81d5cb03697f48a03972216cfb082, type: 2}
+  - {fileID: 11400000, guid: b1ae27ebe0dc05245a97b35d3f38de89, type: 2}
   _duration: 1

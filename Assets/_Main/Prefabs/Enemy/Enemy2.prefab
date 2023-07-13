@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b8b3e30aa97e2439b1811531d207a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1
+  _maxHealth: 2
   _currentHealth: 1
   _baseSoundEffect: {fileID: 6689635296305854802}
   _model: {fileID: 3444394160303625202}

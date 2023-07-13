@@ -13,7 +13,7 @@ public class HealthPlayer : BaseHealth
     private IEnumerator IEHitGameObject()
     {
         _model.color = Color.red;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         _model.color = Color.white;
     }
 

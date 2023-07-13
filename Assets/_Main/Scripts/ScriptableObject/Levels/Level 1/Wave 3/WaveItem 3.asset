@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890e650eb0ce50448ab808a63843afe2, type: 3}
   m_Name: WaveItem 3
   m_EditorClassIdentifier: 
-  _typeEnemy: 2
+  _typeEnemy: 3
   _delay: 1
   _numberEnemy: 1

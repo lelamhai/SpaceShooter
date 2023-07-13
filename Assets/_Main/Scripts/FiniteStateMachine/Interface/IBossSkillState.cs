@@ -2,6 +2,6 @@ using System.Collections;
 
 public interface IBossSkillState 
 {
-    void OnExecute(BossSkill bossSkill);
+    void OnExecute(BaseSkill bossSkill);
     void OnExit();
 }

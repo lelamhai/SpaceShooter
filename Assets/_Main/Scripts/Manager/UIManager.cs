@@ -9,6 +9,8 @@ public enum TypePanelUI
     MainMenu,
     ToturialGame,
     SettingGame,
+    FinishLevel,
+    FinishGame,
     PauseGame,
     QuitGame
 }
@@ -20,6 +22,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject _settingGame;
     [SerializeField] private GameObject _toturialGame;
     [SerializeField] private GameObject _pauseGame;
+    [SerializeField] private GameObject _finishLevel;
+    [SerializeField] private GameObject _finishGame;
     [SerializeField] private GameObject _quitGame;
     [SerializeField] private TypePanelUI _currentUIStage = TypePanelUI.MainMenu;
     public UnityAction<bool> _AutoShootingUI, _Joystick;
@@ -66,6 +70,14 @@ public class UIManager : Singleton<UIManager>
 
             case TypePanelUI.PauseGame:
                 _pauseGame.SetActive(true);
+                break;
+
+            case TypePanelUI.FinishLevel:
+                _finishLevel.SetActive(true);
+                break;
+
+            case TypePanelUI.FinishGame:
+                _finishGame.SetActive(true);
                 break;
 
             case TypePanelUI.QuitGame:
@@ -121,5 +133,11 @@ public class UIManager : Singleton<UIManager>
 
         _quitGame = this.transform.Find("QuitGame").gameObject;
         _quitGame.SetActive(false);
+
+        _finishLevel = this.transform.Find("FinishLevel").gameObject;
+        _finishLevel.SetActive(false);
+
+        _finishGame= this.transform.Find("FinishGame").gameObject;
+        _finishGame.SetActive(false);
     }
 }

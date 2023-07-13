@@ -6,9 +6,10 @@ public class ShootEnemy : BaseAttack, IBossSkillState
 {
     [SerializeField] private float _timeExecuteSkill = 3f;
 
-    public void OnExecute(BossSkill bossSkill)
+    public void OnExecute(BaseSkill bossSkill)
     {
         _canShoot = true;
+        bossSkill.StopCoroutine(Timer(bossSkill));
         bossSkill.StartCoroutine(Timer(bossSkill));
     }
 
@@ -17,7 +18,7 @@ public class ShootEnemy : BaseAttack, IBossSkillState
         _canShoot = false;
     }
 
-    private IEnumerator Timer(BossSkill bossSkill)
+    private IEnumerator Timer(BaseSkill bossSkill)
     {
         yield return new WaitForSeconds(_timeExecuteSkill);
         bossSkill.NextSkill();

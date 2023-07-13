@@ -16,23 +16,29 @@ public class LevelManager : Singleton<LevelManager>
     private void OnEnable()
     {
         GameManager.Instance._StartGame += LoadLevel;
+        GameManager.Instance._FinishLevel += LevelUp;
+        GameManager.Instance._NextLevelUp += LoadLevel;
     }
 
     private void OnDisable()
     {
         GameManager.Instance._StartGame -= LoadLevel;
+        GameManager.Instance._FinishLevel -= LevelUp;
+        GameManager.Instance._NextLevelUp -= LoadLevel;
     }
 
     private void LevelUp()
     {
         _level++;
-        if (_level <= _listAllLevel.Count - 1)
+        Debug.Log("_level: " + _level);
+        if (_level < _listAllLevel.Count)
         {
-            GameManager.Instance.SetGameStage(GameStates.NextLevelUp);
+            UIManager.Instance.SetPanelStage(TypePanelUI.FinishLevel);
         }
         else
         {
             GameManager.Instance.SetGameStage(GameStates.FinishGame);
+            UIManager.Instance.SetPanelStage(TypePanelUI.FinishGame);
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveHorizontalBoss : BaseMove, IBossSkillState
 {
     [SerializeField] private float _timeExecuteSkill = 3f;
-    public void OnExecute(BossSkill bossSkill)
+    public void OnExecute(BaseSkill bossSkill)
     {
         _canMove = true;
         bossSkill.StopCoroutine(Timer(bossSkill));
@@ -17,7 +17,7 @@ public class MoveHorizontalBoss : BaseMove, IBossSkillState
         _canMove = false;
     }
 
-    private IEnumerator Timer(BossSkill bossSkill)
+    private IEnumerator Timer(BaseSkill bossSkill)
     {
         yield return new WaitForSeconds(_timeExecuteSkill);
         bossSkill.NextSkill();

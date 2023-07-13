@@ -6,7 +6,8 @@ public enum TypeEnemy
 {
     Enemy1,
     Enemy2,
-    Boss1
+    Boss1,
+    Boss2
 }
 
 public class SpawnEnemy : SingletonSpawn<SpawnEnemy>

@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 6376073962164857744}
   - component: {fileID: 8243113163362460272}
   - component: {fileID: 1416959251785603531}
-  - component: {fileID: 6683926287080163291}
+  - component: {fileID: 8580451038028537250}
   - component: {fileID: 6159311086766678212}
   - component: {fileID: 4645364186217112809}
   m_Layer: 0
@@ -361,6 +361,7 @@ MonoBehaviour:
   _bulletAmount: 10
   _startAngle: 90
   _endAngle: 270
+  _timeExecuteSkill: 3
 --- !u!114 &8243113163362460272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseDamage: {fileID: 8243113163362460272}
   _tag: {fileID: 4391564091770033711}
---- !u!114 &6683926287080163291
+--- !u!114 &8580451038028537250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -397,10 +398,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5300788165108290739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b8b3e30aa97e2439b1811531d207a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b56885704cf6e7419be513940621cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1
+  _maxHealth: 10
   _currentHealth: 1
   _baseSoundEffect: {fileID: 4645364186217112809}
   _model: {fileID: 6095381748183583796}

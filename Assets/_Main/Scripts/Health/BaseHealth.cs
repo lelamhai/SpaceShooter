@@ -36,8 +36,6 @@ public abstract class BaseHealth : BaseMonoBehaviour
         _baseSoundEffect.PlaySoundHit();
     }
 
-   
-
     protected override void LoadComponent()
     {
         base.LoadComponent();
