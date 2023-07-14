@@ -47,4 +47,15 @@ public abstract class BaseHolders : BaseMonoBehaviour
         }
         return null;
     }
+
+    public void RestartGame()
+    {
+        _listPoolObject.Clear();
+        Transform parent = this.transform;
+        foreach (Transform item in parent)
+        {
+            AddObjectPool(item);
+            item.gameObject.SetActive(false);
+        }
+    }
 }

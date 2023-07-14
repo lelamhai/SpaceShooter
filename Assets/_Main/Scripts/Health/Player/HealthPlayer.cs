@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class HealthPlayer : BaseHealth
 {
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        _model.color = Color.white;
+    }
+
     protected override void HitGameObject()
     {
         base.HitGameObject();

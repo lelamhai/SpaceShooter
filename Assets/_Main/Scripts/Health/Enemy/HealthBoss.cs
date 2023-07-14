@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class HealthBoss : BaseHealth
 {
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         _model.color = Color.white;
     }
 

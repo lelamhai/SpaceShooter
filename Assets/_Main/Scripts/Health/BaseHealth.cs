@@ -9,7 +9,7 @@ public abstract class BaseHealth : BaseMonoBehaviour
     [SerializeField] protected BaseSoundEffect _baseSoundEffect;
     [SerializeField] protected SpriteRenderer _model;
 
-    private void Start()
+    protected virtual void OnEnable()
     {
         _currentHealth = _maxHealth;
     }

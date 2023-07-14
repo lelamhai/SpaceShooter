@@ -9,7 +9,6 @@ public class SliderBGAudioUI : BaseSlider
 
     public override void ValueChangeCheck()
     {
-        base.ValueChangeCheck();
         _audioSO._volume = _slider.value;
         AudioManager.Instance.BGAudio(_slider.value);
     }
@@ -28,4 +27,6 @@ public class SliderBGAudioUI : BaseSlider
         string path = "Audio/BGAudioSO";
         this._audioSO = Resources.Load<AudioSO>(path);
     }
+
+    
 }

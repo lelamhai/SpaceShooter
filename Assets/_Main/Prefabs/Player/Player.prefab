@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b0caae6cb75a14196a7e3f495c514b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canShoot: 0
+  _canShoot: 1
   _isDelay: 1
   _durationDelayShooting: 0.5
   _point: {fileID: 4835138450094082990}
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28bfcf1f40883694c8a47c781dfde0ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 3
+  _maxHealth: 100000
   _currentHealth: 1
   _baseSoundEffect: {fileID: 7970441737558802913}
   _model: {fileID: 4146805780924810382}

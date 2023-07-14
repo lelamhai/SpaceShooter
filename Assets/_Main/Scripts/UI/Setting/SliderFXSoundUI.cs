@@ -7,7 +7,6 @@ public class SliderFXSoundUI : BaseSlider
 
     public override void ValueChangeCheck()
     {
-        base.ValueChangeCheck();
         _audioSO._volume = _slider.value;
         AudioManager.Instance.EffectAudio(_slider.value);
     }

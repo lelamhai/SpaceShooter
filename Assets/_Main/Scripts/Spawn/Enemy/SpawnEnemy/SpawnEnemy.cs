@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,21 @@ public class SpawnEnemy : SingletonSpawn<SpawnEnemy>
     [SerializeField] private bool _canSpawn = true;
     [SerializeField] private bool _isDelay = true;
     [SerializeField] private float _durationSpawn = 1f;
+
+    private void OnEnable()
+    {
+        GameManager.Instance._RestartGame += RestartGame;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance._RestartGame -= RestartGame;
+    }
+  
+    private void RestartGame()
+    {
+        _baseHolders.RestartGame();
+    }
 
     private void Update()
     {

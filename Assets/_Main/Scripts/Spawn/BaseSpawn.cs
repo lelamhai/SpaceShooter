@@ -57,7 +57,6 @@ public abstract class BaseSpawn : BaseMonoBehaviour
         _baseHolders.RemoveObjectPool(gameobject);
     }
 
-
     public Vector2 RandomPoint(float x = 0)
     {
         var posX = Random.Range(-x, x);

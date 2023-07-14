@@ -11,10 +11,7 @@ public abstract class BaseSlider : BaseMonoBehaviour
         _slider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
     }
 
-    public virtual void ValueChangeCheck()
-    {
-        // Override
-    }
+    public abstract void ValueChangeCheck();
 
     protected override void SetDefaultValue()
     {}

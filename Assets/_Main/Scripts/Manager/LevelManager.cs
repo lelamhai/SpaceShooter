@@ -18,6 +18,7 @@ public class LevelManager : Singleton<LevelManager>
         GameManager.Instance._StartGame += LoadLevel;
         GameManager.Instance._FinishLevel += LevelUp;
         GameManager.Instance._NextLevelUp += LoadLevel;
+        GameManager.Instance._RestartGame += LoadLevel;
     }
 
     private void OnDisable()
@@ -25,6 +26,7 @@ public class LevelManager : Singleton<LevelManager>
         GameManager.Instance._StartGame -= LoadLevel;
         GameManager.Instance._FinishLevel -= LevelUp;
         GameManager.Instance._NextLevelUp -= LoadLevel;
+        GameManager.Instance._RestartGame -= LoadLevel;
     }
 
     private void LevelUp()
