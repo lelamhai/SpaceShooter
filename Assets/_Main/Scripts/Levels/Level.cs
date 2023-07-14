@@ -11,7 +11,7 @@ public class Level : MonoBehaviour
     private WaveDataSO _currentWave;
     private void Awake()
     {
-        GameManager.Instance.SetGameStage(GameStates.SetupLevel);
+        GameManager.Instance.SetGameState(GameStates.SetupLevel);
     }
 
     private void Start()

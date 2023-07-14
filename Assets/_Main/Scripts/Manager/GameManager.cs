@@ -57,7 +57,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void SetGameStage(GameStates state)
+    public void SetGameState(GameStates state)
     {
         _currentGameStage = state;
         UpdateGameStates();

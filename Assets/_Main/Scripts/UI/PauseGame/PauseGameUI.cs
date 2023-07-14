@@ -4,8 +4,4 @@ using UnityEngine;
 
 public class PauseGameUI : MonoBehaviour
 {
-    public void ClosePause()
-    {
-        this.gameObject.SetActive(false);
-    }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,7 +8,7 @@ public enum TypePanelUI
 {
     GamePlay,
     MainMenu,
-    ToturialGame,
+    TutorialGame,
     SettingGame,
     FinishLevel,
     FinishGame,
@@ -15,22 +16,30 @@ public enum TypePanelUI
     QuitGame
 }
 
+public enum  PanelState
+{
+    Show,
+    Hide
+}
+
 public class UIManager : Singleton<UIManager>
 {
-    [SerializeField] private GameObject _gamePlay;
-    [SerializeField] private GameObject _mainMenu;
-    [SerializeField] private GameObject _settingGame;
-    [SerializeField] private GameObject _toturialGame;
-    [SerializeField] private GameObject _pauseGame;
-    [SerializeField] private GameObject _finishLevel;
-    [SerializeField] private GameObject _finishGame;
-    [SerializeField] private GameObject _quitGame;
-    [SerializeField] private TypePanelUI _currentUIStage = TypePanelUI.MainMenu;
+    [SerializeField] private List<GameObject> _listPanel = new List<GameObject>();
+    [SerializeField] private TypePanelUI _currentUIState = TypePanelUI.MainMenu;
+    
+    public TypePanelUI _CurrentUIState
+    {
+        get
+        {
+            return _currentUIState;
+        }
+    }
+
     public UnityAction<bool> _AutoShootingUI, _Joystick;
 
     private void Start()
     {
-        SetPanelStage(_currentUIStage, null);
+        SetPanelState(_currentUIState, PanelState.Show);
         #if UNITY_EDITOR
             Joystick(false);
         #endif
@@ -48,51 +57,36 @@ public class UIManager : Singleton<UIManager>
         #endif
     }
 
-    private void UpdatePanelStage(GameObject oldPanel = null)
+    private void ShowPanel()
     {
-        switch(_currentUIStage)
-        {
-            case TypePanelUI.GamePlay:
-                _gamePlay.SetActive(true);
-                break;
-
-            case TypePanelUI.MainMenu:
-                _mainMenu.SetActive(true);
-                break;
-
-            case TypePanelUI.SettingGame:
-                _settingGame.SetActive(true);
-                break;
-
-            case TypePanelUI.ToturialGame:
-                _toturialGame.SetActive(true);
-                break;
-
-            case TypePanelUI.PauseGame:
-                _pauseGame.SetActive(true);
-                break;
-
-            case TypePanelUI.FinishLevel:
-                _finishLevel.SetActive(true);
-                break;
-
-            case TypePanelUI.FinishGame:
-                _finishGame.SetActive(true);
-                break;
-
-            case TypePanelUI.QuitGame:
-                _quitGame.SetActive(true);
-                break;
-        }
-
-        if (oldPanel == null) return;
-        oldPanel.SetActive(false);
+        GameObject panel = _listPanel.Where(obj => obj.name == _currentUIState.ToString()).SingleOrDefault();
+        if (panel == null) return;
+        panel.SetActive(true);
     }
 
-    public void SetPanelStage(TypePanelUI state, GameObject oldPanel = null)
+    private void HidePanel()
     {
-        _currentUIStage = state;
-        UpdatePanelStage(oldPanel);
+        GameObject panel = _listPanel.Where(obj => obj.name == _currentUIState.ToString()).SingleOrDefault();
+        if (panel == null) return;
+        panel.SetActive(false);
+    }
+
+    public void SetPanelState(TypePanelUI typePanel, PanelState statePanel)
+    {
+        _currentUIState = typePanel;
+        switch (statePanel)
+        {
+            case PanelState.Show:
+                ShowPanel();
+                break;
+
+            case PanelState.Hide:
+                HidePanel();
+                break;
+
+            default:
+                break;
+        }
     }
 
     public void AutoShooting(bool active)
@@ -116,28 +110,11 @@ public class UIManager : Singleton<UIManager>
 
     private void LoadAllUI()
     {
-        _gamePlay = this.transform.Find("GamePlay").gameObject;
-        _gamePlay.SetActive(true);
-
-        _mainMenu = this.transform.Find("MainMenu").gameObject;
-        _mainMenu.SetActive(false);
-
-        _toturialGame = this.transform.Find("TutorialGame").gameObject;
-        _toturialGame.SetActive(false);
-
-        _settingGame = this.transform.Find("SettingGame").gameObject;
-        _settingGame.SetActive(false);
-
-        _pauseGame = this.transform.Find("PauseGame").gameObject;
-        _pauseGame.SetActive(false);
-
-        _quitGame = this.transform.Find("QuitGame").gameObject;
-        _quitGame.SetActive(false);
-
-        _finishLevel = this.transform.Find("FinishLevel").gameObject;
-        _finishLevel.SetActive(false);
-
-        _finishGame= this.transform.Find("FinishGame").gameObject;
-        _finishGame.SetActive(false);
+        Transform parent = this.transform;
+        foreach (Transform item in parent)
+        {
+            item.gameObject.SetActive(false);
+            _listPanel.Add(item.gameObject);
+        }
     }
 }

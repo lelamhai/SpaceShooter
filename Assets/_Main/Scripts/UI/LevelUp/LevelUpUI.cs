@@ -18,7 +18,7 @@ public class LevelUpUI : BaseMonoBehaviour
 
     private void NextLevel()
     {
-        GameManager.Instance.SetGameStage(GameStates.ResetGame);
+        GameManager.Instance.SetGameState(GameStates.ResetGame);
     }
 
     protected override void SetDefaultValue()
