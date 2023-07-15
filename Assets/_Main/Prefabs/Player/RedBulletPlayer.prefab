@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canMove: 1
-  _moveSpeed: 5
+  _moveSpeed: 7
   _direction: {x: 0, y: 1, z: 0}
 --- !u!114 &8350282813088093216
 MonoBehaviour:

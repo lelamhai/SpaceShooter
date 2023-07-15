@@ -14,7 +14,9 @@ public class HealthBoss : BaseHealth
     {
         base.DeadGameObject();
         SpawnEnemy.Instance.AddGameObjectPool(this.transform);
+
         GameManager.Instance.SetGameState(GameStates.FinishLevel);
+        UIManager.Instance.SetPanelState(TypePanelUI.FinishLevel, PanelState.Show);
     }
 
     protected override void HitGameObject()
@@ -31,5 +33,7 @@ public class HealthBoss : BaseHealth
     }
 
     protected override void SetDefaultValue()
-    { }
+    {
+        _maxHealth = 10;
+    }
 }

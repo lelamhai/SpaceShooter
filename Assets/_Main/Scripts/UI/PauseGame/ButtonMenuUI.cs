@@ -9,5 +9,6 @@ public class ButtonMenuUI : BaseButton
         Time.timeScale = 1;
         UIManager.Instance.SetPanelState(UIManager.Instance._CurrentUIState, PanelState.Hide);
         UIManager.Instance.SetPanelState(TypePanelUI.MainMenu, PanelState.Show);
+        GameManager.Instance.SetGameState(GameStates.StopGame);
     }
 }

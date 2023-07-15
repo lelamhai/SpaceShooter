@@ -7,9 +7,9 @@ public abstract class BaseSkill : BaseMonoBehaviour
     [SerializeField] protected MoveVerticalBoss _moveVerticalBoss;
     [SerializeField] protected MoveHorizontalBoss _moveHorizontalBoss;
 
-    protected List<IBossSkillState> _listSkill = new List<IBossSkillState>();
-    protected IBossSkillState _currentSkill;
-    protected IBossSkillState _lastSkill;
+    protected List<ISkillState> _listSkill = new List<ISkillState>();
+    protected ISkillState _currentSkill;
+    protected ISkillState _lastSkill;
 
     private void OnEnable()
     {

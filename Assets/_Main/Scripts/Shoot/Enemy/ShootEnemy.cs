@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootEnemy : BaseAttack, IBossSkillState
+public class ShootEnemy : BaseAttack, ISkillState
 {
     [SerializeField] private float _timeExecuteSkill = 3f;
 
@@ -22,6 +22,11 @@ public class ShootEnemy : BaseAttack, IBossSkillState
     {
         yield return new WaitForSeconds(_timeExecuteSkill);
         bossSkill.NextSkill();
+    }
+
+    private void OnDisable()
+    {
+        _canShoot = false;
     }
 
     protected override void SpawnBullet()

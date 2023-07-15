@@ -28,6 +28,11 @@ public abstract class BaseSpawn : BaseMonoBehaviour
         return gameObject;
     }
 
+    public Transform SpawnGameObjectNone(string name, Vector3 point)
+    {
+        return _basePrefabs.CloneGameObject(name);
+    }
+
     private void SetUndoGameObject(Transform gameObject, string name, Vector3 point)
     {
         gameObject.SetPositionAndRotation(point, Quaternion.identity);
@@ -42,7 +47,10 @@ public abstract class BaseSpawn : BaseMonoBehaviour
         _basePrefabs = prefab.GetComponent<BasePrefabs>();
 
         Transform holder = transform.Find("Holders");
-        _baseHolders = holder.GetComponent<BaseHolders>();
+        if (holder != null)
+        {
+            _baseHolders = holder.GetComponent<BaseHolders>();
+        }
 
         _point = transform.Find("Point");
     }

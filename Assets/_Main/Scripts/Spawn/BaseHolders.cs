@@ -48,7 +48,7 @@ public abstract class BaseHolders : BaseMonoBehaviour
         return null;
     }
 
-    public void RestartGame()
+    public void DisableAllGameObject()
     {
         _listPoolObject.Clear();
         Transform parent = this.transform;

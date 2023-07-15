@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveHorizontalBoss : BaseMove, IBossSkillState
+public class MoveHorizontalBoss : BaseMove, ISkillState
 {
     [SerializeField] private float _timeExecuteSkill = 3f;
     public void OnExecute(BaseSkill bossSkill)
@@ -22,6 +22,12 @@ public class MoveHorizontalBoss : BaseMove, IBossSkillState
         yield return new WaitForSeconds(_timeExecuteSkill);
         bossSkill.NextSkill();
     }
+
+    private void OnDisable()
+    {
+        _canMove = false;
+    }
+
 
     protected override void Movement(Vector3 pos)
     {

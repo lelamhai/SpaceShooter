@@ -56,7 +56,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6579524964533153619
 Transform:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2634111561540215588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.063, y: -4.021, z: 0}
+  m_LocalPosition: {x: 0, y: -7, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -282,9 +282,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1cfc7bf23cc36478430f78fb388652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canMove: 1
+  _canMove: 0
   _moveSpeed: 3
   _direction: {x: 0, y: 0, z: 0}
+  _StartGamePoint: {x: 0, y: -3}
+  _EndGamePoint: {x: 0, y: 7}
 --- !u!114 &9127280643663607716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b0caae6cb75a14196a7e3f495c514b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canShoot: 1
+  _canShoot: 0
   _isDelay: 1
   _durationDelayShooting: 0.5
   _point: {fileID: 4835138450094082990}
@@ -341,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28bfcf1f40883694c8a47c781dfde0ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100000
+  _maxHealth: 100
   _currentHealth: 1
   _baseSoundEffect: {fileID: 7970441737558802913}
   _model: {fileID: 4146805780924810382}

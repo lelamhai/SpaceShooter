@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonStartGameUI : BaseButton
+public class ButtonRestartGameUI : BaseButton
 {
     protected override void TaskOnClick()
     {
-        UIManager.Instance.SetPanelState(TypePanelUI.MainMenu, PanelState.Hide);
+        GameManager.Instance.SetGameState(GameStates.StopGame);
+        UIManager.Instance.SetPanelState(UIManager.Instance._CurrentUIState, PanelState.Hide);
         UIManager.Instance.SetPanelState(TypePanelUI.LoadingGame, PanelState.Show);
     }
 }

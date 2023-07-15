@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shoot180 : BaseAttack, IBossSkillState
+public class Shoot180 : BaseAttack, ISkillState
 {
     [SerializeField] private int _bulletAmount = 10;
     [SerializeField] private float _startAngle = 90f, _endAngle = 270f;

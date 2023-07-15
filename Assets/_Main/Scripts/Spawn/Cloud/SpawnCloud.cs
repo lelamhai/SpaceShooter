@@ -12,6 +12,21 @@ public enum TypeCloud
 
 public class SpawnCloud : BaseSpawn
 {
+    private void OnEnable()
+    {
+        GameManager.Instance._Initialize += Initialize;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance._Initialize -= Initialize;
+    }
+
+    private void Initialize()
+    {
+        _baseHolders.DisableAllGameObject();
+    }
+
     protected override void SetDefaultValue()
     {
     }

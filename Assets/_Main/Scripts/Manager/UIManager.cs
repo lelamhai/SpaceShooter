@@ -13,6 +13,8 @@ public enum TypePanelUI
     FinishLevel,
     FinishGame,
     PauseGame,
+    GameOver,
+    LoadingGame,
     QuitGame
 }
 

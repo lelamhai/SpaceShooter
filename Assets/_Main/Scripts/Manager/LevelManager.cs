@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,42 +16,32 @@ public class LevelManager : Singleton<LevelManager>
 
     private void OnEnable()
     {
-        GameManager.Instance._StartGame += LoadLevel;
-        GameManager.Instance._FinishLevel += LevelUp;
-        GameManager.Instance._NextLevelUp += LoadLevel;
-        GameManager.Instance._RestartGame += LoadLevel;
+        GameManager.Instance._StartGame += StartGame;
+        GameManager.Instance._StopGame += StopGame;
+        GameManager.Instance._FinishLevel += FinishGame;
     }
 
     private void OnDisable()
     {
-        GameManager.Instance._StartGame -= LoadLevel;
-        GameManager.Instance._FinishLevel -= LevelUp;
-        GameManager.Instance._NextLevelUp -= LoadLevel;
-        GameManager.Instance._RestartGame -= LoadLevel;
+        GameManager.Instance._StartGame -= StartGame;
+        GameManager.Instance._StopGame -= StopGame;
+        GameManager.Instance._FinishLevel -= FinishGame;
     }
 
-    private void LevelUp()
+    private void StopGame()
     {
+        if (_currentLevelGameObject == null) return;
+        Destroy(_currentLevelGameObject.gameObject);
+    }
+
+    private void FinishGame()
+    {
+        Debug.Log("FinishGame");
         _level++;
-        Debug.Log("_level: " + _level);
-        if (_level < _listAllLevel.Count)
-        {
-            UIManager.Instance.SetPanelState(TypePanelUI.FinishLevel, PanelState.Show);
-        }
-        else
-        {
-            GameManager.Instance.SetGameState(GameStates.FinishGame);
-            UIManager.Instance.SetPanelState(TypePanelUI.FinishGame, PanelState.Show);
-        }
     }
 
-    private void LoadLevel()
+    private void StartGame()
     {
-        if (_currentLevelGameObject != null)
-        {
-            Destroy(_currentLevelGameObject.gameObject);
-        }
-
         if (_listAllLevel.Count <= 0)
         {
             Debug.LogError("List level empty");

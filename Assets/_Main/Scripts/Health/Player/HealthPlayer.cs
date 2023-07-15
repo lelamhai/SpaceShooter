@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,13 @@ public class HealthPlayer : BaseHealth
     {
         base.OnEnable();
         _model.color = Color.white;
+    }
+
+    protected override void DeadGameObject()
+    {
+        base.DeadGameObject();
+        GameManager.Instance.SetGameState(GameStates.StopGame);
+        UIManager.Instance.SetPanelState(TypePanelUI.GameOver, PanelState.Show);
     }
 
     protected override void HitGameObject()
@@ -25,6 +33,6 @@ public class HealthPlayer : BaseHealth
 
     protected override void SetDefaultValue()
     {
-        _maxHealth = 10;
+        _maxHealth = 100;
     }
 }

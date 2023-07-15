@@ -7,8 +7,8 @@ public class ButtonRestartUI : BaseButton
     protected override void TaskOnClick()
     {
         Time.timeScale = 1;
-        Debug.Log("ButtonRestartUI");
+        GameManager.Instance.SetGameState(GameStates.StopGame);
         UIManager.Instance.SetPanelState(UIManager.Instance._CurrentUIState, PanelState.Hide);
-        GameManager.Instance.SetGameState(GameStates.ResetGame);
+        UIManager.Instance.SetPanelState(TypePanelUI.LoadingGame, PanelState.Show);
     }
 }

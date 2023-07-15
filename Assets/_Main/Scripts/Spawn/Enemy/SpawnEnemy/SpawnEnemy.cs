@@ -20,17 +20,17 @@ public class SpawnEnemy : SingletonSpawn<SpawnEnemy>
 
     private void OnEnable()
     {
-        GameManager.Instance._RestartGame += RestartGame;
+        GameManager.Instance._StopGame += StopGame;
     }
 
     private void OnDisable()
     {
-        GameManager.Instance._RestartGame -= RestartGame;
+        GameManager.Instance._StopGame -= StopGame;
     }
-  
-    private void RestartGame()
+
+    private void StopGame()
     {
-        _baseHolders.RestartGame();
+        _baseHolders.DisableAllGameObject();
     }
 
     private void Update()

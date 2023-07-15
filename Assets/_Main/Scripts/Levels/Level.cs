@@ -55,13 +55,15 @@ public class Level : MonoBehaviour
 
     private IEnumerator SpawnWave(WaveItemSO wave, float duration)
     {
-        yield return new WaitForSeconds(wave._delay);
-        _timer += wave._delay;
         for (int i = 1; i <= wave._numberEnemy; i++)
         {
-            var point = SpawnEnemy.Instance.RandomPoint(ScreenWidthHeight.Instance._WidthCamera/2);
+            var point = SpawnEnemy.Instance.RandomPoint(ScreenWidthHeight.Instance._WidthCamera / 2);
             SpawnEnemy.Instance.SpawnGameObject(wave._typeEnemy.ToString(), point);
         }
+
+        yield return new WaitForSeconds(wave._delay);
+        _timer += wave._delay;
+       
         if (_timer < duration)
         {
             StartCoroutine(SpawnWave(wave, duration));
