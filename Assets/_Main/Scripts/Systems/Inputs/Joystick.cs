@@ -53,6 +53,12 @@ public class Joystick : BaseMonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     protected override void LoadComponent()
     {
+        base.LoadComponent();
+        LoadJoystick();
+    }
+
+    private void LoadJoystick()
+    {
         _joystick = this.GetComponent<RectTransform>();
         _innerCircle = this.transform.Find("Inner").GetComponent<RectTransform>();
     }

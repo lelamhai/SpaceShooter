@@ -12,20 +12,28 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private List<Transform> _listAllLevel = new List<Transform>();
     [SerializeField] private int _level = 0;
 
+    public int Level
+    {
+        get
+        {
+            return _level;
+        }
+    }
+
     private Transform _currentLevelGameObject = null;
 
     private void OnEnable()
     {
         GameManager.Instance._StartGame += StartGame;
         GameManager.Instance._StopGame += StopGame;
-        GameManager.Instance._FinishLevel += FinishGame;
+        GameManager.Instance._FinishLevel += FinishLevel;
     }
 
     private void OnDisable()
     {
         GameManager.Instance._StartGame -= StartGame;
         GameManager.Instance._StopGame -= StopGame;
-        GameManager.Instance._FinishLevel -= FinishGame;
+        GameManager.Instance._FinishLevel -= FinishLevel;
     }
 
     private void StopGame()
@@ -34,10 +42,18 @@ public class LevelManager : Singleton<LevelManager>
         Destroy(_currentLevelGameObject.gameObject);
     }
 
-    private void FinishGame()
+    private void FinishLevel()
     {
-        Debug.Log("FinishGame");
         _level++;
+
+        if(_level < _listAllLevel.Count)
+        {
+            UIManager.Instance.SetPanelState(TypePanelUI.FinishLevel, PanelState.Show);
+        }
+        else
+        {
+            UIManager.Instance.SetPanelState(TypePanelUI.FinishGame, PanelState.Show);
+        }
     }
 
     private void StartGame()
@@ -49,7 +65,7 @@ public class LevelManager : Singleton<LevelManager>
         }
 
         _currentLevelGameObject = Instantiate(_listAllLevel[_level], _parent);
-        _currentLevelGameObject.transform.SetParent(_parent);
+        _currentLevelGameObject.SetParent(_parent);
     }
 
     protected override void SetDefaultValue()

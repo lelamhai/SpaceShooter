@@ -3,22 +3,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamePlayUI : MonoBehaviour
+public class GamePlayUI : BaseMonoBehaviour
 {
     [SerializeField] private GameObject _joystick;
+    [SerializeField] private JoystickSO _joystickSO;
 
     private void OnEnable()
     {
-        UIManager.Instance._Joystick += SetActiveJoystick;
+        _joystick.SetActive(_joystickSO._userJoystick);
     }
 
-    private void OnDisable()
+    protected override void SetDefaultValue()
+    {}
+
+    protected override void LoadComponent()
     {
-        UIManager.Instance._Joystick -= SetActiveJoystick;
+        base.LoadComponent();
+        LoadJoystick();
+        LoadJoystickSO();
     }
 
-    private void SetActiveJoystick(bool active)
+    private void LoadJoystick()
     {
-        _joystick.SetActive(active);
+        _joystick = GameObject.Find("Joystick").gameObject;
+    }
+
+    private void LoadJoystickSO()
+    {
+        string path = "Joystick/JoystickSO";
+        _joystickSO = Resources.Load<JoystickSO>(path);
     }
 }

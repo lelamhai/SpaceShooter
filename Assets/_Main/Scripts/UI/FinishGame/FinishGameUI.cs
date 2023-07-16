@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class FinishGameUI : MonoBehaviour
 {
-    public void Show()
+    private void OnEnable()
     {
-        this.gameObject.SetActive(true);
-    }
-
-    public void Hide()
-    {
-        this.gameObject.SetActive(false);
+        GameManager.Instance.SetGameState(GameStates.StopGame);
     }
 }

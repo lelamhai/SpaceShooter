@@ -9,6 +9,7 @@ public class HealthPlayer : BaseHealth
     {
         base.OnEnable();
         _model.color = Color.white;
+        UIManager.Instance.HealthPlayer(_currentHealth, _maxHealth);
     }
 
     protected override void DeadGameObject()
@@ -22,6 +23,7 @@ public class HealthPlayer : BaseHealth
     {
         base.HitGameObject();
         StartCoroutine(IEHitGameObject());
+        UIManager.Instance.HealthPlayer(_currentHealth, _maxHealth);
     }
 
     private IEnumerator IEHitGameObject()

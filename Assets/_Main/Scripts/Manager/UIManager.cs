@@ -26,9 +26,11 @@ public enum  PanelState
 
 public class UIManager : Singleton<UIManager>
 {
+    public UnityAction<int, int> _HealthPlayer;
+    public UnityAction<bool> _Joystick;
     [SerializeField] private List<GameObject> _listPanel = new List<GameObject>();
     [SerializeField] private TypePanelUI _currentUIState = TypePanelUI.MainMenu;
-    
+    [SerializeField] private JoystickSO _joystick;
     public TypePanelUI _CurrentUIState
     {
         get
@@ -37,25 +39,27 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
-    public UnityAction<bool> _AutoShootingUI, _Joystick;
-
     private void Start()
     {
         SetPanelState(_currentUIState, PanelState.Show);
         #if UNITY_EDITOR
-            Joystick(false);
+            _joystick._userJoystick = false;
         #endif
 
         #if UNITY_IOS
-            Debug.Log("iOS");
+             _joystick._userJoystick = true;
+        #endif
+
+        #if UNITY_ANDROID
+            _joystick._userJoystick = true;
         #endif
 
         #if UNITY_STANDALONE_OSX
-            Debug.Log("Standalone OSX");
+            _joystick._userJoystick = false;
         #endif
 
         #if UNITY_STANDALONE_WIN
-            Joystick(false);
+            _joystick._userJoystick = false;
         #endif
     }
 
@@ -91,14 +95,14 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
-    public void AutoShooting(bool active)
+    public void HealthPlayer(int currentHealth, int maxHealth)
     {
-        _AutoShootingUI?.Invoke(active);
+        _HealthPlayer?.Invoke(currentHealth, maxHealth);
     }
 
-    public void Joystick(bool active)
+    public void SetJoystick(bool active)
     {
-        _Joystick?.Invoke(active);
+        _joystick._userJoystick = active;
     }
 
     protected override void SetDefaultValue()
@@ -108,6 +112,7 @@ public class UIManager : Singleton<UIManager>
     {
         base.LoadComponent();
         LoadAllUI();
+        LoadJoystick();
     }
 
     private void LoadAllUI()
@@ -118,5 +123,11 @@ public class UIManager : Singleton<UIManager>
             item.gameObject.SetActive(false);
             _listPanel.Add(item.gameObject);
         }
+    }
+
+    private void LoadJoystick()
+    {
+        string path = "Joystick/JoystickSO";
+        _joystick = Resources.Load<JoystickSO>(path);
     }
 }

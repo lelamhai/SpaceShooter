@@ -411,7 +411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &65633295
 RectTransform:
   m_ObjectHideFlags: 0
@@ -936,7 +936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -424}
+  m_AnchoredPosition: {x: 960, y: -324}
   m_SizeDelta: {x: 1220, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &265246880
@@ -4072,7 +4072,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _toggle: {fileID: 694902759}
-  _joystickSO: {fileID: 11400000, guid: 22f1394796e7ea743852052274a9e074, type: 2}
 --- !u!1 &696380455
 GameObject:
   m_ObjectHideFlags: 0
@@ -9525,6 +9524,7 @@ MonoBehaviour:
   - {fileID: 2115360189}
   - {fileID: 2047732215}
   _currentUIState: 1
+  _joystick: {fileID: 11400000, guid: 9045ea9fbd73acb46ab5dc4e529bcaa8, type: 2}
 --- !u!1 &1577900164
 GameObject:
   m_ObjectHideFlags: 0
@@ -9617,6 +9617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 777b04aefae79de4a91eb8cb8c4b1975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _joystickUI: {fileID: 694902760}
+  _joystickSO: {fileID: 11400000, guid: 9045ea9fbd73acb46ab5dc4e529bcaa8, type: 2}
 --- !u!1 &1581395043
 GameObject:
   m_ObjectHideFlags: 0
@@ -9857,6 +9859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _joystick: {fileID: 1452131188}
+  _joystickSO: {fileID: 11400000, guid: 9045ea9fbd73acb46ab5dc4e529bcaa8, type: 2}
 --- !u!1 &1616292419
 GameObject:
   m_ObjectHideFlags: 0
@@ -11288,6 +11291,7 @@ GameObject:
   - component: {fileID: 1861361252}
   - component: {fileID: 1861361254}
   - component: {fileID: 1861361253}
+  - component: {fileID: 1861361255}
   m_Layer: 5
   m_Name: FinishGame
   m_TagString: Untagged
@@ -11354,6 +11358,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861361251}
   m_CullTransparentMesh: 1
+--- !u!114 &1861361255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861361251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8db4a1baeaffad4ab22d109502013d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1862105610
 GameObject:
   m_ObjectHideFlags: 0
@@ -13041,10 +13057,6 @@ PrefabInstance:
     - target: {fileID: 2634111561540215588, guid: 835a63e0a8d385244b45e04978cad49c, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5071362971883483851, guid: 835a63e0a8d385244b45e04978cad49c, type: 3}
-      propertyPath: _maxHealth
-      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6579524964533153619, guid: 835a63e0a8d385244b45e04978cad49c, type: 3}
       propertyPath: m_RootOrder
