@@ -15,4 +15,5 @@ MonoBehaviour:
   _lisWave:
   - {fileID: 11400000, guid: 5129ce72c231034439203cd3f6302253, type: 2}
   - {fileID: 11400000, guid: 403ee2186e8d4e44ea6fbafe59de1005, type: 2}
+  _timerBetweenWave: 3
   _duration: 10

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1a8d17fda070e4b9b82b03ef4b2dd1, type: 3}
   m_Name: BGAudioSO
   m_EditorClassIdentifier: 
-  _volume: 0
+  _volume: 0.5

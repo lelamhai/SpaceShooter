@@ -5,5 +5,6 @@ using UnityEngine;
 public class WaveDataSO : ScriptableObject
 {
     public List<WaveItemSO> _lisWave;
+    public float _timerBetweenWave;
     public float _duration;
 }
