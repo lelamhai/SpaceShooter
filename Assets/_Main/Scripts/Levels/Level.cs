@@ -6,8 +6,7 @@ public class Level : MonoBehaviour
 {
     [SerializeField] private List<WaveDataSO> _listWaveData = new List<WaveDataSO>();
     [SerializeField] private int _currentIndexWave = 0;
-    [SerializeField] private float _timer = 1;
-
+    [SerializeField] private bool _endWave = true;
     private WaveDataSO _currentWave;
     private void Awake()
     {
@@ -36,9 +35,13 @@ public class Level : MonoBehaviour
                 StartCoroutine(SpawnWave(_currentWave._lisWave[i], _currentWave._duration));
             }
             yield return new WaitForSeconds(_currentWave._duration);
+            _endWave = false;
+            yield return new WaitForSeconds(_currentWave._timerBetweenWave);
             _currentIndexWave++;
+
             if (_currentIndexWave < _listWaveData.Count)
             {
+                _endWave = true;
                 StartCoroutine(SpawnData());
             } else
             {
@@ -62,9 +65,7 @@ public class Level : MonoBehaviour
         }
 
         yield return new WaitForSeconds(wave._delay);
-        _timer += wave._delay;
-       
-        if (_timer < duration)
+        if (_endWave)
         {
             StartCoroutine(SpawnWave(wave, duration));
         } else
