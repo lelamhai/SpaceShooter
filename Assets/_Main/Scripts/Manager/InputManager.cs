@@ -5,11 +5,11 @@ using UnityEngine.Events;
 
 public class InputManager : Singleton<InputManager>
 {
-    public UnityAction<Vector3> _Movement;
+    public Vector2 _MovePos { get; private set; }
 
-    public void Movement(Vector3 pos)
+    public void Movement(Vector2 currentPos)
     {
-        _Movement?.Invoke(pos);
+        _MovePos = currentPos;
     }
 
     protected override void SetDefaultValue()

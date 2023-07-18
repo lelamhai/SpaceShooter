@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: WaveItem 3
   m_EditorClassIdentifier: 
   _typeEnemy: 3
-  _delay: 2
+  _delay: 1
   _numberEnemy: 1

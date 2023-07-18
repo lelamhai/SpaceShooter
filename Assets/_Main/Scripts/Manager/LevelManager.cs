@@ -10,13 +10,13 @@ public class LevelManager : Singleton<LevelManager>
 
     [Header("All level in Game")]
     [SerializeField] private List<Transform> _listAllLevel = new List<Transform>();
-    [SerializeField] private int _level = 0;
+    [SerializeField] private LevelSO _level;
 
     public int Level
     {
         get
         {
-            return _level;
+            return _level._Value;
         }
     }
 
@@ -44,9 +44,9 @@ public class LevelManager : Singleton<LevelManager>
 
     private void FinishLevel()
     {
-        _level++;
+        _level._Value++;
 
-        if(_level < _listAllLevel.Count)
+        if(_level._Value < _listAllLevel.Count)
         {
             UIManager.Instance.SetPanelState(TypePanelUI.FinishLevel, PanelState.Show);
         }
@@ -64,7 +64,7 @@ public class LevelManager : Singleton<LevelManager>
             return;
         }
 
-        _currentLevelGameObject = Instantiate(_listAllLevel[_level], _parent);
+        _currentLevelGameObject = Instantiate(_listAllLevel[_level._Value], _parent);
         _currentLevelGameObject.SetParent(_parent);
     }
 
@@ -75,10 +75,17 @@ public class LevelManager : Singleton<LevelManager>
     {
         base.LoadComponent();
         LoadParent();
+        LoadLevelSO();
     }
 
     private void LoadParent()
     {
         _parent = GameObject.Find("[ GamePlay ]").transform;
+    }
+
+    private void LoadLevelSO()
+    {
+        string path = "Level/LevelSO";
+        this._level = Resources.Load<LevelSO>(path);
     }
 }

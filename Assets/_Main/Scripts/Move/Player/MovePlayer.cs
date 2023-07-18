@@ -8,6 +8,7 @@ public class MovePlayer : BaseMove
 {
     [SerializeField] private Vector2 _StartGamePoint = new Vector2(0, -3);
     [SerializeField] private Vector2 _EndGamePoint = new Vector2(0, 7);
+    [SerializeField] private Vector2 _currentPos = Vector2.zero;
 
     private float _screenX = 0;
     private float _screenY = 0;
@@ -20,17 +21,18 @@ public class MovePlayer : BaseMove
 
     private void OnEnable()
     {
-        InputManager.Instance._Movement += Movement;
+        GameManager.Instance._EndLevel += EndGame;
     }
 
     private void OnDisable()
     {
-        InputManager.Instance._Movement -= Movement;
+        GameManager.Instance._EndLevel -= EndGame;
     }
+
 
     private void StartGame()
     {
-        StartCoroutine(MoveStartGame((isFinish)=> {
+        StartCoroutine(MoveStartGame(_StartGamePoint, (isFinish)=> {
             _canMove = isFinish;
             if (!isFinish) return;
             _canMove = true;
@@ -38,17 +40,29 @@ public class MovePlayer : BaseMove
         }));
     }
 
-    private IEnumerator MoveStartGame(UnityAction<bool> callback)
+    private void EndGame()
+    {
+        _canMove = false;
+        StartCoroutine(MoveStartGame(_EndGamePoint, (isFinish) =>
+        {
+            _canMove = isFinish;
+            if (!isFinish) return;
+            _canMove = true;
+            GameManager.Instance.SetGameState(GameStates.FinishLevel);
+        }));
+    }
+
+    private IEnumerator MoveStartGame(Vector2 startGame,UnityAction<bool> callback)
     {
         this.transform.Translate(Vector2.up * _moveSpeed * Time.deltaTime);
         yield return new WaitForSeconds(0.001f);
-        if(this.transform.position.y < _StartGamePoint.y)
+        if(this.transform.position.y < startGame.y)
         {
-            StartCoroutine(MoveStartGame(callback));
+            StartCoroutine(MoveStartGame(startGame, callback));
             callback(false);
         } else
         {
-            StopCoroutine(MoveStartGame(callback));
+            StopCoroutine(MoveStartGame(startGame, callback));
             callback(true);
         }
     }
@@ -56,7 +70,8 @@ public class MovePlayer : BaseMove
     protected override void Movement(Vector3 position)
     {
         if (!_canMove) return;
-        Vector2 direction = position.normalized;
+        _currentPos = InputManager.Instance._MovePos;
+        Vector2 direction = _currentPos.normalized;
         Vector2 pos = this.transform.position;
         pos += direction * _moveSpeed * Time.deltaTime;
         pos.x = Mathf.Clamp(pos.x, -_screenX, _screenX);

@@ -61,6 +61,8 @@ public class UIManager : Singleton<UIManager>
         #if UNITY_STANDALONE_WIN
             _joystick._userJoystick = false;
         #endif
+
+         //_joystick._userJoystick = true;
     }
 
     private void ShowPanel()

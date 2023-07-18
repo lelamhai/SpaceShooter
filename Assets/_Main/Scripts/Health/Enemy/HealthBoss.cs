@@ -14,7 +14,7 @@ public class HealthBoss : BaseHealth
     {
         base.DeadGameObject();
         SpawnEnemy.Instance.AddGameObjectPool(this.transform);
-        GameManager.Instance.SetGameState(GameStates.FinishLevel);
+        GameManager.Instance.SetGameState(GameStates.EndLevel);
     }
 
     protected override void HitGameObject()
