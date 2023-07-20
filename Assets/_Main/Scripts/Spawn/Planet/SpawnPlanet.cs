@@ -1,23 +1,20 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TypeEnemy
+public enum TypePlanet
 {
-    Enemy1,
-    Enemy2,
-    Boss1,
-    Boss2
+    BluePlanet,
+    GreenPlanet,
+    PinkPlanet,
 }
 
-public class SpawnEnemy : SingletonSpawn<SpawnEnemy>
+public class SpawnPlanet : BaseSpawn
 {
-    [SerializeField] private TypeEnemy _currentTypeEnemy = TypeEnemy.Enemy1;
+    [SerializeField] private TypePlanet _currentTypePlanet = TypePlanet.BluePlanet;
     [SerializeField] private bool _canSpawn = true;
     [SerializeField] private bool _isDelay = true;
     [SerializeField] private float _durationSpawn = 1f;
-
     private void OnEnable()
     {
         GameManager.Instance._StopGame += StopGame;
@@ -43,7 +40,7 @@ public class SpawnEnemy : SingletonSpawn<SpawnEnemy>
     private IEnumerator IESpawn()
     {
         _isDelay = false;
-        Transform bullet = SpawnGameObject(_currentTypeEnemy.ToString(), _point.position);
+        SpawnGameObject(_currentTypePlanet.ToString(), _point.position);
         yield return new WaitForSeconds(_durationSpawn);
         _isDelay = true;
     }

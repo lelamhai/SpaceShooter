@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WaveItem", menuName = "ScriptableObject/Waves/Item", order = 0)]
 public class WaveItemSO : ScriptableObject
 {
-    public TypeEnemy _typeEnemy;
+    public TypeGameObject _typeGameObject;
     public float _delay;
-    public int _numberEnemy;
+    public int _numberGameObject;
 }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: WaveData 2
   m_EditorClassIdentifier: 
   _lisWave:
-  - {fileID: 11400000, guid: 403ee2186e8d4e44ea6fbafe59de1005, type: 2}
-  _timerBetweenWave: 3
-  _duration: 20
+  - {fileID: 11400000, guid: d9bedd25a92e6d24395b4828702e0d8b, type: 2}
+  _timerBetweenWave: 10
+  _duration: 6

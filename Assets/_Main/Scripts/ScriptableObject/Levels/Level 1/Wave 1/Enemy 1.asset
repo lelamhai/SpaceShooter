@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 890e650eb0ce50448ab808a63843afe2, type: 3}
-  m_Name: WaveItem 2
+  m_Name: Enemy 1
   m_EditorClassIdentifier: 
-  _typeEnemy: 1
-  _delay: 2
-  _numberEnemy: 1
+  _typeGameObject: 0
+  _delay: 1
+  _numberGameObject: 1

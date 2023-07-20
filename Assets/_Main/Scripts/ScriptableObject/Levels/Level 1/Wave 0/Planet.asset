@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 890e650eb0ce50448ab808a63843afe2, type: 3}
-  m_Name: WaveItem 3
+  m_Name: Planet
   m_EditorClassIdentifier: 
-  _typeEnemy: 3
+  _typeGameObject: 5
   _delay: 1
-  _numberEnemy: 1
+  _numberGameObject: 1

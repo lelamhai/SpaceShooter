@@ -6,7 +6,6 @@ public class Level : MonoBehaviour
 {
     [SerializeField] private List<WaveDataSO> _listWaveData = new List<WaveDataSO>();
     [SerializeField] private int _currentIndexWave = 0;
-    [SerializeField] private bool _endWave = true;
     private WaveDataSO _currentWave;
     private void Awake()
     {
@@ -28,25 +27,21 @@ public class Level : MonoBehaviour
     private IEnumerator SpawnData()
     {
         _currentWave = _listWaveData[_currentIndexWave];
+
         if (_currentWave._duration > 0)
         {
             for (int i = 0; i < _currentWave._lisWave.Count; i++)
             {
-                StartCoroutine(SpawnWave(_currentWave._lisWave[i], _currentWave._duration));
+                StartCoroutine(SpawnWave(_currentWave._lisWave[i]));
             }
             yield return new WaitForSeconds(_currentWave._duration);
-            _endWave = false;
-            yield return new WaitForSeconds(_currentWave._timerBetweenWave);
+            StopAllCoroutines();
             _currentIndexWave++;
 
             if (_currentIndexWave < _listWaveData.Count)
             {
-                _endWave = true;
                 StartCoroutine(SpawnData());
-            } else
-            {
-                StopAllCoroutines();
-            }
+            } 
         }
         else
         {
@@ -56,20 +51,14 @@ public class Level : MonoBehaviour
 
     }
 
-    private IEnumerator SpawnWave(WaveItemSO wave, float duration)
+    private IEnumerator SpawnWave(WaveItemSO wave)
     {
         yield return new WaitForSeconds(wave._delay);
-        for (int i = 1; i <= wave._numberEnemy; i++)
+        for (int i = 1; i <= wave._numberGameObject; i++)
         {
-            var point = SpawnEnemy.Instance.RandomPoint(ScreenWidthHeight.Instance._WidthCamera / 2);
-            SpawnEnemy.Instance.SpawnGameObject(wave._typeEnemy.ToString(), point);
+            var point = SpawnGameObject.Instance.RandomPoint(ScreenWidthHeight.Instance._WidthCamera / 2);
+            SpawnGameObject.Instance.SpawnGameObject(wave._typeGameObject.ToString(), point);
         }
-        if (_endWave)
-        {
-            StartCoroutine(SpawnWave(wave, duration));
-        } else
-        {
-            StopCoroutine(SpawnWave(wave, duration));
-        }
+        StartCoroutine(SpawnWave(wave));
     }
 }

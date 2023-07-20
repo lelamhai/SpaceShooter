@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _listWaveData:
+  - {fileID: 11400000, guid: dedfc30fa91378643916701869795685, type: 2}
   - {fileID: 11400000, guid: 4ba1a669593ba0845acf6820ee3a03d5, type: 2}
-  - {fileID: 11400000, guid: 68e96cf37c2de0940a611aeae5611288, type: 2}
-  - {fileID: 11400000, guid: 4b238b9a696587c40a813fc18b1675fe, type: 2}
+  - {fileID: 11400000, guid: f6c80fb99f22c64408b2be6bb81214e8, type: 2}
+  - {fileID: 11400000, guid: e92ed2adbbec6e64fb3345eccc647c12, type: 2}
   _currentIndexWave: 0
-  _timer: 1

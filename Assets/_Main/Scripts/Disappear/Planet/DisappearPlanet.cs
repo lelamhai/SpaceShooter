@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisappearEnemy : BaseDisappear
+public class DisappearPlanet : BaseDisappear
 {
     protected override void DisappearGameObject()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrefabsEnemy : BasePrefabs
+public class HoldersGameObject : BaseHolders
 {
     protected override void SetDefaultValue()
     {}
