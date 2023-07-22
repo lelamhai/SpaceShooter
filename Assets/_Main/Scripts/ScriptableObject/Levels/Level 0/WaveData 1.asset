@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lisWave:
   - {fileID: 11400000, guid: 5bda43b278d3e4a48ac7f5c7d200ed52, type: 2}
-  _timerBetweenWave: 10
+  _timerBetweenWave: 2
   _duration: 1

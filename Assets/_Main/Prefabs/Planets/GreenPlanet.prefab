@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7829295677962056572}
   - component: {fileID: 9154948119466289842}
   - component: {fileID: 2648114595455118898}
+  - component: {fileID: 8610931839982905172}
   m_Layer: 0
   m_Name: GreenPlanet
   m_TagString: Untagged
@@ -100,3 +101,16 @@ MonoBehaviour:
   _canMove: 1
   _moveSpeed: 0.7
   _direction: {x: 0, y: -1, z: 0}
+--- !u!114 &8610931839982905172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4551473405053121892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19dcf0fbe833ab4a9097551e8df5e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cureentDistance: 0
