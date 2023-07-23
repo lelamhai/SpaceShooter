@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Jobs;
 using UnityEngine;
 
-public class StarJob : IJob
+public class HoldersStar : BaseHolders
 {
-    public void Execute()
+    protected override void SetDefaultValue()
     {
     }
 }

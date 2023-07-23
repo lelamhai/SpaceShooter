@@ -15,7 +15,6 @@ public class InputKeyboard : MonoBehaviour
         var x = Input.GetAxisRaw("Horizontal");
         var y = Input.GetAxisRaw("Vertical");
         var z = 0;
-
         var pos = new Vector3(x, y, z);
         InputManager.Instance.Movement(pos);
     }

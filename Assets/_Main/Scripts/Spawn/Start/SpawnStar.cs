@@ -2,34 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TypePlanet
+public enum TypeStar
 {
-    BluePlanet,
-    GreenPlanet,
-    PinkPlanet,
+    BlueStar,
+    WhiteStar
 }
 
-public class SpawnPlanet : BaseSpawn
+public class SpawnStar : BaseSpawn
 {
-    [SerializeField] private TypePlanet _currentTypePlanet = TypePlanet.BluePlanet;
+    [SerializeField] private TypeStar _currentTypeStar = TypeStar.WhiteStar;
     [SerializeField] private bool _canSpawn = true;
     [SerializeField] private bool _isDelay = true;
     [SerializeField] private float _durationSpawn = 1f;
-    private void OnEnable()
-    {
-        GameManager.Instance._StopGame += StopGame;
-    }
-
-    private void OnDisable()
-    {
-        GameManager.Instance._StopGame -= StopGame;
-    }
-
-    private void StopGame()
-    {
-        _baseHolders.DisableAllGameObject();
-    }
-
+   
     private void Update()
     {
         if (!_canSpawn) return;
@@ -40,13 +25,11 @@ public class SpawnPlanet : BaseSpawn
     private IEnumerator IESpawn()
     {
         _isDelay = false;
-        SpawnGameObject(_currentTypePlanet.ToString(), _point.position);
+        SpawnGameObject(_currentTypeStar.ToString(), RandomPoint(8.88889f));
         yield return new WaitForSeconds(_durationSpawn);
         _isDelay = true;
     }
 
     protected override void SetDefaultValue()
-    {
-        _canSpawn = false;
-    }
+    {}
 }

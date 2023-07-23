@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrefabsPlanet : BasePrefabs
+public class PrefabsStar : BasePrefabs
 {
     protected override void SetDefaultValue()
     {}

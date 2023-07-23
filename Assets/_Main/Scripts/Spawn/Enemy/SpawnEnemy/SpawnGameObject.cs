@@ -10,7 +10,9 @@ public enum TypeGameObject
     Boss1,
     Boss2,
     BluePlanet,
-    GreenPlanet
+    GreenPlanet,
+    WhiteStar,
+    BlueStar
 }
 
 public class SpawnGameObject : SingletonSpawn<SpawnGameObject>
