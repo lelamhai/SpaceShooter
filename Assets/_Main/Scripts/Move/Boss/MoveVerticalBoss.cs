@@ -33,11 +33,11 @@ public class MoveVerticalBoss : BaseMove, ISkillState
     {
         this.transform.Translate(pos * _moveSpeed * Time.deltaTime);
 
-        if (-ScreenWidthHeight.Instance._HeightCamera / 2 > this.transform.position.y)
+        if (-Screen.Instance._HeightCamera / 2 > this.transform.position.y)
         {
             _direction = Vector3.up;
         }
-        else if (ScreenWidthHeight.Instance._HeightCamera / 2 < this.transform.position.y)
+        else if (Screen.Instance._HeightCamera / 2 < this.transform.position.y)
         {
             _direction = Vector3.down;
         }

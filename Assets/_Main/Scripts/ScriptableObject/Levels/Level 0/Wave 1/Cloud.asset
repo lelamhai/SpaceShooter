@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48c08e404f94f6f459e14641725647ab, type: 3}
-  m_Name: WaveData 2
+  m_Script: {fileID: 11500000, guid: 890e650eb0ce50448ab808a63843afe2, type: 3}
+  m_Name: Cloud
   m_EditorClassIdentifier: 
-  _lisWave:
-  - {fileID: 11400000, guid: 031656049c7e49e4ab28a812d62a46a6, type: 2}
-  - {fileID: 11400000, guid: 886fd0bab3e844e428e3ea92439617f7, type: 2}
-  _duration: 10
+  _typeGameObject: 8
+  _delay: 1
+  _numberGameObject: 1

@@ -12,7 +12,9 @@ public enum TypeGameObject
     BluePlanet,
     GreenPlanet,
     WhiteStar,
-    BlueStar
+    BlueStar,
+    Cloud1,
+    Cloud2
 }
 
 public class SpawnGameObject : SingletonSpawn<SpawnGameObject>

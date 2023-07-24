@@ -7,19 +7,6 @@ public abstract class BaseImpact : BaseMonoBehaviour
     [SerializeField] protected BaseDamage _baseDamage = null;
     [SerializeField] protected BaseTag _tag = null;
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Tag target = collision.gameObject.GetComponent<BaseTag>().GetTagGameObject();
-        Tag current = this.gameObject.GetComponent<BaseTag>().GetTagGameObject();
-
-        if (target == current) return;
-        BaseHealth receiveDamage = collision.transform.GetComponent<BaseHealth>();
-
-        if (receiveDamage == null) return;
-        receiveDamage.TakeDamage(_baseDamage.Damage());
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Tag target = collision.gameObject.GetComponent<BaseTag>().GetTagGameObject();

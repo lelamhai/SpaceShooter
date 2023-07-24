@@ -10,13 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2302680973969972804}
   - component: {fileID: 3444394160303625202}
+  - component: {fileID: 2529507967950690718}
   - component: {fileID: 1233322600693734205}
   - component: {fileID: 7184563923538912860}
-  - component: {fileID: 1121087433310619994}
   - component: {fileID: 188840001076460921}
   - component: {fileID: -3845511101679974564}
   - component: {fileID: -2961803731549288185}
-  - component: {fileID: 6956569101917974565}
   - component: {fileID: -4225791837184630288}
   - component: {fileID: 4445144818648616376}
   - component: {fileID: 2710199938577062846}
@@ -24,6 +23,7 @@ GameObject:
   - component: {fileID: 8208532408287701882}
   - component: {fileID: 5415046923388805046}
   - component: {fileID: 6689635296305854802}
+  - component: {fileID: 4800918918446246188}
   m_Layer: 0
   m_Name: Boss2
   m_TagString: Untagged
@@ -45,7 +45,7 @@ Transform:
   m_Children:
   - {fileID: 8749537047427899000}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3444394160303625202
 SpriteRenderer:
@@ -99,6 +99,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2529507967950690718
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70914484889060917}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!60 &1233322600693734205
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -188,21 +215,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tagGameObject: 1
---- !u!114 &1121087433310619994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 70914484889060917}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5b2bc3bfdb088b4798828db50f5067f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canMove: 1
-  _moveSpeed: 2
-  _direction: {x: 0, y: -1, z: 0}
 --- !u!114 &188840001076460921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,23 +262,6 @@ MonoBehaviour:
   _moveSpeed: 2
   _direction: {x: 0, y: -1, z: 0}
   _timeExecuteSkill: 3
---- !u!114 &6956569101917974565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 70914484889060917}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 704376988d9c8fb42bfbf8cdd0293c49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canShoot: 0
-  _isDelay: 1
-  _durationDelayShooting: 3
-  _point: {fileID: 8749537047427899000}
-  _timeExecuteSkill: 3
 --- !u!114 &-4225791837184630288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canShoot: 0
   _isDelay: 1
-  _durationDelayShooting: 2
+  _timeShooting: 2
   _point: {fileID: 8749537047427899000}
   _bulletAmount: 10
   _startAngle: 90
@@ -374,6 +369,19 @@ MonoBehaviour:
   _audioClipDeadGamobject: {fileID: 8300000, guid: 0094d512cec2d994da2a6f811c7d8d71, type: 3}
   _audioClipHitGamobject: {fileID: 8300000, guid: c9049f83aa7173042810db85c6892184, type: 3}
   _audioClipAttackGamobject: {fileID: 0}
+--- !u!114 &4800918918446246188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70914484889060917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d498ecd29e6f6c4c90ea090be7e28c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _polygonCollider2D: {fileID: 1233322600693734205}
 --- !u!1 &8298617388040129097
 GameObject:
   m_ObjectHideFlags: 0

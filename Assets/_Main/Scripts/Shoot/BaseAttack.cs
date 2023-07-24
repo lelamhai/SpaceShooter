@@ -6,8 +6,19 @@ public abstract class BaseAttack : BaseMonoBehaviour
 {
     [SerializeField] protected bool _canShoot = true;
     [SerializeField] protected bool _isDelay = true;
-    [SerializeField] protected float _durationDelayShooting = 2f;
+    [SerializeField] protected float _timeShooting = 2f;
     [SerializeField] protected Transform _point = null;
+
+    public bool _CanShoot
+    {
+        set { _canShoot = value; }
+    }
+
+    private void OnEnable()
+    {
+        _canShoot = false;
+        _isDelay = true;
+    }
 
     private void Update()
     {
@@ -20,7 +31,7 @@ public abstract class BaseAttack : BaseMonoBehaviour
     {
         _isDelay = false;
         SpawnBullet();
-        yield return new WaitForSeconds(_durationDelayShooting);
+        yield return new WaitForSeconds(_timeShooting);
         _isDelay = true;
     }
 

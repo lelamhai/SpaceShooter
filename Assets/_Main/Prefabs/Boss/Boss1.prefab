@@ -41,13 +41,13 @@ GameObject:
   m_Component:
   - component: {fileID: 201453604209788026}
   - component: {fileID: 6095381748183583796}
+  - component: {fileID: 6616508443564905557}
   - component: {fileID: 1323221282568005526}
   - component: {fileID: 4391564091770033711}
   - component: {fileID: 6667724232261591124}
   - component: {fileID: 4689528654415421694}
   - component: {fileID: 8786771110423446313}
   - component: {fileID: 5227251988822741578}
-  - component: {fileID: 6220719037672364284}
   - component: {fileID: 2157610045316366999}
   - component: {fileID: 6376073962164857744}
   - component: {fileID: 8243113163362460272}
@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 8580451038028537250}
   - component: {fileID: 6159311086766678212}
   - component: {fileID: 4645364186217112809}
+  - component: {fileID: 1158551756097695569}
   m_Layer: 0
   m_Name: Boss1
   m_TagString: Untagged
@@ -76,7 +77,7 @@ Transform:
   m_Children:
   - {fileID: 5172946789527335248}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6095381748183583796
 SpriteRenderer:
@@ -130,6 +131,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &6616508443564905557
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300788165108290739}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!60 &1323221282568005526
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -260,7 +288,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveVerticalBoss: {fileID: 5227251988822741578}
   _moveHorizontalBoss: {fileID: 8786771110423446313}
-  _shootEnemy: {fileID: 6220719037672364284}
 --- !u!114 &4689528654415421694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,23 +335,6 @@ MonoBehaviour:
   _moveSpeed: 2
   _direction: {x: 0, y: -1, z: 0}
   _timeExecuteSkill: 3
---- !u!114 &6220719037672364284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5300788165108290739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 704376988d9c8fb42bfbf8cdd0293c49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canShoot: 0
-  _isDelay: 1
-  _durationDelayShooting: 1
-  _point: {fileID: 5172946789527335248}
-  _timeExecuteSkill: 3
 --- !u!114 &2157610045316366999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canShoot: 1
   _isDelay: 1
-  _durationDelayShooting: 2
+  _timeShooting: 2
   _point: {fileID: 5172946789527335248}
   _bulletAmount: 10
 --- !u!114 &6376073962164857744
@@ -356,7 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canShoot: 1
   _isDelay: 1
-  _durationDelayShooting: 2
+  _timeShooting: 2
   _point: {fileID: 5172946789527335248}
   _bulletAmount: 10
   _startAngle: 90
@@ -433,3 +443,16 @@ MonoBehaviour:
   _audioClipDeadGamobject: {fileID: 8300000, guid: 0094d512cec2d994da2a6f811c7d8d71, type: 3}
   _audioClipHitGamobject: {fileID: 8300000, guid: c9049f83aa7173042810db85c6892184, type: 3}
   _audioClipAttackGamobject: {fileID: 0}
+--- !u!114 &1158551756097695569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300788165108290739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d498ecd29e6f6c4c90ea090be7e28c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _polygonCollider2D: {fileID: 1323221282568005526}

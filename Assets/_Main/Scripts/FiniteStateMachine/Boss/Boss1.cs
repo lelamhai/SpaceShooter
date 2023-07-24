@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Boss1 : BaseSkill
 {
-    [SerializeField] protected ShootEnemy _shootEnemy;
+    [SerializeField] protected ShootBoss _shootBoss;
 
     protected override void loadSkills()
     {
         base.loadSkills();
-        _shootEnemy = this.GetComponent<ShootEnemy>();
+        _shootBoss = this.GetComponent<ShootBoss>();
     }
 
     protected override void AddListSkill()
     {
         base.AddListSkill();
-        _listSkill.Add(_shootEnemy);
+        _listSkill.Add(_shootBoss);
     }
 }

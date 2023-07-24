@@ -56,7 +56,7 @@ public class Level : MonoBehaviour
         yield return new WaitForSeconds(wave._delay);
         for (int i = 1; i <= wave._numberGameObject; i++)
         {
-            var point = SpawnGameObject.Instance.RandomPoint(ScreenWidthHeight.Instance._WidthCamera / 2);
+            var point = SpawnGameObject.Instance.RandomPoint(Screen.Instance._WidthCamera / 2);
             SpawnGameObject.Instance.SpawnGameObject(wave._typeGameObject.ToString(), point);
         }
         StartCoroutine(SpawnWave(wave));

@@ -48,7 +48,7 @@ public abstract class BaseSkill : BaseMonoBehaviour
     }
 
     protected override void SetDefaultValue()
-    { }
+    {}
 
     protected override void LoadComponent()
     {
@@ -60,13 +60,11 @@ public abstract class BaseSkill : BaseMonoBehaviour
     {
         _moveVerticalBoss = this.GetComponent<MoveVerticalBoss>();
         _moveHorizontalBoss = this.GetComponent<MoveHorizontalBoss>();
-        //_shootEnemy = this.GetComponent<ShootEnemy>();
     }
 
     protected virtual void AddListSkill()
     {
         _listSkill.Add(_moveVerticalBoss);
         _listSkill.Add(_moveHorizontalBoss);
-        //_listSkill.Add(_shootEnemy);
     }
 }

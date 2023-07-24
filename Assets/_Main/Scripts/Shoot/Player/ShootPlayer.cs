@@ -30,6 +30,6 @@ public class ShootPlayer : BaseAttack
     protected override void SetDefaultValue()
     {
         _canShoot = false;
-        _durationDelayShooting = 0.5f;
+        _timeShooting = 0.5f;
     }
 }
