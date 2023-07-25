@@ -21,17 +21,27 @@ public class Screen : Singleton<Screen>
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var tag = collision.GetComponent<BaseTag>().GetTagGameObject();
-        if (tag == Tag.Friend) return;
-
-        var collider = collision.GetComponent<PolygonCollider2D>();
-        if (collider == null) return;
-        collider.isTrigger = false;
-
-        var shootEnemy = collision.GetComponent<ShootEnemy>();
-        if (shootEnemy == null) return;
-        shootEnemy._CanShoot = true;
+        var insideCamera = collision.GetComponent<BaseInsideCamera>();
+        if (insideCamera == null) return;
+        insideCamera.CollisionEnter2D(insideCamera);
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //Debug.Log("OnTriggerExit2D: " + collision.name);
+        var insideCamera = collision.GetComponent<BaseOutsideCamera>();
+        if (insideCamera == null) return;
+
+        insideCamera.CollisionExit2D();
+    }
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    Debug.Log("OnCollisionExit2D");
+    //    var insideCamera = collision.gameObject.GetComponent<BaseOutsideCamera>();
+    //    if (insideCamera == null) return;
+    //    insideCamera.CollisionExit2D();
+    //}
 
     protected override void SetDefaultValue()
     { }

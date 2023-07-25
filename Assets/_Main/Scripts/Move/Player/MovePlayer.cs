@@ -28,8 +28,6 @@ public class MovePlayer : BaseMove
     {
         GameManager.Instance._EndLevel -= EndGame;
     }
-
-
     private void StartGame()
     {
         StartCoroutine(MoveStartGame(_StartGamePoint, (isFinish)=> {

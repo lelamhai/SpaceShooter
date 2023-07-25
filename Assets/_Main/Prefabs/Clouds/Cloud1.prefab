@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 2955761760984673975}
   - component: {fileID: 619192648416213607}
   - component: {fileID: 7263461021136211291}
-  - component: {fileID: 6482962760786418126}
+  - component: {fileID: 5547566603705970697}
   m_Layer: 0
   m_Name: Cloud1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2955761760984673975
 Transform:
   m_ObjectHideFlags: 0
@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canMove: 1
-  _moveSpeed: 2
+  _moveSpeed: 1
   _direction: {x: 0, y: -1, z: 0}
---- !u!114 &6482962760786418126
+--- !u!114 &5547566603705970697
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,7 +110,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7937722539198431696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd2a530a1c2b1d9419c1c7d4ba7230b2, type: 3}
+  m_Script: {fileID: 11500000, guid: f0b283fca40daee41a1fbdfd3cae6dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cureentDistance: 0

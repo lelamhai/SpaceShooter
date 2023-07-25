@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1499904754012690717}
   - component: {fileID: 384994203292069623}
+  - component: {fileID: 7730963298830806478}
   - component: {fileID: 3904542908054334196}
   - component: {fileID: 6412173713073996101}
   - component: {fileID: 2629375933017471225}
   - component: {fileID: 8350282813088093216}
   - component: {fileID: 9029437209854846634}
   - component: {fileID: 421366164427448708}
-  - component: {fileID: 2138525172017911949}
+  - component: {fileID: 1960756690421001147}
   - component: {fileID: 2231102659639630898}
   m_Layer: 0
   m_Name: RedBulletPlayer
@@ -38,7 +39,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &384994203292069623
 SpriteRenderer:
@@ -92,6 +93,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &7730963298830806478
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6323396151840177176}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &3904542908054334196
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35338a75c0428f048b14c22312ff35be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tagGameObject: 0
+  _tagGameObject: 1
 --- !u!114 &2629375933017471225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +236,7 @@ MonoBehaviour:
   _currentHealth: 1
   _baseSoundEffect: {fileID: 2231102659639630898}
   _model: {fileID: 384994203292069623}
---- !u!114 &2138525172017911949
+--- !u!114 &1960756690421001147
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,10 +245,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6323396151840177176}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e5cbfcd764d38459d2a57f061fa3b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f4015fd05df91f4e871a300f2faad1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cureentDistance: 0
 --- !u!114 &2231102659639630898
 MonoBehaviour:
   m_ObjectHideFlags: 0

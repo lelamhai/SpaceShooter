@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3127322878334751657}
   - component: {fileID: 5874838435265532255}
   - component: {fileID: 2770320530687442340}
-  - component: {fileID: 7773736641429008728}
+  - component: {fileID: 2855581088958729164}
   - component: {fileID: 5636905801633245365}
   m_Layer: 0
   m_Name: RedBulletEnemy
@@ -38,7 +38,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5923460236646021691
 SpriteRenderer:
@@ -208,7 +208,7 @@ MonoBehaviour:
   _currentHealth: 1
   _baseSoundEffect: {fileID: 5636905801633245365}
   _model: {fileID: 5923460236646021691}
---- !u!114 &7773736641429008728
+--- !u!114 &2855581088958729164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,10 +217,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8818109674668500734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03e4d552916276448a4e37d388465ca2, type: 3}
+  m_Script: {fileID: 11500000, guid: e4b93020f883e4b41ad109a004d5ca01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cureentDistance: 0
 --- !u!114 &5636905801633245365
 MonoBehaviour:
   m_ObjectHideFlags: 0

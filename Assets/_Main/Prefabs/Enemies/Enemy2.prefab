@@ -18,9 +18,9 @@ GameObject:
   - component: {fileID: 4445144818648616376}
   - component: {fileID: 2710199938577062846}
   - component: {fileID: 8208532408287701882}
-  - component: {fileID: 5415046923388805046}
+  - component: {fileID: 5572088684968979666}
+  - component: {fileID: 2427417958424932037}
   - component: {fileID: 6689635296305854802}
-  - component: {fileID: 3397653996146081526}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -104,9 +104,9 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70914484889060917}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -122,7 +122,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &1233322600693734205
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -266,11 +266,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 704376988d9c8fb42bfbf8cdd0293c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canShoot: 0
+  _canShoot: 1
   _isDelay: 1
-  _durationDelayShooting: 3
+  _timeShooting: 1
   _point: {fileID: 8749537047427899000}
-  _timeExecuteSkill: 3
 --- !u!114 &4445144818648616376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,7 +313,7 @@ MonoBehaviour:
   _currentHealth: 1
   _baseSoundEffect: {fileID: 6689635296305854802}
   _model: {fileID: 3444394160303625202}
---- !u!114 &5415046923388805046
+--- !u!114 &5572088684968979666
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -323,10 +322,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 70914484889060917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4bf91b7d4e2d134b98172b004102fe8, type: 3}
+  m_Script: {fileID: 11500000, guid: 89c770b3167f9da4192fee7383bad78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cureentDistance: 0
+  _polygonCollider2D: {fileID: 1233322600693734205}
+  _baseAttack: {fileID: 6956569101917974565}
+--- !u!114 &2427417958424932037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70914484889060917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cba3a989fc34140860c24da264c359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6689635296305854802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,19 +354,6 @@ MonoBehaviour:
   _audioClipDeadGamobject: {fileID: 8300000, guid: 0094d512cec2d994da2a6f811c7d8d71, type: 3}
   _audioClipHitGamobject: {fileID: 8300000, guid: c9049f83aa7173042810db85c6892184, type: 3}
   _audioClipAttackGamobject: {fileID: 0}
---- !u!114 &3397653996146081526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 70914484889060917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d498ecd29e6f6c4c90ea090be7e28c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _polygonCollider2D: {fileID: 1233322600693734205}
 --- !u!1 &8298617388040129097
 GameObject:
   m_ObjectHideFlags: 0

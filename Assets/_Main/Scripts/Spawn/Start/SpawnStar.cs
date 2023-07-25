@@ -8,7 +8,7 @@ public enum TypeStar
     WhiteStar
 }
 
-public class SpawnStar : BaseSpawn
+public class SpawnStar : SingletonSpawn<SpawnStar>
 {
     [SerializeField] private TypeStar _currentTypeStar = TypeStar.WhiteStar;
     [SerializeField] private bool _canSpawn = true;
