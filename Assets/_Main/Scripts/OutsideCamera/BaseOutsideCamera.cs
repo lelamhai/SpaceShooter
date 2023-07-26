@@ -6,11 +6,11 @@ public abstract class BaseOutsideCamera : BaseMonoBehaviour
 {
     public void CollisionExit2D()
     {
-        DisappearGameObject();
+        OutsideCamera();
         Disappear();
     }
 
-    protected abstract void DisappearGameObject();
+    protected abstract void OutsideCamera();
 
     private void Disappear()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OutsideCameraCloud : BaseOutsideCamera
 {
-    protected override void DisappearGameObject()
+    protected override void OutsideCamera()
     {
         SpawnGameObject.Instance.AddGameObjectPool(this.transform);
     }

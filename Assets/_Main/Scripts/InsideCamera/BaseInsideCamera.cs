@@ -12,19 +12,17 @@ public abstract class BaseInsideCamera : BaseMonoBehaviour
         _polygonCollider2D.isTrigger = true;
     }
 
-    public void CollisionEnter2D(BaseInsideCamera baseInsideCamera)
+    public void CollisionEnter2D()
     {
         InsideCamera();
-        SetIsTrigger();
+        SetActiveComponent();
     }
 
-    protected void InsideCamera()
+    protected abstract void InsideCamera();
+
+    protected void SetActiveComponent()
     {
         _baseAttack._CanShoot = true;
-    }
-
-    private void SetIsTrigger()
-    {
         _polygonCollider2D.isTrigger = false;
     }
 
