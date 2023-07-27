@@ -13,7 +13,6 @@ public class HealthBoss : BaseHealth
     protected override void DeadGameObject()
     {
         base.DeadGameObject();
-        SpawnGameObject.Instance.AddGameObjectPool(this.transform);
         GameManager.Instance.SetGameState(GameStates.EndLevel);
     }
 

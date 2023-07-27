@@ -13,7 +13,6 @@ public class HealthEnemy : BaseHealth
     protected override void DeadGameObject()
     {
         base.DeadGameObject();
-        SpawnGameObject.Instance.AddGameObjectPool(this.transform);
     }
 
     protected override void HitGameObject()
