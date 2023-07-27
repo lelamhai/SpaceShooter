@@ -4,18 +4,23 @@ using UnityEngine;
 
 public abstract class BaseOutsideCamera : BaseMonoBehaviour
 {
-    public void CollisionExit2D()
+    private void OnTriggerExit2D(Collider2D collision)
     {
+        var target = collision.GetComponent<BaseTag>();
+        if(target == null) return;
+        if (target.GetTagGameObject() != Tag.Screen) return;
+
         OutsideCamera();
-        Disappear();
+        DisableGameObject();
     }
 
     protected abstract void OutsideCamera();
 
-    private void Disappear()
+    private void DisableGameObject()
     {
         this.gameObject.SetActive(false);
     }
+
     protected override void SetDefaultValue()
     {}
 }

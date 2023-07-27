@@ -79,8 +79,8 @@ public class MovePlayer : BaseMove
 
     private void LoadWidthHeight()
     {
-        _screenX = Screen.Instance._WidthCamera / 2;
-        _screenY = Screen.Instance._HeightCamera / 2;
+        _screenX = FullScreen.Instance._WidthCamera / 2;
+        _screenY = FullScreen.Instance._HeightCamera / 2;
     }
 
     protected override void SetDefaultValue()

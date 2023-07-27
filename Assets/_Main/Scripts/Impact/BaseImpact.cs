@@ -10,10 +10,7 @@ public abstract class BaseImpact : BaseMonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Tag target = collision.gameObject.GetComponent<BaseTag>().GetTagGameObject();
-        if (target == Tag.None) return;
-
         Tag current = this.gameObject.GetComponent<BaseTag>().GetTagGameObject();
-        if (current == Tag.None) return;
        
         if (target == current ) return;
         BaseHealth receiveDamage = collision.transform.GetComponent<BaseHealth>();

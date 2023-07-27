@@ -33,10 +33,10 @@ public class MoveHorizontalBoss : BaseMove, ISkillState
     {
         this.transform.Translate(pos * _moveSpeed * Time.deltaTime);
 
-        if(-Screen.Instance._WidthCamera / 2 > this.transform.position.x)
+        if(-FullScreen.Instance._WidthCamera / 2 > this.transform.position.x)
         {
             _direction = Vector3.right;
-        } else if(Screen.Instance._WidthCamera / 2 < this.transform.position.x)
+        } else if(FullScreen.Instance._WidthCamera / 2 < this.transform.position.x)
         {
             _direction = Vector3.left;
         }

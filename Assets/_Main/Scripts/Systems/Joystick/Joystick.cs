@@ -12,7 +12,7 @@ public class Joystick : BaseMonoBehaviour, IPointerDownHandler, IPointerUpHandle
         CalculateInnerCirclePosition(eventData.position);
         CalculateInputVector();
         CalculateInnerCircleRotation();
-        InputManager.Instance.Movement(_pos);
+        InputManager.Instance.Movement(_pos, true);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -25,7 +25,7 @@ public class Joystick : BaseMonoBehaviour, IPointerDownHandler, IPointerUpHandle
         _innerCircle.anchoredPosition = Vector2.zero;
         _innerCircle.localRotation = Quaternion.identity;
         _pos = Vector2.zero;
-        InputManager.Instance.Movement(_pos);
+        InputManager.Instance.Movement(_pos, false);
     }
 
     private void CalculateInnerCirclePosition(Vector2 position)

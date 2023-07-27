@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Screen : Singleton<Screen>
+public class FullScreen : Singleton<FullScreen>
 {
     [SerializeField] private Camera _cam;
     [SerializeField] private float _heightCamera = 0;
@@ -17,22 +17,6 @@ public class Screen : Singleton<Screen>
     {
         get { return _widthCamera; }
         set { _widthCamera = value; }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        var insideCamera = collision.GetComponent<BaseInsideCamera>();
-        if (insideCamera == null) return;
-
-        insideCamera.CollisionEnter2D();
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        var insideCamera = collision.GetComponent<BaseOutsideCamera>();
-        if (insideCamera == null) return;
-
-        insideCamera.CollisionExit2D();
     }
 
     protected override void SetDefaultValue()
