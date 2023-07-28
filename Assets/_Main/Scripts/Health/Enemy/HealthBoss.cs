@@ -14,6 +14,8 @@ public class HealthBoss : BaseHealth
     {
         base.DeadGameObject();
         GameManager.Instance.SetGameState(GameStates.EndLevel);
+        var effect = SpawnEffect.Instance.SpawnGameObject(TypeEffect.EffectEnemy.ToString(), this.transform.position);
+        effect.localScale = Vector2.one;
     }
 
     protected override void HitGameObject()

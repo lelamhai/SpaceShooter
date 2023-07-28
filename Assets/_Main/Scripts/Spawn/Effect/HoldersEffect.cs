@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HoldersCloud : BaseHolders
+public class HoldersEffect : BaseHolders
 {
     protected override void SetDefaultValue()
     {

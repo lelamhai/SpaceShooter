@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TypeCloud
+public enum TypeEffect
 {
-    Cloud1,
-    Cloud2,
-    Cloud3,
-    Cloud4
+    EffectEnemy
 }
 
-public class SpawnCloud : BaseSpawn
+public class SpawnEffect : SingletonSpawn<SpawnEffect>
 {
     private void OnEnable()
     {
@@ -28,6 +25,5 @@ public class SpawnCloud : BaseSpawn
     }
 
     protected override void SetDefaultValue()
-    {
-    }
+    {}
 }

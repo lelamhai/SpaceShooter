@@ -13,6 +13,8 @@ public class HealthEnemy : BaseHealth
     protected override void DeadGameObject()
     {
         base.DeadGameObject();
+        var effect = SpawnEffect.Instance.SpawnGameObject(TypeEffect.EffectEnemy.ToString(), this.transform.position);
+        effect.localScale = Vector2.one/2;
     }
 
     protected override void HitGameObject()
