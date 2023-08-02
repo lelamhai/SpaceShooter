@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,6 +9,7 @@ public enum TypePanelUI
     GamePlay,
     MainMenu,
     TutorialGame,
+    SelectLevel,
     SettingGame,
     FinishLevel,
     FinishGame,
@@ -60,6 +62,27 @@ public class UIManager : Singleton<UIManager>
         #if UNITY_STANDALONE_WIN
             _joystick._userJoystick = false;
         #endif
+    }
+
+    private void OnEnable()
+    {
+        GameManager.Instance._GameOver += GameOver;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance._GameOver -= GameOver;
+    }
+
+    private void GameOver()
+    {
+        StartCoroutine(IEGameOver());
+    }
+
+    private IEnumerator IEGameOver()
+    {
+        yield return new WaitForSeconds(2f);
+        SetPanelState(TypePanelUI.GameOver, PanelState.Show);
     }
 
     private void ShowPanel()

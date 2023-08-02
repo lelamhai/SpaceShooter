@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SliderHealth : BaseSlider
+public class SliderHealthUI : BaseSlider
 {
     private void OnEnable()
     {

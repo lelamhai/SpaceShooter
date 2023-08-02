@@ -21,12 +21,12 @@ public class MovePlayer : BaseMove
 
     private void OnEnable()
     {
-        GameManager.Instance._EndLevel += EndGame;
+        GameManager.Instance._EndLevel += EndLevel;
     }
 
     private void OnDisable()
     {
-        GameManager.Instance._EndLevel -= EndGame;
+        GameManager.Instance._EndLevel -= EndLevel;
     }
     private void StartGame()
     {
@@ -38,7 +38,7 @@ public class MovePlayer : BaseMove
         }));
     }
 
-    private void EndGame()
+    private void EndLevel()
     {
         _canMove = false;
         StartCoroutine(MoveStartGame(_EndGamePoint, (isFinish) =>
@@ -46,7 +46,7 @@ public class MovePlayer : BaseMove
             _canMove = isFinish;
             if (!isFinish) return;
             _canMove = true;
-            GameManager.Instance.SetGameState(GameStates.FinishLevel);
+            GameManager.Instance.SetGameState(GameStates.NextLevel);
         }));
     }
 

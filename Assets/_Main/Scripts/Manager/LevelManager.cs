@@ -10,14 +10,18 @@ public class LevelManager : Singleton<LevelManager>
 
     [Header("All level in Game")]
     [SerializeField] private List<Transform> _listAllLevel = new List<Transform>();
-    [SerializeField] private LevelSO _level;
+    [SerializeField] private int _currentLevel = 0;
+    private int _level = 0;
 
-    public int Level
+
+    public int _CountLevel
     {
-        get
-        {
-            return _level._Value;
-        }
+        get { return _listAllLevel.Count; }
+    }
+
+    public int _CurrentLevel
+    {
+        get { return _currentLevel; }
     }
 
     private Transform _currentLevelGameObject = null;
@@ -26,14 +30,18 @@ public class LevelManager : Singleton<LevelManager>
     {
         GameManager.Instance._StartGame += StartGame;
         GameManager.Instance._StopGame += StopGame;
-        GameManager.Instance._FinishLevel += FinishLevel;
+        GameManager.Instance._LevelUp += LevelUp;
+        GameManager.Instance._NextLevel += NextLevel;
+        GameManager.Instance._SelectLevel += SelectLevel;
     }
 
     private void OnDisable()
     {
         GameManager.Instance._StartGame -= StartGame;
         GameManager.Instance._StopGame -= StopGame;
-        GameManager.Instance._FinishLevel -= FinishLevel;
+        GameManager.Instance._LevelUp -= LevelUp;
+        GameManager.Instance._NextLevel -= NextLevel;
+        GameManager.Instance._SelectLevel -= SelectLevel;
     }
 
     private void StopGame()
@@ -42,21 +50,38 @@ public class LevelManager : Singleton<LevelManager>
         Destroy(_currentLevelGameObject.gameObject);
     }
 
-    private void FinishLevel()
+    private void LevelUp()
     {
-        _level._Value++;
+        if (_currentLevel > _level) return;
 
-        if(_level._Value < _listAllLevel.Count)
-        {
-            UIManager.Instance.SetPanelState(TypePanelUI.FinishLevel, PanelState.Show);
-        }
-        else
+        _level++;
+        _currentLevel = _level;
+    }
+
+    private void NextLevel()
+    {
+        if(_level >= _listAllLevel.Count)
         {
             UIManager.Instance.SetPanelState(TypePanelUI.FinishGame, PanelState.Show);
+            _level = _listAllLevel.Count-1;
+            _currentLevel = _level;
+        } else
+        {
+            UIManager.Instance.SetPanelState(TypePanelUI.FinishLevel, PanelState.Show);
         }
     }
 
     private void StartGame()
+    {
+        LoadLevel(_level);
+    }
+
+    private void SelectLevel(int level)
+    {
+        _level = level;
+    }
+
+    private void LoadLevel(int level)
     {
         if (_listAllLevel.Count <= 0)
         {
@@ -64,7 +89,7 @@ public class LevelManager : Singleton<LevelManager>
             return;
         }
 
-        _currentLevelGameObject = Instantiate(_listAllLevel[_level._Value], _parent);
+        _currentLevelGameObject = Instantiate(_listAllLevel[_level], _parent);
         _currentLevelGameObject.SetParent(_parent);
     }
 
@@ -75,17 +100,10 @@ public class LevelManager : Singleton<LevelManager>
     {
         base.LoadComponent();
         LoadParent();
-        LoadLevelSO();
     }
 
     private void LoadParent()
     {
         _parent = GameObject.Find("[ GamePlay ]").transform;
-    }
-
-    private void LoadLevelSO()
-    {
-        string path = "Level/LevelSO";
-        this._level = Resources.Load<LevelSO>(path);
     }
 }

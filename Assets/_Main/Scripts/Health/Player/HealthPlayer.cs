@@ -14,9 +14,10 @@ public class HealthPlayer : BaseHealth
 
     protected override void DeadGameObject()
     {
+        GameManager.Instance.SetGameState(GameStates.GameOver);
         base.DeadGameObject();
-        GameManager.Instance.SetGameState(GameStates.StopGame);
-        UIManager.Instance.SetPanelState(TypePanelUI.GameOver, PanelState.Show);
+        var effect = SpawnEffect.Instance.SpawnGameObject(TypeEffect.EffectEnemy.ToString(), this.transform.position);
+        effect.localScale = Vector2.one / 2;       
     }
 
     protected override void HitGameObject()

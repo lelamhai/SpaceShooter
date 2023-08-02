@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FinishLevel : MonoBehaviour
+public class LoadingGameUI : MonoBehaviour
 {
     private void OnEnable()
     {

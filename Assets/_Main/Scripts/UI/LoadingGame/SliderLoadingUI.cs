@@ -26,7 +26,9 @@ public class SliderLoadingUI : BaseSlider
         } else
         {
             UIManager.Instance.SetPanelState(UIManager.Instance._CurrentUIState, PanelState.Hide);
+            UIManager.Instance.SetPanelState(TypePanelUI.MainMenu, PanelState.Hide);
             UIManager.Instance.SetPanelState(TypePanelUI.GamePlay, PanelState.Show);
+
             GameManager.Instance.SetGameState(GameStates.Initialize);
         }
     }

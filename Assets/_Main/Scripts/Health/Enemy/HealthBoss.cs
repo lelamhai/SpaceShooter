@@ -13,6 +13,7 @@ public class HealthBoss : BaseHealth
     protected override void DeadGameObject()
     {
         base.DeadGameObject();
+        GameManager.Instance.SetGameState(GameStates.LevelUp);
         GameManager.Instance.SetGameState(GameStates.EndLevel);
         var effect = SpawnEffect.Instance.SpawnGameObject(TypeEffect.EffectEnemy.ToString(), this.transform.position);
         effect.localScale = Vector2.one;
