@@ -11,6 +11,7 @@ public enum TypeGameObject
     Boss2,
     BluePlanet,
     GreenPlanet,
+    PinkPlanet,
     WhiteStar,
     BlueStar,
     Cloud1,

@@ -26,6 +26,11 @@ public class LevelManager : Singleton<LevelManager>
 
     private Transform _currentLevelGameObject = null;
 
+    private void Start()
+    {
+        _level = _currentLevel;
+    }
+
     private void OnEnable()
     {
         GameManager.Instance._StartGame += StartGame;

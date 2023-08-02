@@ -14,6 +14,7 @@ public class HealthPlayer : BaseHealth
 
     protected override void DeadGameObject()
     {
+        UIManager.Instance.HealthPlayer(0, _maxHealth);
         GameManager.Instance.SetGameState(GameStates.GameOver);
         base.DeadGameObject();
         var effect = SpawnEffect.Instance.SpawnGameObject(TypeEffect.EffectEnemy.ToString(), this.transform.position);
