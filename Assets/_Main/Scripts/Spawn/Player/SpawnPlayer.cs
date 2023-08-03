@@ -10,6 +10,9 @@ public enum TypePlayer
 
 public class SpawnPlayer : BaseSpawn
 {
+    [Header("Load level in GamePlay")]
+    [SerializeField] private Transform _parent;
+
     [SerializeField] private TypePlayer _currentPlayer = TypePlayer.Player;
     [SerializeField] private Transform _player = null;
     private void OnEnable()
@@ -29,6 +32,7 @@ public class SpawnPlayer : BaseSpawn
     {
         _player = SpawnGameObjectNone(_currentPlayer.ToString(), _point.position);
         _player.gameObject.SetActive(true);
+        _player.SetParent(_parent);
     }
 
     private void StopGame()
@@ -41,4 +45,15 @@ public class SpawnPlayer : BaseSpawn
 
     protected override void SetDefaultValue()
     {}
+
+    protected override void LoadComponent()
+    {
+        base.LoadComponent();
+        LoadParent();
+    }
+
+    private void LoadParent()
+    {
+        _parent = GameObject.Find("[ GamePlay ]").transform;
+    }
 }

@@ -11,7 +11,7 @@ public abstract class BaseSkill : BaseMonoBehaviour
     protected ISkillState _currentSkill;
     protected ISkillState _lastSkill;
 
-    private void Awake()
+    private void OnEnable()
     {
         AddListSkill();
         _currentSkill = _moveVerticalBoss;
