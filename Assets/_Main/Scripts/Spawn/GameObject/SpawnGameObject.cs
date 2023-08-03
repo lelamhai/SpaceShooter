@@ -12,8 +12,6 @@ public enum TypeGameObject
     BluePlanet,
     GreenPlanet,
     PinkPlanet,
-    WhiteStar,
-    BlueStar,
     Cloud1,
     Cloud2
 }

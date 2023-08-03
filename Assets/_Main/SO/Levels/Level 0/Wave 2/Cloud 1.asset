@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890e650eb0ce50448ab808a63843afe2, type: 3}
   m_Name: Cloud 1
   m_EditorClassIdentifier: 
-  _typeGameObject: 8
+  _typeGameObject: 7
   _delay: 2
   _numberGameObject: 1
