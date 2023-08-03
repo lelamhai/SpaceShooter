@@ -28,7 +28,6 @@ public class MoveHorizontalBoss : BaseMove, ISkillState
         _canMove = false;
     }
 
-
     protected override void Movement(Vector3 pos)
     {
         this.transform.Translate(pos * _moveSpeed * Time.deltaTime);

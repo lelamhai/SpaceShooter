@@ -47,6 +47,4 @@ public class MoveVerticalBoss : BaseMove, ISkillState
     {
         _direction = Vector3.down;
     }
-
-  
 }
