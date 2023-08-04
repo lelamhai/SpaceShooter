@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum TypeStar
@@ -25,7 +24,7 @@ public class SpawnStar : SingletonSpawn<SpawnStar>
     private IEnumerator IESpawn()
     {
         _isDelay = false;
-        SpawnGameObject(_currentTypeStar.ToString(), RandomPoint(8.88889f));
+        SpawnGameObject(_currentTypeStar.ToString(), RandomPoint(FullScreen.Instance._WidthCamera/2));
         yield return new WaitForSeconds(_durationSpawn);
         _isDelay = true;
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BaseImpact : BaseMonoBehaviour
@@ -9,14 +7,15 @@ public abstract class BaseImpact : BaseMonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Tag target = collision.gameObject.GetComponent<BaseTag>().GetTagGameObject();
-        Tag current = this.gameObject.GetComponent<BaseTag>().GetTagGameObject();
-       
-        if (target == current ) return;
+        Tag target = collision.gameObject.GetComponent<BaseTag>()._TagGameObject;
+        Tag current = this.gameObject.GetComponent<BaseTag>()._TagGameObject;
+
+        if (target == Tag.Reward && current == Tag.Enemy) return;
+        if (target == current) return;
         BaseHealth receiveDamage = collision.transform.GetComponent<BaseHealth>();
 
         if (receiveDamage == null) return;
-        receiveDamage.TakeDamage(_baseDamage.Damage());
+        receiveDamage.TakeDamage(_baseDamage._Damage);
     }
 
     protected override void SetDefaultValue()

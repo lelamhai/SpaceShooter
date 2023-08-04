@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BaseHealth : BaseMonoBehaviour
@@ -16,6 +14,7 @@ public abstract class BaseHealth : BaseMonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        if (amount <= 0) return;
         _currentHealth -= amount;
         if (_currentHealth < 1)
         {
@@ -28,11 +27,13 @@ public abstract class BaseHealth : BaseMonoBehaviour
     protected virtual void DeadGameObject()
     {
         this.gameObject.SetActive(false);
+        if (_baseSoundEffect == null) return;
         _baseSoundEffect.PlaySoundDead();
     }
 
     protected virtual void HitGameObject()
     {
+        if (_baseSoundEffect == null) return;
         _baseSoundEffect.PlaySoundHit();
     }
 

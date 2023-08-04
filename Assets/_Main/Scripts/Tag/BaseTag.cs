@@ -6,15 +6,15 @@ public enum Tag
 {
     Screen,
     Friend,
-    Enemy
+    Enemy,
+    Reward
 }
 
 public abstract class BaseTag : BaseMonoBehaviour
 {
     [SerializeField] protected Tag _tagGameObject = Tag.Friend;
-
-    public Tag GetTagGameObject()
+    public Tag _TagGameObject
     {
-        return _tagGameObject;
+        get { return _tagGameObject; }
     }
 }

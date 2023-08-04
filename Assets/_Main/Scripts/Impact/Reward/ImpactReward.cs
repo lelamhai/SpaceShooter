@@ -1,0 +1,2 @@
+public class ImpactReward : BaseImpact
+{}

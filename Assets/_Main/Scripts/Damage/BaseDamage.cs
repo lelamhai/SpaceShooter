@@ -5,8 +5,9 @@ using UnityEngine;
 public abstract class BaseDamage : BaseMonoBehaviour
 {
     [SerializeField] protected int _damage = 1;
-    public int Damage()
+
+    public int _Damage
     {
-        return _damage;
+        get { return _damage; }
     }
 }

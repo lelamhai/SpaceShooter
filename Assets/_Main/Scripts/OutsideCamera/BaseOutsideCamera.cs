@@ -9,7 +9,7 @@ public abstract class BaseOutsideCamera : BaseMonoBehaviour
         var target = collision.GetComponent<BaseTag>();
         if(target == null) return;
 
-        if (target.GetTagGameObject() == Tag.Screen)
+        if (target._TagGameObject == Tag.Screen)
         {
             OutsideCamera();
             DisableGameObject();
