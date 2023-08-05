@@ -1,9 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthBoss : BaseHealth
 {
+    [SerializeField] protected Reward _reward;
+
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -35,5 +36,16 @@ public class HealthBoss : BaseHealth
     protected override void SetDefaultValue()
     {
         _maxHealth = 10;
+    }
+
+    protected override void LoadComponent()
+    {
+        base.LoadComponent();
+        LoadReward();
+    }
+
+    private void LoadReward()
+    {
+        _reward = this.GetComponent<Reward>();
     }
 }

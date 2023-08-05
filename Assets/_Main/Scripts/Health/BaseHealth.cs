@@ -14,13 +14,13 @@ public abstract class BaseHealth : BaseMonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        if (amount <= 0) return;
         _currentHealth -= amount;
         if (_currentHealth < 1)
         {
             DeadGameObject();
             return;
         }
+        if (amount <= 0) return;
         HitGameObject();
     }
 
@@ -40,7 +40,17 @@ public abstract class BaseHealth : BaseMonoBehaviour
     protected override void LoadComponent()
     {
         base.LoadComponent();
+        LoadSoundEffect();
+        LoadModel();
+    }
+
+    private void LoadSoundEffect()
+    {
         _baseSoundEffect = this.GetComponent<BaseSoundEffect>();
+    }
+
+    private void LoadModel()
+    {
         _model = this.GetComponent<SpriteRenderer>();
     }
 }

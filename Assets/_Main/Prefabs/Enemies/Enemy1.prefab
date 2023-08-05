@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1379540926351831646}
   - component: {fileID: 673451591393199966}
+  - component: {fileID: 6316589499943827071}
   - component: {fileID: 7787757406803622078}
   - component: {fileID: 7234884932932601628}
   - component: {fileID: 376910779773675560}
@@ -20,6 +21,7 @@ GameObject:
   - component: {fileID: 5496990258941020235}
   - component: {fileID: 4087376681829233629}
   - component: {fileID: 5806907989002835089}
+  - component: {fileID: 6565572912384313235}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -95,6 +97,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &6316589499943827071
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6206064635865592255}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!60 &7787757406803622078
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -124,7 +153,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -283,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 1
   _currentHealth: 1
+  _reward: {fileID: 6565572912384313235}
   _baseSoundEffect: {fileID: 5806907989002835089}
   _model: {fileID: 673451591393199966}
 --- !u!114 &5496990258941020235
@@ -297,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c770b3167f9da4192fee7383bad78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _polygonCollider2D: {fileID: 7787757406803622078}
+  _polygonCollider: {fileID: 7787757406803622078}
   _baseAttack: {fileID: 5192220252902335714}
 --- !u!114 &4087376681829233629
 MonoBehaviour:
@@ -326,6 +356,24 @@ MonoBehaviour:
   _audioClipDeadGamobject: {fileID: 8300000, guid: 0094d512cec2d994da2a6f811c7d8d71, type: 3}
   _audioClipHitGamobject: {fileID: 8300000, guid: c9049f83aa7173042810db85c6892184, type: 3}
   _audioClipAttackGamobject: {fileID: 0}
+--- !u!114 &6565572912384313235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6206064635865592255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ca19569bf11b24fba6e48b262544c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _listReward:
+  - _typeReward: 0
+    _weight: 60
+  - _typeReward: 1
+    _weight: 40
+  _currentTypeReward: 0
 --- !u!1 &6640396969676845379
 GameObject:
   m_ObjectHideFlags: 0
