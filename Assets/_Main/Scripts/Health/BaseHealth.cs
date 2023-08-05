@@ -24,6 +24,18 @@ public abstract class BaseHealth : BaseMonoBehaviour
         HitGameObject();
     }
 
+    public void PlusHealth(int amount)
+    {
+        if(_currentHealth < _maxHealth)
+        {
+            _currentHealth += amount;
+            PlusHealthGameObject();
+        } 
+    }
+
+    protected virtual void PlusHealthGameObject()
+    {}
+
     protected virtual void DeadGameObject()
     {
         this.gameObject.SetActive(false);

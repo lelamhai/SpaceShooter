@@ -26,6 +26,12 @@ public class HealthPlayer : BaseHealth
         UIManager.Instance.HealthPlayer(_currentHealth, _maxHealth);
     }
 
+    protected override void PlusHealthGameObject()
+    {
+        base.PlusHealthGameObject();
+        UIManager.Instance.HealthPlayer(_currentHealth, _maxHealth);
+    }
+
     private IEnumerator IEHitGameObject()
     {
         _model.color = Color.red;
