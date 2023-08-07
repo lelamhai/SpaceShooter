@@ -56,13 +56,11 @@ public class SpawnPlayer : BaseSpawn, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        Debug.Log("Load Player");
         _currentPlayer = data.Player.Plane;
     }
 
     public void SaveData(GameData data)
     {
-        Debug.Log("Save Player");
         data.Player.Plane = _currentPlayer;
     }
 }

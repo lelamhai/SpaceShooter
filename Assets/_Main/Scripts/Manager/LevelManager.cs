@@ -3,6 +3,13 @@ using UnityEngine;
 
 public class LevelManager : Singleton<LevelManager>, IDataPersistence
 {
+    [Header("Finish Game")]
+    [SerializeField] private bool _finishGame = false;
+    public bool _FinishGame
+    {
+        get { return _finishGame; }
+    }
+
     [Header("Load level in GamePlay")]
     [SerializeField] private Transform _parent;
 
@@ -10,7 +17,6 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
     [SerializeField] private List<Transform> _listAllLevel = new List<Transform>();
     [SerializeField] private int _currentLevel = 0;
     private int _level = 0;
-
 
     public int _CountLevel
     {
@@ -23,11 +29,6 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
     }
 
     private Transform _currentLevelGameObject = null;
-
-    private void Start()
-    {
-        _level = _currentLevel;
-    }
 
     private void OnEnable()
     {
@@ -56,27 +57,34 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
     private void LevelUp()
     {
         if (_currentLevel > _level) return;
-
         _level++;
         _currentLevel = _level;
     }
 
     private void NextLevel()
     {
-        if(_level >= _listAllLevel.Count)
+        UIManager.Instance.SetPanelState(TypePanelUI.FinishLevel, PanelState.Show);
+
+        if(_currentLevel >= _CountLevel)
         {
-            UIManager.Instance.SetPanelState(TypePanelUI.FinishGame, PanelState.Show);
-            _level = _listAllLevel.Count-1;
-            _currentLevel = _level;
-        } else
-        {
-            UIManager.Instance.SetPanelState(TypePanelUI.FinishLevel, PanelState.Show);
+            _finishGame = true;
         }
     }
 
     private void StartGame()
     {
+        CheckLevel();
         LoadLevel(_level);
+    }
+
+    private void CheckLevel()
+    {
+        if (_currentLevel >= _CountLevel)
+        {
+            _currentLevel = _CountLevel - 1;
+        }
+
+        _level = _currentLevel;
     }
 
     private void SelectLevel(int level)

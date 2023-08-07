@@ -844,6 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7668a0f955c7d4948919fc9a7812bcfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _finishGame: 0
   _parent: {fileID: 1295706397}
   _listAllLevel:
   - {fileID: 4928800769379386188, guid: b08848ebb43334645a85c92b5acc80b4, type: 3}
@@ -6566,7 +6567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fileName: GameData.game
-  _useEncryption: 1
+  _useEncryption: 0
   _levelManager: {fileID: 73682219}
   _spawnPlayer: {fileID: 219680368}
   _spawnBulletPlayer: {fileID: 626751265}
@@ -12030,6 +12031,7 @@ MonoBehaviour:
   - {fileID: 2115360189}
   - {fileID: 2047732215}
   - {fileID: 24045829}
+  - {fileID: 162746107}
   _currentUIState: 1
   _joystick: {fileID: 11400000, guid: 9045ea9fbd73acb46ab5dc4e529bcaa8, type: 2}
 --- !u!1 &1577900164

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,17 +30,27 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
         LoadGame();
     }
 
-    private void OnApplicationQuit()
+    private void OnEnable()
+    {
+        GameManager.Instance._LevelUp += LevelUp;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance._LevelUp -= LevelUp;
+    }
+
+    private void LevelUp()
     {
         SaveGame();
     }
-    
-    public void NewGame()
+
+    private void NewGame()
     {
         this._gameData = new GameData();
     }
 
-    public void LoadGame()
+    private void LoadGame()
     {
         this._gameData = _dataHandler.Load();
 
@@ -55,7 +66,7 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
         }
     }
 
-    public void SaveGame()
+    private void SaveGame()
     {
         foreach (IDataPersistence dataPersistenceObj in _dataPersistenceObjects)
         {
