@@ -14,15 +14,24 @@ public abstract class BaseImpact : BaseMonoBehaviour
         if (target == Tag.Reward && current == Tag.Enemy) return;
         if (target == current) return;
 
+        ReceiveDamage(collision);
+        PlusHealth(collision);
+    }
+
+    private void ReceiveDamage(Collision2D collision)
+    {
         BaseHealth receiveHealthTarget = collision.transform.GetComponent<BaseHealth>();
         if (receiveHealthTarget == null) return;
         receiveHealthTarget.TakeDamage(_baseDamage._Damage);
+    }
 
-        BasePlusHealth basePlusHealthTarget = collision.transform.GetComponent<BasePlusHealth>();
-        if (basePlusHealthTarget == null) return;
-
+    private void PlusHealth(Collision2D collision)
+    {
         if (_baseHealth == null) return;
-        _baseHealth.PlusHealth(basePlusHealthTarget._Health);
+
+        BasePlusHealth basePlusHealth = collision.transform.GetComponent<BasePlusHealth>();
+        if (basePlusHealth == null) return;
+        _baseHealth.PlusHealth(basePlusHealth._Health);
     }
 
     protected override void SetDefaultValue()

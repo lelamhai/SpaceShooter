@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager : Singleton<LevelManager>
+public class LevelManager : Singleton<LevelManager>, IDataPersistence
 {
     [Header("Load level in GamePlay")]
     [SerializeField] private Transform _parent;
@@ -110,5 +108,15 @@ public class LevelManager : Singleton<LevelManager>
     private void LoadParent()
     {
         _parent = GameObject.Find("[ GamePlay ]").transform;
+    }
+
+    public void LoadData(GameData data)
+    {
+        _currentLevel = data.Level;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.Level = _currentLevel;
     }
 }

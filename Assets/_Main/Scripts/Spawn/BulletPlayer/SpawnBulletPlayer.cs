@@ -1,15 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum TypeBulletPlayer
 {
-    RedBulletPlayer
+    RedBulletPlayer = 0,
+    BlueBulletPlayer = 1
 }
 
-public class SpawnBulletPlayer : SingletonSpawn<SpawnBulletPlayer>
+public class SpawnBulletPlayer : SingletonSpawn<SpawnBulletPlayer>, IDataPersistence
 {
+    private TypeBulletPlayer _currentBullet = TypeBulletPlayer.BlueBulletPlayer;
+
+    public TypeBulletPlayer _CurrentBullet
+    {
+        get { return _currentBullet; }
+    }
+
     private void OnEnable()
     {
         GameManager.Instance._StopGame += StopGame;
@@ -27,4 +32,14 @@ public class SpawnBulletPlayer : SingletonSpawn<SpawnBulletPlayer>
 
     protected override void SetDefaultValue()
     {}
+
+    public void LoadData(GameData data)
+    {
+        _currentBullet = data.Player.Bullet;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.Player.Bullet = _currentBullet ;
+    }
 }

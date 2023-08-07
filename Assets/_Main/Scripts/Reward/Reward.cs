@@ -15,7 +15,7 @@ public class Reward : BaseMonoBehaviour
     {
         if(_listReward.Count == 0)
         {
-            Debug.Log("List reward empty");
+            Debug.Log("List reward empty", this.gameObject);
             return;
         }
         _currentTypeReward = GetRandomReward();

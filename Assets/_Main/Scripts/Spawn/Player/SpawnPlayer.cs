@@ -1,14 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum TypePlayer
 {
-    Player
+    Player = 0,
 }
 
-public class SpawnPlayer : BaseSpawn
+public class SpawnPlayer : BaseSpawn, IDataPersistence
 {
     [Header("Load level in GamePlay")]
     [SerializeField] private Transform _parent;
@@ -55,5 +52,17 @@ public class SpawnPlayer : BaseSpawn
     private void LoadParent()
     {
         _parent = GameObject.Find("[ GamePlay ]").transform;
+    }
+
+    public void LoadData(GameData data)
+    {
+        Debug.Log("Load Player");
+        _currentPlayer = data.Player.Plane;
+    }
+
+    public void SaveData(GameData data)
+    {
+        Debug.Log("Save Player");
+        data.Player.Plane = _currentPlayer;
     }
 }

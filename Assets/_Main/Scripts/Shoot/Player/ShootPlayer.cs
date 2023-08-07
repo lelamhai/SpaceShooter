@@ -1,11 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class ShootPlayer : BaseAttack
 {
-    [SerializeField] private TypeBulletPlayer _currentBullet = TypeBulletPlayer.RedBulletPlayer;
+    private TypeBulletPlayer _currentBullet;
+
+    private void Awake()
+    {
+        _currentBullet = SpawnBulletPlayer.Instance._CurrentBullet;
+    }
 
     private void OnEnable()
     {

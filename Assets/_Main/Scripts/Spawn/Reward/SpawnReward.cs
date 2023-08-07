@@ -1,7 +1,8 @@
 public enum TypeReward
 {
     None,
-    Coin
+    Coin,
+    Health
 }
 
 public class SpawnReward : SingletonSpawn<SpawnReward>
