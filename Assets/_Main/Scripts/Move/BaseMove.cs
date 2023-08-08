@@ -14,7 +14,10 @@ public abstract class BaseMove : BaseMonoBehaviour
         Movement(_direction);
     }
 
-    protected abstract void Movement(Vector3 pos);
+    protected virtual void Movement(Vector3 pos)
+    {
+        this.transform.Translate(pos * _moveSpeed * Time.deltaTime);
+    }
 
     public void SetRotation(Vector3 dir)
     {

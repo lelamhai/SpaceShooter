@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class MoveEnemy : BaseMove
 {
-    protected override void Movement(Vector3 pos)
-    {
-        transform.Translate(pos * _moveSpeed * Time.deltaTime);
-    }
-
     protected override void SetDefaultValue()
     {
         _moveSpeed = 2f;
