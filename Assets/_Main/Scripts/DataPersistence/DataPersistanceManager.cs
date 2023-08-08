@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class DataPersistanceManager : Singleton<DataPersistanceManager>
@@ -74,6 +74,11 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
         }
 
         _dataHandler.Save(_gameData);
+    }
+
+    public void ClearData()
+    {
+        _dataHandler.Clear();
     }
 
     protected override void SetDefaultValue()

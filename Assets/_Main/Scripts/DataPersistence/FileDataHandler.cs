@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using System.IO;
 
-public class FileDataHandler : MonoBehaviour
+public class FileDataHandler
 {
     private string _dataDirPath = "";
     private string _dataFileName = "";
@@ -83,6 +83,19 @@ public class FileDataHandler : MonoBehaviour
         {
             Debug.LogError("Error occured when trying to save data to file: " + fullPath + "\n" + e);
         }
+    }
+
+    public void Clear()
+    {
+        string fullPath = Path.Combine(_dataDirPath, _dataFileName);
+        if (File.Exists(fullPath))
+        {
+            File.Delete(fullPath);
+            Debug.Log("Clear data");
+            return;
+        }
+        Debug.Log("Not clear data");
+        Debug.Log("Path: " + fullPath);
     }
 
     // the below is a simple implementation of XOR encryption

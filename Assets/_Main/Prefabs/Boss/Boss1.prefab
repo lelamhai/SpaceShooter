@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 8580451038028537250}
   - component: {fileID: 5114515967753056944}
   - component: {fileID: 4645364186217112809}
+  - component: {fileID: 4042202943368743634}
   m_Layer: 0
   m_Name: Boss1
   m_TagString: Untagged
@@ -360,8 +361,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5c05b2b5ecd974b842efb16ef0798f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseDamage: {fileID: 8243113163362460272}
   _tag: {fileID: 4391564091770033711}
+  _baseDamage: {fileID: 8243113163362460272}
+  _baseHealth: {fileID: 8580451038028537250}
 --- !u!114 &8580451038028537250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +380,7 @@ MonoBehaviour:
   _currentHealth: 1
   _baseSoundEffect: {fileID: 4645364186217112809}
   _model: {fileID: 6095381748183583796}
+  _reward: {fileID: 0}
 --- !u!114 &5114515967753056944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,3 +410,17 @@ MonoBehaviour:
   _audioClipDeadGamobject: {fileID: 8300000, guid: 0094d512cec2d994da2a6f811c7d8d71, type: 3}
   _audioClipHitGamobject: {fileID: 8300000, guid: c9049f83aa7173042810db85c6892184, type: 3}
   _audioClipAttackGamobject: {fileID: 0}
+--- !u!114 &4042202943368743634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300788165108290739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ca19569bf11b24fba6e48b262544c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _listReward: []
+  _currentTypeReward: 0
