@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SliderBGAudioUI : BaseSlider
 {
@@ -27,6 +24,4 @@ public class SliderBGAudioUI : BaseSlider
         string path = "Audio/BGAudioSO";
         this._audioSO = Resources.Load<AudioSO>(path);
     }
-
-    
 }

@@ -1,4 +1,3 @@
-
 using UnityEngine;
 public abstract class Singleton<T> : BaseMonoBehaviour where T : Singleton<T>
 {

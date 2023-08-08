@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class InputManager : Singleton<InputManager>
 {
@@ -26,7 +23,6 @@ public class InputManager : Singleton<InputManager>
         var y = Input.GetAxis("Vertical");
         _MovePos = new Vector2(x, y);
     }
-
 
     protected override void SetDefaultValue()
     {}

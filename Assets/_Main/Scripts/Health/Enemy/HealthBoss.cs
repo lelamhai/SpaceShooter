@@ -8,14 +8,29 @@ public class HealthBoss : BaseHealth
     protected override void OnEnable()
     {
         base.OnEnable();
+        SetDefaultColor();
+    }
+
+    private void SetDefaultColor()
+    {
         _model.color = Color.white;
     }
 
     protected override void DeadGameObject()
     {
         base.DeadGameObject();
+        StateGameGameObject();
+        SpawnEffectGameObject();
+    }
+
+    private void StateGameGameObject()
+    {
         GameManager.Instance.SetGameState(GameStates.LevelUp);
         GameManager.Instance.SetGameState(GameStates.EndLevel);
+    }
+
+    private void SpawnEffectGameObject()
+    {
         var effect = SpawnEffect.Instance.SpawnGameObject(TypeEffect.EffectEnemy.ToString(), this.transform.position);
         effect.localScale = Vector2.one;
     }

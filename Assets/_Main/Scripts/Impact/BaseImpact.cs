@@ -2,8 +2,8 @@ using UnityEngine;
 
 public abstract class BaseImpact : BaseMonoBehaviour
 {
-    [SerializeField] protected BaseDamage _baseDamage = null;
     [SerializeField] protected BaseTag _tag = null;
+    [SerializeField] protected BaseDamage _baseDamage = null;
     [SerializeField] protected BaseHealth _baseHealth = null;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -27,8 +27,6 @@ public abstract class BaseImpact : BaseMonoBehaviour
 
     private void PlusHealth(Collision2D collision)
     {
-        if (_baseHealth == null) return;
-
         BasePlusHealth basePlusHealth = collision.transform.GetComponent<BasePlusHealth>();
         if (basePlusHealth == null) return;
         _baseHealth.PlusHealth(basePlusHealth._Health);

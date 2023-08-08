@@ -6,15 +6,25 @@ public class HealthPlayer : BaseHealth
     protected override void OnEnable()
     {
         base.OnEnable();
+        SetDefaultColor();
+        SetHealthPlayerUI();
+    }
+
+    private void SetDefaultColor()
+    {
         _model.color = Color.white;
+    }
+
+    private void SetHealthPlayerUI()
+    {
         UIManager.Instance.HealthPlayer(_currentHealth, _maxHealth);
     }
 
     protected override void DeadGameObject()
     {
+        base.DeadGameObject();
         UIManager.Instance.HealthPlayer(0, _maxHealth);
         GameManager.Instance.SetGameState(GameStates.GameOver);
-        base.DeadGameObject();
         var effect = SpawnEffect.Instance.SpawnGameObject(TypeEffect.EffectEnemy.ToString(), this.transform.position);
         effect.localScale = Vector2.one / 2;       
     }

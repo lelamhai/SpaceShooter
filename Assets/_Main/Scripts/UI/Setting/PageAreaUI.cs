@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,6 +40,11 @@ public class PageAreaUI : BaseMonoBehaviour
     protected override void LoadComponent()
     {
         base.LoadComponent();
+        LoadAllPage();
+    }
+
+    private void LoadAllPage()
+    {
         Transform pages = this.transform;
 
         foreach (Transform item in pages)

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "MuteSO", menuName = "ScriptableObject/Audio/Audio Mute", order = 0)]

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,7 +32,6 @@ public abstract class BaseSkill : BaseMonoBehaviour
             int index = Random.Range(0, _listSkill.Count);
             _currentSkill = _listSkill[index];
         } while (_currentSkill == _lastSkill);
-
     }
 
     private void ExecuteSkill()

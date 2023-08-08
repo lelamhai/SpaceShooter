@@ -8,7 +8,7 @@ public enum TypeBulletPlayer
 
 public class SpawnBulletPlayer : SingletonSpawn<SpawnBulletPlayer>, IDataPersistence
 {
-    private TypeBulletPlayer _currentBullet = TypeBulletPlayer.BlueBulletPlayer;
+    [SerializeField] private TypeBulletPlayer _currentBullet = TypeBulletPlayer.RedBulletPlayer;
 
     public TypeBulletPlayer _CurrentBullet
     {

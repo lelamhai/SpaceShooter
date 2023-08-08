@@ -5087,6 +5087,7 @@ MonoBehaviour:
   _basePrefabs: {fileID: 1904668150}
   _baseHolders: {fileID: 820682425}
   _point: {fileID: 975044898}
+  _currentBullet: 0
 --- !u!1 &641296960
 GameObject:
   m_ObjectHideFlags: 0
@@ -14127,7 +14128,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 421366164427448708, guid: 2e51094863e35fd408e3c82af75276dc, type: 3}
       propertyPath: _maxHealth
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1499904754012690717, guid: 2e51094863e35fd408e3c82af75276dc, type: 3}
       propertyPath: m_RootOrder

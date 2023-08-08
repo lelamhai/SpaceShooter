@@ -5,10 +5,14 @@ public class HealthEnemy : BaseHealth
 {
     [SerializeField] protected Reward _reward;
 
-
     protected override void OnEnable()
     {
         base.OnEnable();
+        SetDefaultColor();
+    }
+
+    private void SetDefaultColor()
+    {
         _model.color = Color.white;
     }
 
