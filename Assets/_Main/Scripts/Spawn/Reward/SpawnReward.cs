@@ -1,10 +1,3 @@
-public enum TypeReward
-{
-    None,
-    Coin,
-    Health
-}
-
 public class SpawnReward : SingletonSpawn<SpawnReward>
 {
     private void OnEnable()

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HealthEnemy : BaseHealth
 {
-    [SerializeField] protected Reward _reward;
+    [SerializeField] protected RandomReward _reward;
 
     protected override void OnEnable()
     {
@@ -31,7 +31,7 @@ public class HealthEnemy : BaseHealth
 
     private void SpawnRewardGameObject()
     {
-        if (_reward._CurrentTypeReward == TypeReward.None) return;
+        if (_reward._CurrentTypeReward == TypeItem.None) return;
         SpawnReward.Instance.SpawnGameObject(_reward._CurrentTypeReward.ToString(), this.transform.position);
     }
 
@@ -56,7 +56,7 @@ public class HealthEnemy : BaseHealth
 
     private void LoadReward()
     {
-        _reward = this.GetComponent<Reward>();
+        _reward = this.GetComponent<RandomReward>();
     }
 
     protected override void SetDefaultValue()

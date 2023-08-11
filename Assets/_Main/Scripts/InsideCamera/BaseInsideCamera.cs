@@ -6,7 +6,7 @@ public abstract class BaseInsideCamera : BaseMonoBehaviour
     {
         var target = collision.GetComponent<BaseTag>();
         if (target == null) return; 
-        if (target._TagGameObject != Tag.Screen) return;
+        if (target._TagGameObject != TypeTag.Screen) return;
         
         InsideCamera();
     }

@@ -22,6 +22,8 @@ public class SelectMapUI : BaseMonoBehaviour
             ButtonLevelUI level = Instantiate(_buttonLevel);
             level.transform.SetParent(_gridLevel.transform);
             level.SetTextLevel((i + 1).ToString());
+            var size = level.GetComponent<RectTransform>();
+            size.localScale = Vector3.one;
             if(LevelManager.Instance._CurrentLevel >= i)
             {
                 level.SetInteractable(true);

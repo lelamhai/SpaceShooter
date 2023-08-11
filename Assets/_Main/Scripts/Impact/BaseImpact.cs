@@ -8,10 +8,10 @@ public abstract class BaseImpact : BaseMonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Tag target = collision.gameObject.GetComponent<BaseTag>()._TagGameObject;
-        Tag current = this.gameObject.GetComponent<BaseTag>()._TagGameObject;
+        TypeTag target = collision.gameObject.GetComponent<BaseTag>()._TagGameObject;
+        TypeTag current = this.gameObject.GetComponent<BaseTag>()._TagGameObject;
 
-        if (target == Tag.Reward && current == Tag.Enemy) return;
+        if (target == TypeTag.Reward && current == TypeTag.Enemy) return;
         if (target == current) return;
 
         ReceiveDamage(collision);

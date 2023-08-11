@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Reward : BaseMonoBehaviour
+public class RandomReward : BaseMonoBehaviour
 {
     [SerializeField] private List<ItemReward> _listReward = new List<ItemReward>();
-    [SerializeField] private TypeReward _currentTypeReward = TypeReward.None;
+    [SerializeField] private TypeItem _currentTypeReward = TypeItem.None;
 
-    public TypeReward _CurrentTypeReward
+    public TypeItem _CurrentTypeReward
     {
         get { return _currentTypeReward; }
     }
@@ -21,7 +21,7 @@ public class Reward : BaseMonoBehaviour
         _currentTypeReward = GetRandomReward();
     }
 
-    protected TypeReward GetRandomReward()
+    protected TypeItem GetRandomReward()
     {
         float totalWeight = 0;
 
@@ -40,7 +40,7 @@ public class Reward : BaseMonoBehaviour
                 return p._typeReward;
             }
         }
-        return TypeReward.None;
+        return TypeItem.None;
     }
 
     protected override void SetDefaultValue()
@@ -50,6 +50,6 @@ public class Reward : BaseMonoBehaviour
 [System.Serializable]
 public struct ItemReward
 {
-    public TypeReward _typeReward;
+    public TypeItem _typeReward;
     public float _weight;
 }

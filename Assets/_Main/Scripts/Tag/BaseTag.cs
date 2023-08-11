@@ -1,17 +1,18 @@
 using UnityEngine;
 
-public enum Tag
+public enum TypeTag
 {
     Screen,
     Friend,
     Enemy,
-    Reward
+    Reward,
+    Inventory
 }
 
 public abstract class BaseTag : BaseMonoBehaviour
 {
-    [SerializeField] protected Tag _tagGameObject = Tag.Friend;
-    public Tag _TagGameObject
+    [SerializeField] protected TypeTag _tagGameObject = TypeTag.Friend;
+    public TypeTag _TagGameObject
     {
         get { return _tagGameObject; }
     }

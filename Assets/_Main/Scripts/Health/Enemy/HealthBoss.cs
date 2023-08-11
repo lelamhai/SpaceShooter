@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HealthBoss : BaseHealth
 {
-    [SerializeField] protected Reward _reward;
+    [SerializeField] protected RandomReward _reward;
 
     protected override void OnEnable()
     {
@@ -61,6 +61,6 @@ public class HealthBoss : BaseHealth
 
     private void LoadReward()
     {
-        _reward = this.GetComponent<Reward>();
+        _reward = this.GetComponent<RandomReward>();
     }
 }
