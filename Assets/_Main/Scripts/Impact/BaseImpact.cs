@@ -1,21 +1,30 @@
+using System;
 using UnityEngine;
 
 public abstract class BaseImpact : BaseMonoBehaviour
 {
     [SerializeField] protected BaseTag _tag = null;
     [SerializeField] protected BaseDamage _baseDamage = null;
-    [SerializeField] protected BaseHealth _baseHealth = null;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         TypeTag target = collision.gameObject.GetComponent<BaseTag>()._TagGameObject;
         TypeTag current = this.gameObject.GetComponent<BaseTag>()._TagGameObject;
 
-        if (target == TypeTag.Reward && current == TypeTag.Enemy) return;
+        if ((target == TypeTag.Reward || target == TypeTag.Coin) && current == TypeTag.Enemy) return;
         if (target == current) return;
 
         ReceiveDamage(collision);
-        PlusHealth(collision);
+
+        if(target == TypeTag.Reward)
+        {
+            ReceiveReward(collision);
+        }
+
+        if(target == TypeTag.Coin)
+        {
+            ReceiveCoin(collision);
+        }
     }
 
     private void ReceiveDamage(Collision2D collision)
@@ -25,12 +34,11 @@ public abstract class BaseImpact : BaseMonoBehaviour
         receiveHealthTarget.TakeDamage(_baseDamage._Damage);
     }
 
-    private void PlusHealth(Collision2D collision)
-    {
-        BasePlusHealth basePlusHealth = collision.transform.GetComponent<BasePlusHealth>();
-        if (basePlusHealth == null) return;
-        _baseHealth.PlusHealth(basePlusHealth._Health);
-    }
+    protected virtual void ReceiveReward(Collision2D collision)
+    {}
+
+    protected virtual void ReceiveCoin(Collision2D collision)
+    {}
 
     protected override void SetDefaultValue()
     {}
@@ -43,7 +51,6 @@ public abstract class BaseImpact : BaseMonoBehaviour
 
     private void LoadScript()
     {
-        _baseHealth = this.GetComponent<BaseHealth>();
         _baseDamage = this.GetComponent<BaseDamage>();
         _tag = this.GetComponent<BaseTag>();
     }

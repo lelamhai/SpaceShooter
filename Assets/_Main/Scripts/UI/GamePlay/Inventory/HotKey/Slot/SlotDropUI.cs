@@ -2,14 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Slot : BaseMonoBehaviour, IDropHandler
+public class SlotDropUI : BaseMonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
         if (this.transform.childCount > 1) return;
 
         GameObject current = eventData.pointerDrag;
-        Item currentItem = current.GetComponent<Item>();
+        ItemDragUI currentItem = current.GetComponent<ItemDragUI>();
 
         switch (this.transform.childCount)
         {
@@ -23,12 +23,12 @@ public class Slot : BaseMonoBehaviour, IDropHandler
         }
     }
 
-    private void SetItemNewSlot(Item current)
+    private void SetItemNewSlot(ItemDragUI current)
     {
         current.transform.SetParent(this.transform);
     }
 
-    private void SwapItem(Item currentItem, GameObject current)
+    private void SwapItem(ItemDragUI currentItem, GameObject current)
     {
         Transform itemReceive = this.transform.GetChild(0);
         itemReceive.SetParent(currentItem._OldParent);

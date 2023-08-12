@@ -1,43 +1,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomReward : BaseMonoBehaviour
+public class RandomItem : BaseMonoBehaviour
 {
-    [SerializeField] private List<ItemReward> _listReward = new List<ItemReward>();
-    [SerializeField] private TypeItem _currentTypeReward = TypeItem.None;
+    [SerializeField] private List<ItemReward> _listItem = new List<ItemReward>();
+    [SerializeField] private TypeItem _currentTypeItem = TypeItem.None;
 
     public TypeItem _CurrentTypeReward
     {
-        get { return _currentTypeReward; }
+        get { return _currentTypeItem; }
     }
 
     private void OnEnable()
     {
-        if(_listReward.Count == 0)
+        if(_listItem.Count == 0)
         {
             Debug.Log("List reward empty", this.gameObject);
             return;
         }
-        _currentTypeReward = GetRandomReward();
+        _currentTypeItem = GetRandomReward();
     }
 
     protected TypeItem GetRandomReward()
     {
         float totalWeight = 0;
 
-        foreach (ItemReward p in _listReward)
+        foreach (ItemReward p in _listItem)
         {
             totalWeight += p._weight;
         }
         float value = Random.value * totalWeight;
 
         float sumWeight = 0;
-        foreach (ItemReward p in _listReward)
+        foreach (ItemReward p in _listItem)
         {
             sumWeight += p._weight;
             if (sumWeight >= value)
             {
-                return p._typeReward;
+                return p._typeItem;
             }
         }
         return TypeItem.None;
@@ -50,6 +50,6 @@ public class RandomReward : BaseMonoBehaviour
 [System.Serializable]
 public struct ItemReward
 {
-    public TypeItem _typeReward;
+    public TypeItem _typeItem;
     public float _weight;
 }

@@ -6,6 +6,7 @@ public enum TypeTag
     Friend,
     Enemy,
     Reward,
+    Coin,
     Inventory
 }
 

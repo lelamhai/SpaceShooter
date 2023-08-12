@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071f7ab7385ed834da828ee429027350, type: 3}
   m_Name: ItemProtect
   m_EditorClassIdentifier: 
+  _Id: 3
   _TypeItem: 3
-  _GameObject: {fileID: 83511222691967836, guid: f39db9fb4a9c6da4b9ccc12fec8a068c, type: 3}
   _Avatar: {fileID: 21300000, guid: b250eb128c5c70e41a9fd2a876016105, type: 3}
+  _GameObject: {fileID: 83511222691967836, guid: f39db9fb4a9c6da4b9ccc12fec8a068c, type: 3}
+  _MaxItem: 0
+  _CountItem: 0
+  description: This is the protect

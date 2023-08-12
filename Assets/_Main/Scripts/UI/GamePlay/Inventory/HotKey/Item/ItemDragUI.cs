@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Item : BaseMonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class ItemDragUI : BaseMonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] private Transform _oldParent = null;
     [SerializeField] private Image _avatar;
