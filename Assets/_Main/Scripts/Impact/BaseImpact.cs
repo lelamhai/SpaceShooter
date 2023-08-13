@@ -20,11 +20,6 @@ public abstract class BaseImpact : BaseMonoBehaviour
         {
             ReceiveReward(collision);
         }
-
-        if(target == TypeTag.Coin)
-        {
-            ReceiveCoin(collision);
-        }
     }
 
     private void ReceiveDamage(Collision2D collision)
@@ -35,9 +30,6 @@ public abstract class BaseImpact : BaseMonoBehaviour
     }
 
     protected virtual void ReceiveReward(Collision2D collision)
-    {}
-
-    protected virtual void ReceiveCoin(Collision2D collision)
     {}
 
     protected override void SetDefaultValue()

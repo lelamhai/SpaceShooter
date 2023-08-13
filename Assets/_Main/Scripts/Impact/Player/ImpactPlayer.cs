@@ -9,25 +9,10 @@ public class ImpactPlayer : BaseImpact
     {
         base.ReceiveReward(collision);
 
-        Debug.Log("ReceiveReward: " + collision.gameObject.name);
-
-        InfoItem item = collision.gameObject.GetComponent<InfoItem>();
+        BaseItem item = collision.gameObject.GetComponent<BaseItem>();
         if (item == null) return;
 
-        _playerInventory.AddItem(item._ItemSO);
-    }
-
-    protected override void ReceiveCoin(Collision2D collision)
-    {
-        base.ReceiveCoin(collision);
-
-        Debug.Log("ReceiveCoin: " + collision.gameObject.name);
-
-        Coin coin = collision.gameObject.GetComponent<Coin>();
-
-        if (coin == null) return;
-
-        _playerInventory.AddCoin(coin._Price);
+        _playerInventory.AddItem(item);
     }
 
     protected override void LoadComponent()

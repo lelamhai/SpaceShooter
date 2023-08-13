@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,8 +15,8 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
     [SerializeField] protected LevelManager _levelManager;
     [SerializeField] protected SpawnPlayer _spawnPlayer;
     [SerializeField] protected SpawnBulletPlayer _spawnBulletPlayer;
+    [SerializeField] protected PlayerInventory _playerInventory;
 
-    
     private List<IDataPersistence> _dataPersistenceObjects = new List<IDataPersistence>();
     private GameData _gameData;
     private FileDataHandler _dataHandler;
@@ -32,12 +34,20 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
 
     private void OnEnable()
     {
+        GameManager.Instance._Initialize += Initialize;
         GameManager.Instance._LevelUp += LevelUp;
     }
 
     private void OnDisable()
     {
+        GameManager.Instance._Initialize -= Initialize;
         GameManager.Instance._LevelUp -= LevelUp;
+    }
+
+    private void Initialize()
+    {
+        LoadInventory();
+        AddDataPersistenceInventory();
     }
 
     private void LevelUp()
@@ -78,7 +88,19 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
 
     public void ClearData()
     {
-        _dataHandler.Clear();
+        string fullPath = Path.Combine(Application.persistentDataPath, _fileName);
+        if (File.Exists(fullPath))
+        {
+            File.Delete(fullPath);
+            Debug.Log("Clear data");
+            return;
+        }
+        Debug.Log("Not clear data");
+    }
+
+    public void OpenFolder()
+    {
+        System.Diagnostics.Process.Start(Application.persistentDataPath);
     }
 
     protected override void SetDefaultValue()
@@ -99,10 +121,20 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
         _spawnBulletPlayer = GameObject.Find("SpawnBulletPlayer").GetComponent<SpawnBulletPlayer>();
     }
 
+    private void LoadInventory()
+    {
+        _playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+    }
+
     private void AddDataPersistence()
     {
         _dataPersistenceObjects.Add(_levelManager);
         _dataPersistenceObjects.Add(_spawnPlayer);
         _dataPersistenceObjects.Add(_spawnBulletPlayer);
+    }
+
+    private void AddDataPersistenceInventory()
+    {
+        _dataPersistenceObjects.Add(_playerInventory);
     }
 }

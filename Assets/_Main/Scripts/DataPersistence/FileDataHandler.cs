@@ -85,19 +85,6 @@ public class FileDataHandler
         }
     }
 
-    public void Clear()
-    {
-        string fullPath = Path.Combine(_dataDirPath, _dataFileName);
-        if (File.Exists(fullPath))
-        {
-            File.Delete(fullPath);
-            Debug.Log("Clear data");
-            return;
-        }
-        Debug.Log("Not clear data");
-        Debug.Log("Path: " + fullPath);
-    }
-
     // the below is a simple implementation of XOR encryption
     private string EncryptDecrypt(string data)
     {

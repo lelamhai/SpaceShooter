@@ -12,5 +12,10 @@ public class DataPersistanceEditor : Editor
         {
             DataPersistanceManager.Instance.ClearData();
         }
+
+        if (GUILayout.Button("Open Data"))
+        {
+            DataPersistanceManager.Instance.OpenFolder();
+        }
     }
 }

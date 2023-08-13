@@ -10,6 +10,6 @@ public class ButtonNextLevelUI : BaseButton
             return;
         }
 
-        UIManager.Instance.SetPanelState(TypePanelUI.SelectLevel, PanelState.Show);
+        UIManager.Instance.SetPanelState(TypePanelUI.LevelSelect, PanelState.Show);
     }
 }

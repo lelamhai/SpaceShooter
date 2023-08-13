@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 3319501480504941856}
   - component: {fileID: 5071362971883483851}
   - component: {fileID: 7970441737558802913}
-  - component: {fileID: 7869325550798681188}
+  - component: {fileID: 6382048003764880694}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tag: {fileID: 7895847212119177236}
   _baseDamage: {fileID: 2979122512663816478}
-  _baseHealth: {fileID: 5071362971883483851}
+  _playerInventory: {fileID: 6382048003764880694}
 --- !u!114 &5071362971883483851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,7 +364,7 @@ MonoBehaviour:
   _audioClipDeadGamobject: {fileID: 8300000, guid: b3924b6486f1cfd46a50d4b4cb6066c0, type: 3}
   _audioClipHitGamobject: {fileID: 8300000, guid: c9049f83aa7173042810db85c6892184, type: 3}
   _audioClipAttackGamobject: {fileID: 8300000, guid: fd4ff59b112aa254f9a9f95088d0e0e7, type: 3}
---- !u!114 &7869325550798681188
+--- !u!114 &6382048003764880694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -373,7 +373,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2634111561540215588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64065aef186ba7741b914be1033ea2c9, type: 3}
+  m_Script: {fileID: 11500000, guid: d49264c277efe6d4da3f8f1e84fe27bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _listItemSO: []
+  _coin: 0

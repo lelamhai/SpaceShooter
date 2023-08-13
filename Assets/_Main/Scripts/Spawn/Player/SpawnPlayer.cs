@@ -29,6 +29,7 @@ public class SpawnPlayer : BaseSpawn, IDataPersistence
     {
         _player = SpawnGameObjectNone(_currentPlayer.ToString(), _point.position);
         _player.gameObject.SetActive(true);
+        _player.name = _currentPlayer.ToString();
         _player.SetParent(_parent);
     }
 

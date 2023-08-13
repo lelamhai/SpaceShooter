@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 071f7ab7385ed834da828ee429027350, type: 3}
-  m_Name: ItemHealth
+  m_Name: ItemCoin
   m_EditorClassIdentifier: 
-  _Id: 1
-  _TypeItem: 2
-  _Avatar: {fileID: 21300000, guid: d5c5de04d7429284ba5927690c372ecf, type: 3}
-  _GameObject: {fileID: 5586334113231152619, guid: 3993b446616b60c4eaaa467e21a7dc83, type: 3}
+  _Id: 0
+  _TypeItem: 1
+  _Avatar: {fileID: 21300000, guid: d509ead795835144093a7a27e4444631, type: 3}
   _MaxItem: 99
   _CountItem: 1
-  description: This is the health
+  description: This is coin

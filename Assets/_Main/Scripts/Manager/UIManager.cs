@@ -9,7 +9,7 @@ public enum TypePanelUI
     GamePlay,
     MainMenu,
     TutorialGame,
-    SelectLevel,
+    LevelSelect,
     SettingGame,
     FinishLevel,
     FinishGame,
