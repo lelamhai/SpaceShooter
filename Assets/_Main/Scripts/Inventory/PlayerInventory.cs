@@ -4,31 +4,29 @@ using UnityEngine;
 
 public class PlayerInventory : BaseMonoBehaviour, IDataPersistence
 {
-    [SerializeField] private List<ItemSO> _listItemSO = new List<ItemSO>();
-    public List<ItemSO> _ListItemSO
+    [SerializeField] private List<AttributeItem> _listItem = new List<AttributeItem>();
+    public List<AttributeItem> _ListItem
     {
-        get => _listItemSO;
+        get => _listItem;
     }
 
     public void AddItem(BaseItem item)
     {
-        Debug.Log("_TypeItem: " + item._ItemSO._TypeItem);
-
-        var result = FindItem(item);
+        var result = FindItem(item._AttributeItem);
 
         if (result == null)
         {
-            _listItemSO.Add(item._ItemSO);
+            _listItem.Add(item._AttributeItem);
         }
         else
         {
-            result._CountItem += item._Value;
+            result.CountItem += item._Value;
         }
     }
 
-    private ItemSO FindItem(BaseItem item)
+    private AttributeItem FindItem(AttributeItem item)
     {
-        ItemSO result = _listItemSO.Where(q => q._TypeItem == item._ItemSO._TypeItem).FirstOrDefault();
+        AttributeItem result = _listItem.Where(q => q.TypeItem == item.TypeItem).FirstOrDefault();
         if (result == null) return null;
         return result;
     }
@@ -41,9 +39,14 @@ public class PlayerInventory : BaseMonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
+        foreach (var item in data.Inventories)
+        {
+            _listItem.Add(item);
+        }
     }
 
     public void SaveData(GameData data)
     {
+        data.Inventories = _listItem;
     }
 }

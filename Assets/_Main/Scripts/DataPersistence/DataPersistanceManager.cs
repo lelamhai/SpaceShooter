@@ -48,6 +48,7 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
     {
         LoadInventory();
         AddDataPersistenceInventory();
+        LoadGame();
     }
 
     private void LevelUp()

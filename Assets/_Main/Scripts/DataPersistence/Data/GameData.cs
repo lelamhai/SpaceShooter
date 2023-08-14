@@ -1,15 +1,18 @@
 using System;
+using System.Collections.Generic;
 
 [Serializable]
 public class GameData
 {
     public int Level;
     public Player Player;
+    public List<AttributeItem> Inventories;
 
     public GameData()
     {
         this.Level = 0;
         this.Player = new Player(TypeBulletPlayer.RedBulletPlayer, TypePlayer.Player);
+        this.Inventories = new List<AttributeItem>();
     }
 }
 

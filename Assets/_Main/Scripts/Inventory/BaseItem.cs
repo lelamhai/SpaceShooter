@@ -4,11 +4,11 @@ using UnityEngine;
 
 public abstract class BaseItem : BaseMonoBehaviour
 {
-    [SerializeField] private ItemSO _itemSO;
+    [SerializeField] private AttributeItem _attributeItem;
     [SerializeField] private int _value = 1;
-    public ItemSO _ItemSO
+    public AttributeItem _AttributeItem
     {
-        get => _itemSO;
+        get => _attributeItem;
     }
 
     public int _Value

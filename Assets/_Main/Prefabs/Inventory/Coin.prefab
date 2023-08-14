@@ -270,5 +270,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309c3b11ee60193479080e1ef5b2a836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemSO: {fileID: 11400000, guid: 10b0c740296e68340908f6eeec81ff37, type: 2}
+  _attributeItem:
+    Id: 1
+    TypeItem: 1
+    MaxItem: 99
+    CountItem: 1
+    Description: 
   _value: 1
