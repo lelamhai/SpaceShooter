@@ -16,6 +16,9 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
     [SerializeField] protected SpawnPlayer _spawnPlayer;
     [SerializeField] protected SpawnBulletPlayer _spawnBulletPlayer;
     [SerializeField] protected PlayerInventory _playerInventory;
+    // UI
+    [SerializeField] protected SpawnHotkeyUI _spawnHotkeyUI;
+
 
     private List<IDataPersistence> _dataPersistenceObjects = new List<IDataPersistence>();
     private GameData _gameData;
@@ -29,7 +32,6 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
     private void Start()
     {
         AddDataPersistence();
-        LoadGame();
     }
 
     private void OnEnable()
@@ -120,6 +122,7 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
         _levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
         _spawnPlayer = GameObject.Find("SpawnPlayer").GetComponent<SpawnPlayer>();
         _spawnBulletPlayer = GameObject.Find("SpawnBulletPlayer").GetComponent<SpawnBulletPlayer>();
+        _spawnHotkeyUI = GameObject.Find("Hotkey").GetComponent<SpawnHotkeyUI>();
     }
 
     private void LoadInventory()
@@ -132,6 +135,7 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
         _dataPersistenceObjects.Add(_levelManager);
         _dataPersistenceObjects.Add(_spawnPlayer);
         _dataPersistenceObjects.Add(_spawnBulletPlayer);
+        _dataPersistenceObjects.Add(_spawnHotkeyUI);
     }
 
     private void AddDataPersistenceInventory()

@@ -15,7 +15,7 @@ public class ItemDragUI : BaseMonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public void OnBeginDrag(PointerEventData eventData)
     {
         RememberParent();
-        SetParent(HotkeyUI.Instance.transform);
+        //SetParent(BaseSpawnUI.Instance.transform);
         RaycastTarget(false);
     }
 
