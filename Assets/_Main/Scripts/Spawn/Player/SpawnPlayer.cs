@@ -14,6 +14,7 @@ public class SpawnPlayer : BaseSpawn, IDataPersistence
     [SerializeField] private Transform _player = null;
     private void OnEnable()
     {
+        DataPersistanceManager.Instance.RegisterEventDataPersistance(this);
         GameManager.Instance._Initialize += Initialize;
         GameManager.Instance._StopGame += StopGame;
 

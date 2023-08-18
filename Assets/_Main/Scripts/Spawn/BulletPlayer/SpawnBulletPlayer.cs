@@ -17,6 +17,8 @@ public class SpawnBulletPlayer : SingletonSpawn<SpawnBulletPlayer>, IDataPersist
 
     private void OnEnable()
     {
+
+        DataPersistanceManager.Instance.RegisterEventDataPersistance(this);
         GameManager.Instance._StopGame += StopGame;
     }
 

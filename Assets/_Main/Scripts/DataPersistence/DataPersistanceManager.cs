@@ -29,11 +29,6 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
         this._dataHandler = new FileDataHandler(Application.persistentDataPath, _fileName, _useEncryption);
     }
 
-    private void Start()
-    {
-        AddDataPersistence();
-    }
-
     private void OnEnable()
     {
         GameManager.Instance._Initialize += Initialize;
@@ -48,8 +43,6 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
 
     private void Initialize()
     {
-        LoadInventory();
-        AddDataPersistenceInventory();
         LoadGame();
     }
 
@@ -111,35 +104,8 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
         _fileName = "GameData.game";
     }
 
-    protected override void LoadComponent()
+    public void RegisterEventDataPersistance(IDataPersistence dataPersistence)
     {
-        base.LoadComponent();
-        LoadScript();
-    }
-
-    private void LoadScript()
-    {
-        _levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
-        _spawnPlayer = GameObject.Find("SpawnPlayer").GetComponent<SpawnPlayer>();
-        _spawnBulletPlayer = GameObject.Find("SpawnBulletPlayer").GetComponent<SpawnBulletPlayer>();
-        _spawnHotkeyUI = GameObject.Find("Hotkey").GetComponent<SpawnHotkeyUI>();
-    }
-
-    private void LoadInventory()
-    {
-        _playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
-    }
-
-    private void AddDataPersistence()
-    {
-        _dataPersistenceObjects.Add(_levelManager);
-        _dataPersistenceObjects.Add(_spawnPlayer);
-        _dataPersistenceObjects.Add(_spawnBulletPlayer);
-        _dataPersistenceObjects.Add(_spawnHotkeyUI);
-    }
-
-    private void AddDataPersistenceInventory()
-    {
-        _dataPersistenceObjects.Add(_playerInventory);
+        _dataPersistenceObjects.Add(dataPersistence);
     }
 }

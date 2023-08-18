@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerInventory : BaseMonoBehaviour, IDataPersistence
 {
     [SerializeField] private List<AttributeItem> _listItem = new List<AttributeItem>();
+
+    private void OnEnable()
+    {
+        DataPersistanceManager.Instance.RegisterEventDataPersistance(this);
+    }
+
     public List<AttributeItem> _ListItem
     {
         get => _listItem;

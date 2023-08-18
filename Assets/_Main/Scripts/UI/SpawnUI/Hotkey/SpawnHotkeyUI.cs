@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class SpawnHotkeyUI : BaseSpawnUI, IDataPersistence
 {
+    private void OnEnable()
+    {
+        DataPersistanceManager.Instance.RegisterEventDataPersistance(this);
+    }
+
     public void LoadData(GameData data)
     {
         foreach (var item in data.Inventories)

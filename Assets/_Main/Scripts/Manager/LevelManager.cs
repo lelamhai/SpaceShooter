@@ -32,6 +32,8 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
 
     private void OnEnable()
     {
+        DataPersistanceManager.Instance.RegisterEventDataPersistance(this);
+
         GameManager.Instance._StartGame += StartGame;
         GameManager.Instance._StopGame += StopGame;
         GameManager.Instance._LevelUp += LevelUp;
