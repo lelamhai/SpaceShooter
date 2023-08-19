@@ -1,34 +1,60 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BasePrefabs : BaseMonoBehaviour
+public abstract class BasePrefabs : BaseMonoBehaviour, ISerializationCallbackReceiver
 {
-    [Header("Base Prefabs")]
-    [SerializeField] protected List<Transform> _listPrefabs = new List<Transform>();
+    [SerializeField] private List<string> _keys = new List<string>();
+    [SerializeField] private List<Transform> _values = new List<Transform>();
+    private Dictionary<string, Transform> _listPrefabs = new Dictionary<string, Transform>();
+
+    public Dictionary<string, Transform> _ListPrefabs
+    {
+        get => _listPrefabs;
+    }
+
+    public Transform FindGameObject(string name)
+    {
+        if (_listPrefabs.ContainsKey(name))
+        {
+            return _listPrefabs[name];
+        }
+        return null;
+    }
+
     protected override void LoadComponent()
     {
+        base.LoadComponent();
         AddPrefabs();
     }
 
     protected virtual void AddPrefabs()
     {
-        Transform PrefabGameObject = this.transform;
-        foreach (Transform item in PrefabGameObject)
+        Transform prefabGameObject = this.transform;
+        foreach (Transform item in prefabGameObject)
         {
-            _listPrefabs.Add(item);
+            _listPrefabs.Add(item.name, item);
             item.gameObject.SetActive(false);
         }
     }
 
-    public Transform CloneGameObject(string name)
+    public void OnBeforeSerialize()
     {
-        foreach (var item in _listPrefabs)
+        _keys.Clear();
+        _values.Clear();
+
+        foreach (var kvp in _listPrefabs)
         {
-            if (item.name.Equals(name))
-            {
-                return Instantiate(item);
-            }
+            _keys.Add(kvp.Key);
+            _values.Add(kvp.Value);
         }
-        return null;
+    }
+
+    public void OnAfterDeserialize()
+    {
+        _listPrefabs = new Dictionary<string, Transform>();
+
+        for (int i = 0; i != Math.Min(_keys.Count, _values.Count); i++)
+            _listPrefabs.Add(_keys[i], _values[i]);
     }
 }

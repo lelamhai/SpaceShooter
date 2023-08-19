@@ -5,41 +5,96 @@ public abstract class BaseSpawn : BaseMonoBehaviour
     [Header("Base Spawn")]
     [SerializeField] protected BasePrefabs _basePrefabs = null;
     [SerializeField] protected BaseHolders _baseHolders = null;
-    [SerializeField] protected Transform _point = null;
+    [SerializeField] protected Vector3 _point;
 
     public Transform SpawnGameObject(string name, Vector3 point)
     {
-        Transform gameObject = null;
-        if (_baseHolders.CountPool(name) > 0)
+        Transform gameObject = FindInHolders(name);
+        if (gameObject != null)
         {
-            gameObject = _baseHolders.UndoGameObject(name);
-            if (gameObject == null) return null;
-            SetUndoGameObject(gameObject, name, point);
-            RemoveGameObjectPool(gameObject);
+            SetPoint(gameObject, point);
+            SetActive(gameObject, true);
+            RemoveGameObjectHolders(gameObject);
         } else
         {
-            gameObject = _basePrefabs.CloneGameObject(name);
+            gameObject = FindInPrefabs(name);
             if (gameObject == null) return null;
-            SetUndoGameObject(gameObject, name, point);
+            gameObject = Clone(gameObject);
+            SetName(gameObject, name);
+            SetPoint(gameObject, point);
+            SetActive(gameObject, true);
+            SetParent(gameObject, _baseHolders.transform);
         }
 
         return gameObject;
     }
 
-    public Transform SpawnGameObjectNone(string name, Vector3 point)
+    private Transform FindInHolders(string name)
     {
-        return _basePrefabs.CloneGameObject(name);
+        if (_baseHolders == null) return null;
+        Transform gameObject = _baseHolders.FindGameObject(name);
+        if (gameObject == null) return null;
+        return gameObject;
     }
 
-    private void SetUndoGameObject(Transform gameObject, string name, Vector3 point)
+    private Transform FindInPrefabs(string name)
+    {
+        Transform gameObject = _basePrefabs.FindGameObject(name);
+        if (gameObject == null) return null;
+        return gameObject;
+    }
+
+    private Transform Clone(Transform gameObject)
+    {
+        return Instantiate(gameObject);
+    }
+
+    private void SetName(Transform gameObject,string name)
+    {
+        gameObject.name = name;
+    }
+
+    private void SetActive(Transform gameObject, bool active)
+    {
+        gameObject.gameObject.SetActive(active);
+    }
+
+    private void SetPoint(Transform gameObject, Vector3 point)
     {
         gameObject.SetPositionAndRotation(point, Quaternion.identity);
-        gameObject.gameObject.SetActive(true);
-        gameObject.name = name;
-        gameObject.SetParent(_baseHolders.transform);
+    }
+
+    private void SetParent(Transform gameObject, Transform parent)
+    {
+        gameObject.SetParent(parent);
+    }
+
+    public void AddGameObjectHolders(Transform gameobject)
+    {
+        _baseHolders.AddObjectPool(gameobject);
+    }
+
+    public void RemoveGameObjectHolders(Transform gameobject)
+    {
+        _baseHolders.RemoveObjectPool(gameobject);
+    }
+
+    public Vector2 RandomPoint(float x)
+    {
+        var posX = Random.Range(-x, x);
+        var posY = _point.y;
+        var posZ = 0;
+
+        return new Vector3(posX, posY, posZ);
     }
 
     protected override void LoadComponent()
+    {
+        base.LoadComponent();
+        LoadScript();
+    }
+
+    private void LoadScript()
     {
         Transform prefab = transform.Find("Prefabs");
         _basePrefabs = prefab.GetComponent<BasePrefabs>();
@@ -50,25 +105,8 @@ public abstract class BaseSpawn : BaseMonoBehaviour
             _baseHolders = holder.GetComponent<BaseHolders>();
         }
 
-        _point = transform.Find("Point");
-    }
-
-    public void AddGameObjectPool(Transform gameobject)
-    {
-        _baseHolders.AddObjectPool(gameobject);
-    }
-
-    public void RemoveGameObjectPool(Transform gameobject)
-    {
-        _baseHolders.RemoveObjectPool(gameobject);
-    }
-
-    public Vector2 RandomPoint(float x = 0)
-    {
-        var posX = Random.Range(-x, x);
-        var posY = _point.position.y;
-        var posZ = 0;
-
-        return new Vector3(posX, posY, posZ);
+        Transform point = transform.Find("Point");
+        if (point == null) return;
+        _point = point.position;
     }
 }

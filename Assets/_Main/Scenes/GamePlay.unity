@@ -980,7 +980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _basePrefabs: {fileID: 494628741}
   _baseHolders: {fileID: 481588308}
-  _point: {fileID: 0}
+  _point: {x: 0, y: 0, z: 0}
 --- !u!1 &85019669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,6 +1709,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 248074517}
+  - {fileID: 1595343978}
   - {fileID: 413108167}
   m_Father: {fileID: 1295706397}
   m_RootOrder: -1
@@ -1726,8 +1727,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _basePrefabs: {fileID: 248074518}
-  _baseHolders: {fileID: 0}
-  _point: {fileID: 413108167}
+  _baseHolders: {fileID: 1595343979}
+  _point: {x: 0, y: -7, z: 0}
   _parent: {fileID: 1295706397}
   _currentPlayer: 0
   _player: {fileID: 0}
@@ -1852,7 +1853,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9faa512fc5519984e9367e64f0397587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listPrefabs:
+  _keys:
+  - Player
+  _values:
   - {fileID: 6579524964377958691}
 --- !u!1 &265246878
 GameObject:
@@ -4052,9 +4055,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df81df28bcee32449b477639c1f37b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listPrefabs:
+  _keys:
+  - Health
+  - Coin
+  - Protect
+  _values:
   - {fileID: 947005096}
   - {fileID: 1390671891}
+  - {fileID: 844009663}
 --- !u!1 &515379698
 GameObject:
   m_ObjectHideFlags: 0
@@ -5174,7 +5182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _basePrefabs: {fileID: 1904668150}
   _baseHolders: {fileID: 820682425}
-  _point: {fileID: 975044898}
+  _point: {x: 0, y: 0, z: 0}
   _currentBullet: 0
 --- !u!1 &629832695
 GameObject:
@@ -5645,7 +5653,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 684916329}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b04880f1190f70409ace6ac7493dafe, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a1308a1edf3df8489875a8ed615b4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _listPoolObject: []
@@ -6596,6 +6604,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WhiteStar
       objectReference: {fileID: 0}
+    - target: {fileID: 3145192484943455710, guid: 752c63d17843f6e4b882a79b8fa756df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6059951278138420260, guid: 752c63d17843f6e4b882a79b8fa756df, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -7014,7 +7026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _basePrefabs: {fileID: 1915081060}
   _baseHolders: {fileID: 925478058}
-  _point: {fileID: 92483467}
+  _point: {x: 0, y: 0, z: 0}
 --- !u!1 &815083342
 GameObject:
   m_ObjectHideFlags: 0
@@ -7960,6 +7972,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueStar
       objectReference: {fileID: 0}
+    - target: {fileID: 4550469552792160034, guid: 622c1bb51122fd24ab3302a95f847ab3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8740,7 +8756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _basePrefabs: {fileID: 1669288439}
   _baseHolders: {fileID: 542602936}
-  _point: {fileID: 0}
+  _point: {x: 0, y: 0, z: 0}
 --- !u!1 &975044897
 GameObject:
   m_ObjectHideFlags: 0
@@ -9264,11 +9280,11 @@ Transform:
   - {fileID: 904634195}
   - {fileID: 4622474551399515003}
   - {fileID: 1379540925577918964}
-  - {fileID: 1681412807}
   - {fileID: 72716357}
-  - {fileID: 1331445661}
   - {fileID: 1655861351}
   - {fileID: 6998652}
+  - {fileID: 1331445661}
+  - {fileID: 1681412807}
   - {fileID: 1372427330}
   m_Father: {fileID: 1663413761}
   m_RootOrder: -1
@@ -9285,15 +9301,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01913e26a01097e4a97170955e871b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listPrefabs:
+  _keys:
+  - Enemy1
+  - Enemy2
+  - Boss1
+  - BluePlanet
+  - PinkPlanet
+  - Cloud1
+  - GreenPlanet
+  - Boss2
+  - Cloud2
+  _values:
   - {fileID: 904634195}
   - {fileID: 4622474551399515003}
   - {fileID: 1379540925577918964}
-  - {fileID: 1681412807}
   - {fileID: 72716357}
-  - {fileID: 1331445661}
   - {fileID: 1655861351}
   - {fileID: 6998652}
+  - {fileID: 1331445661}
+  - {fileID: 1681412807}
   - {fileID: 1372427330}
 --- !u!1 &1112800871
 GameObject:
@@ -10020,9 +10046,9 @@ Transform:
   - {fileID: 1663413761}
   - {fileID: 626751264}
   - {fileID: 812233248}
-  - {fileID: 1354332165}
   - {fileID: 974708314}
   - {fileID: 74912349}
+  - {fileID: 1354332165}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10384,12 +10410,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1354332164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1919ee604e61484690b4797c8dded29, type: 3}
+  m_Script: {fileID: 11500000, guid: 705ab2136c1beab41b1ab098997f0c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _basePrefabs: {fileID: 1883578688}
   _baseHolders: {fileID: 684916331}
-  _point: {fileID: 737040914}
+  _point: {x: 0, y: 5.5, z: 0}
   _currentTypeStar: 1
   _canSpawn: 1
   _isDelay: 1
@@ -12590,6 +12616,51 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1595343977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595343978}
+  - component: {fileID: 1595343979}
+  m_Layer: 0
+  m_Name: Holders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1595343978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595343977}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 219680367}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1595343979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595343977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2dd4d0f27215a4caf0b05444bb54eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _listPoolObject: []
 --- !u!1 &1603648201
 GameObject:
   m_ObjectHideFlags: 0
@@ -13395,7 +13466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _basePrefabs: {fileID: 1103303349}
   _baseHolders: {fileID: 1558124177}
-  _point: {fileID: 1798770187}
+  _point: {x: 0, y: 10, z: 0}
 --- !u!1 &1669288437
 GameObject:
   m_ObjectHideFlags: 0
@@ -13441,7 +13512,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e331242f5d9d04fa516608a1b716fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listPrefabs:
+  _keys:
+  - EffectEnemy
+  _values:
   - {fileID: 7026226333236622868}
 --- !u!1001 &1681412806
 PrefabInstance:
@@ -14512,10 +14585,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1883578686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4a12ccd75f0c7448bc9ad91862a44c0, type: 3}
+  m_Script: {fileID: 11500000, guid: e165f477cf18a494abff78becff5b8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listPrefabs:
+  _keys:
+  - BlueStar
+  - WhiteStar
+  _values:
   - {fileID: 851845337}
   - {fileID: 753347430}
 --- !u!1 &1896395701
@@ -14700,7 +14776,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ea02e847649014ca0d88ec70d6561d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listPrefabs:
+  _keys:
+  - RedBulletPlayer
+  - BlueBulletPlayer
+  _values:
   - {fileID: 1876296623}
   - {fileID: 8247181928568804586}
 --- !u!1 &1915081058
@@ -14748,7 +14827,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa793fa2951ea694daf9de30e48ef4da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listPrefabs:
+  _keys:
+  - RedBulletEnemy
+  _values:
   - {fileID: 1608785178}
 --- !u!1 &1947424637
 GameObject:

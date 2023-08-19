@@ -13,6 +13,6 @@ public class EffectGameObject : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         this.gameObject.SetActive(false);
-        SpawnEffect.Instance.AddGameObjectPool(this.transform);
+        SpawnEffect.Instance.AddGameObjectHolders(this.transform);
     }
 }

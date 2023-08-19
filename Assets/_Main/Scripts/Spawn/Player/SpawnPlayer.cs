@@ -2,14 +2,13 @@ using UnityEngine;
 
 public enum TypePlayer
 {
-    Player = 0,
+    Player,
 }
 
 public class SpawnPlayer : BaseSpawn, IDataPersistence
 {
     [Header("Load level in GamePlay")]
     [SerializeField] private Transform _parent;
-
     [SerializeField] private TypePlayer _currentPlayer = TypePlayer.Player;
     [SerializeField] private Transform _player = null;
     private void OnEnable()
@@ -17,7 +16,6 @@ public class SpawnPlayer : BaseSpawn, IDataPersistence
         DataPersistanceManager.Instance.RegisterEventDataPersistance(this);
         GameManager.Instance._Initialize += Initialize;
         GameManager.Instance._StopGame += StopGame;
-
     }
 
     private void OnDisable()
@@ -28,10 +26,7 @@ public class SpawnPlayer : BaseSpawn, IDataPersistence
 
     private void Initialize()
     {
-        _player = SpawnGameObjectNone(_currentPlayer.ToString(), _point.position);
-        _player.gameObject.SetActive(true);
-        _player.name = _currentPlayer.ToString();
-        _player.SetParent(_parent);
+        _player = SpawnGameObject(_currentPlayer.ToString(), _point);
     }
 
     private void StopGame()

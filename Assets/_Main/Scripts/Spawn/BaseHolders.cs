@@ -6,6 +6,11 @@ public abstract class BaseHolders : BaseMonoBehaviour
     [Header("Base Holders")]
     [SerializeField] protected List<Transform> _listPoolObject = new List<Transform>();
 
+    public List<Transform> _ListPoolObject
+    {
+        get => _listPoolObject;
+    }
+
     public void AddObjectPool(Transform gameObject)
     {
         _listPoolObject.Add(gameObject);
@@ -15,7 +20,7 @@ public abstract class BaseHolders : BaseMonoBehaviour
     {
         foreach (Transform item in _listPoolObject)
         {
-            if(gameObject == item)
+            if (gameObject == item)
             {
                 _listPoolObject.Remove(item);
                 return;
@@ -23,23 +28,11 @@ public abstract class BaseHolders : BaseMonoBehaviour
         }
     }
 
-    public int CountPool(string name)
+    public Transform FindGameObject(string name)
     {
         foreach (var item in _listPoolObject)
         {
             if (item.name.Equals(name))
-            {
-                return 1;
-            }
-        }
-        return 0;
-    }
-
-    public Transform UndoGameObject(string name)
-    {
-        foreach (var item in _listPoolObject)
-        {
-            if(item.name.Equals(name))
             {
                 return item;
             }

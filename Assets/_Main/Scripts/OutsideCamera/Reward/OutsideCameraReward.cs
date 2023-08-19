@@ -2,6 +2,6 @@ public class OutsideCameraReward : BaseOutsideCamera
 {
     protected override void OutsideCamera()
     {
-        SpawnReward.Instance.AddGameObjectPool(this.transform);
+        SpawnReward.Instance.AddGameObjectHolders(this.transform);
     }
 }
