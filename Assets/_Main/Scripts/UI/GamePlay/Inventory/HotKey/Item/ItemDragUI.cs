@@ -15,7 +15,7 @@ public class ItemDragUI : BaseMonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public void OnBeginDrag(PointerEventData eventData)
     {
         RememberParent();
-        SetParent(SpawnHotkeyUI.Instance.transform);
+        SetParent(SpawnInventory.Instance.transform);
         RaycastTarget(false);
     }
 
@@ -29,14 +29,15 @@ public class ItemDragUI : BaseMonoBehaviour, IBeginDragHandler, IDragHandler, IE
         RaycastTarget(true);
         if (eventData.pointerEnter == null)
         {
-            this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
             return;
         }
 
         TagInventory tag = eventData.pointerEnter.GetComponent<TagInventory>();
         if(tag == null)
         {
-            this.gameObject.SetActive(false);
+            SetParent(_oldParent);
+
             return;
         }
     }
