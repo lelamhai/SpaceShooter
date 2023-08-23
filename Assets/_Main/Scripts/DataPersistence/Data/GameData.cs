@@ -6,13 +6,13 @@ public class GameData
 {
     public int Level;
     public Player Player;
-    public List<AttributeItem> Inventories;
+    public List<AttributeItem> Items;
 
     public GameData()
     {
         this.Level = 0;
         this.Player = new Player(TypeBulletPlayer.RedBulletPlayer, TypePlayer.Player);
-        this.Inventories = new List<AttributeItem>();
+        this.Items = new List<AttributeItem>();
     }
 }
 

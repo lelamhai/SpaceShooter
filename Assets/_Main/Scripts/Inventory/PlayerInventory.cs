@@ -45,7 +45,7 @@ public class PlayerInventory : BaseMonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        foreach (var item in data.Inventories)
+        foreach (var item in data.Items)
         {
             _listItem.Add(item);
         }
@@ -53,6 +53,6 @@ public class PlayerInventory : BaseMonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
-        data.Inventories = _listItem;
+        data.Items = _listItem;
     }
 }

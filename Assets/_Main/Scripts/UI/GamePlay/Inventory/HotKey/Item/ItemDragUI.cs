@@ -15,7 +15,7 @@ public class ItemDragUI : BaseMonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public void OnBeginDrag(PointerEventData eventData)
     {
         RememberParent();
-        //SetParent(BaseSpawnUI.Instance.transform);
+        SetParent(SpawnHotkeyUI.Instance.transform);
         RaycastTarget(false);
     }
 
@@ -46,14 +46,14 @@ public class ItemDragUI : BaseMonoBehaviour, IBeginDragHandler, IDragHandler, IE
         _oldParent = this.transform.parent;
     }
 
-    private void SetParent(Transform parent)
-    {
-        this.transform.SetParent(parent);
-    }
-
     private void RaycastTarget(bool active)
     {
         _avatar.raycastTarget = active;
+    }
+
+    private void SetParent(Transform parent)
+    {
+        this.transform.SetParent(parent);
     }
 
     protected override void SetDefaultValue()

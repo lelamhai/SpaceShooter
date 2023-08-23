@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor;
 using UnityEngine;
 
 public class DataPersistanceManager : Singleton<DataPersistanceManager>
@@ -9,16 +7,6 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
     [Header("File Storage Config")]
     [SerializeField] private string _fileName;
     [SerializeField] private bool _useEncryption;
-
-    [Space]
-    [Header("Script IDataPersistence")]
-    [SerializeField] protected LevelManager _levelManager;
-    [SerializeField] protected SpawnPlayer _spawnPlayer;
-    [SerializeField] protected SpawnBulletPlayer _spawnBulletPlayer;
-    [SerializeField] protected PlayerInventory _playerInventory;
-    // UI
-    [SerializeField] protected SpawnHotkeyUI _spawnHotkeyUI;
-
 
     private List<IDataPersistence> _dataPersistenceObjects = new List<IDataPersistence>();
     private GameData _gameData;
@@ -97,6 +85,11 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
     public void OpenFolder()
     {
         System.Diagnostics.Process.Start(Application.persistentDataPath);
+    }
+
+    public void SaveData()
+    {
+        SaveGame();
     }
 
     protected override void SetDefaultValue()

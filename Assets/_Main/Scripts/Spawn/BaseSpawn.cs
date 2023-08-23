@@ -29,7 +29,18 @@ public abstract class BaseSpawn : BaseMonoBehaviour
         return gameObject;
     }
 
-    private Transform FindInHolders(string name)
+    public Transform SpawnGameObject(string name)
+    {
+        Transform gameObject = null;
+        return gameObject;
+    }
+
+    public Transform SpawnGameObject(Transform go)
+    {
+        return Clone(go);
+    }
+
+    public Transform FindInHolders(string name)
     {
         if (_baseHolders == null) return null;
         Transform gameObject = _baseHolders.FindGameObject(name);
@@ -37,7 +48,7 @@ public abstract class BaseSpawn : BaseMonoBehaviour
         return gameObject;
     }
 
-    private Transform FindInPrefabs(string name)
+    public Transform FindInPrefabs(string name)
     {
         Transform gameObject = _basePrefabs.FindGameObject(name);
         if (gameObject == null) return null;
@@ -49,22 +60,22 @@ public abstract class BaseSpawn : BaseMonoBehaviour
         return Instantiate(gameObject);
     }
 
-    private void SetName(Transform gameObject,string name)
+    public void SetName(Transform gameObject,string name)
     {
         gameObject.name = name;
     }
 
-    private void SetActive(Transform gameObject, bool active)
+    public void SetActive(Transform gameObject, bool active)
     {
         gameObject.gameObject.SetActive(active);
     }
 
-    private void SetPoint(Transform gameObject, Vector3 point)
+    public void SetPoint(Transform gameObject, Vector3 point)
     {
         gameObject.SetPositionAndRotation(point, Quaternion.identity);
     }
 
-    private void SetParent(Transform gameObject, Transform parent)
+    public void SetParent(Transform gameObject, Transform parent)
     {
         gameObject.SetParent(parent);
     }

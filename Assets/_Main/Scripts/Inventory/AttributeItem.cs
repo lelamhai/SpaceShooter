@@ -10,6 +10,7 @@ public class AttributeItem
     public int CountItem;
     [TextArea]
     public string Description;
+    public int IndexHotKey;
 
     public AttributeItem()
     {
@@ -18,14 +19,16 @@ public class AttributeItem
         this.MaxItem = 99;
         this.CountItem = 1;
         this.Description = string.Empty;
+        this.IndexHotKey = -1;
     }
 
-    public AttributeItem(int id, TypeItem typeItem, int maxItem, int countItem, string description)
+    public AttributeItem(int id, TypeItem typeItem, int maxItem, int countItem, string description, int indexHotKey)
     {
         this.Id = id;
         this.TypeItem = typeItem;
         this.MaxItem = maxItem;
         this.CountItem = countItem;
         this.Description = description;
+        this.IndexHotKey = indexHotKey;
     }
 }

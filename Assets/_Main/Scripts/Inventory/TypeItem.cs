@@ -1,7 +1,7 @@
 public enum TypeItem
 {
     None,
-    Coin,
-    Health,
-    Protect
+    ItemCoin,
+    ItemHealth,
+    ItemProtect
 }

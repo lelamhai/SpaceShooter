@@ -8,14 +8,19 @@ public class DataPersistanceEditor : Editor
     {
         base.OnInspectorGUI();
 
-        if (GUILayout.Button("Clear Data"))
+        if (GUILayout.Button("Save"))
         {
-            DataPersistanceManager.Instance.ClearData();
+            DataPersistanceManager.Instance.SaveData();
         }
 
-        if (GUILayout.Button("Open Data"))
+        if (GUILayout.Button("Open"))
         {
             DataPersistanceManager.Instance.OpenFolder();
+        }
+
+        if (GUILayout.Button("Clear"))
+        {
+            DataPersistanceManager.Instance.ClearData();
         }
     }
 }
