@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseHoldersUI : BaseHolders
+public class HoldersInventoryUI : BaseHolders
 {
     protected override void SetDefaultValue()
     {}

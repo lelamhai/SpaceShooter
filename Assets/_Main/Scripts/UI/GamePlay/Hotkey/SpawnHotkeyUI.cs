@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpawnInventory : SingletonSpawn<SpawnInventory>, IDataPersistence
+public class SpawnHotkeyUI : SingletonSpawn<SpawnHotkeyUI>, IDataPersistence
 {
     [Header("Spawn UI")]
     [SerializeField] protected Transform _slot;
@@ -9,14 +9,13 @@ public class SpawnInventory : SingletonSpawn<SpawnInventory>, IDataPersistence
     {
         DataPersistanceManager.Instance.RegisterEventDataPersistance(this);
     }
-   
+
     public void LoadData(GameData data)
     {
-        if (data.Items.Count == 0)
+        if(data.Inventory.Count == 0)
         {
             LoadInitializeHotkey();
-        }
-        else
+        } else
         {
             LoadHotkey(data);
         }
@@ -24,7 +23,7 @@ public class SpawnInventory : SingletonSpawn<SpawnInventory>, IDataPersistence
 
     private void LoadInitializeHotkey()
     {
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < 4; i++)
         {
             Transform slot = SpawnGameObject(_slot);
             slot.SetParent(_baseHolders.transform);
@@ -33,27 +32,29 @@ public class SpawnInventory : SingletonSpawn<SpawnInventory>, IDataPersistence
 
     private void LoadHotkey(GameData data)
     {
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < 4; i++)
         {
             Transform slot = SpawnGameObject(_slot);
-            for (int j = 0; j < data.Items.Count; j++)
+            for (int j = 0; j < data.Inventory.Count; j++)
             {
-                if (data.Items[j].PositionInventory == i)
-                {
-                    TypeItem type = data.Items[j].TypeItem;
-                    Transform itemPrefab = FindInPrefabs(type.ToString());
-                    Transform item = SpawnGameObject(itemPrefab);
-                    SetActive(item, true);
-                    item.SetParent(slot);
-                }
+                //if (data.Inventory[j].Position == i)
+                //{
+                //    TypeItem type = data.Inventory[j].TypeItem;
+                //    Transform itemPrefab = FindInPrefabs(type.ToString());
+                //    Transform item = SpawnGameObject(itemPrefab);
+                //    SetActive(item, true); 
+                //    item.SetParent(slot);
+                //}
             }
             slot.SetParent(_baseHolders.transform);
         }
     }
 
     public void SaveData(GameData data)
-    {}
+    {
+    
+    }
 
     protected override void SetDefaultValue()
-    { }
+    {}
 }

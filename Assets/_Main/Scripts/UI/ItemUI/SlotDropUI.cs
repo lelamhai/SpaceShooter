@@ -24,6 +24,11 @@ public class SlotDropUI : BaseMonoBehaviour, IDropHandler
 
     private void SetItemNewSlot(ItemDragUI current)
     {
+        Debug.Log("GetSiblingIndex: " + this.transform.GetSiblingIndex());
+
+        int position = this.transform.GetSiblingIndex();
+        BaseItem item = current.GetComponent<BaseItem>();
+        //item._AttributeItem.Position = position;
         current.transform.SetParent(this.transform);
     }
 

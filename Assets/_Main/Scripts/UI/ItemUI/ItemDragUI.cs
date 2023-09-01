@@ -15,7 +15,7 @@ public class ItemDragUI : BaseMonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public void OnBeginDrag(PointerEventData eventData)
     {
         RememberParent();
-        SetParent(SpawnInventory.Instance.transform);
+        SetParent(SpawnInventoryUI.Instance.transform);
         RaycastTarget(false);
     }
 
@@ -36,8 +36,7 @@ public class ItemDragUI : BaseMonoBehaviour, IBeginDragHandler, IDragHandler, IE
         TagInventory tag = eventData.pointerEnter.GetComponent<TagInventory>();
         if(tag == null)
         {
-            SetParent(_oldParent);
-
+            Destroy(tag.gameObject);
             return;
         }
     }

@@ -5,14 +5,14 @@ using UnityEngine;
 public abstract class BaseItem : BaseMonoBehaviour
 {
     [SerializeField] private AttributeItem _attributeItem;
-    [SerializeField] private int _value = 1;
+    [SerializeField] private int _plusValue = 1;
     public AttributeItem _AttributeItem
     {
         get => _attributeItem;
     }
 
-    public int _Value
+    public int _PlusValue
     {
-        get => _value;
+        get => _plusValue;
     }
 }

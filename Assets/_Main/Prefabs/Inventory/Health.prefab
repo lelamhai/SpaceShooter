@@ -38,7 +38,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7479115345656106120
 SpriteRenderer:
@@ -223,9 +223,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attributeItem:
-    Id: 1
+    Id: 2
     TypeItem: 2
-    MaxItem: 99
-    CountItem: 1
+    MaxItem: 7
+    QuantityItem: 0
     Description: 
-  _value: 1
+  _plusValue: 5

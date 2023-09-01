@@ -16,7 +16,8 @@ public enum TypePanelUI
     PauseGame,
     GameOver,
     LoadingGame,
-    QuitGame
+    QuitGame,
+    Inventory
 }
 
 public enum  PanelState

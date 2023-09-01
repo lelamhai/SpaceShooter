@@ -119,9 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attributeItem:
-    Id: 1
+    Id: 2
     TypeItem: 2
-    MaxItem: 99
-    CountItem: 1
+    TotalItem: 99
+    QuantityItem: 1
     Description: 
   _value: 1

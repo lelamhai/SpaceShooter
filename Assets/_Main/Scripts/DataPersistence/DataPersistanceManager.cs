@@ -12,6 +12,11 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
     private GameData _gameData;
     private FileDataHandler _dataHandler;
 
+    public GameData _GameData
+    {
+        get => _gameData;
+    }
+
     private void Awake()
     {
         this._dataHandler = new FileDataHandler(Application.persistentDataPath, _fileName, _useEncryption);
@@ -68,6 +73,7 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
         }
 
         _dataHandler.Save(_gameData);
+        Debug.Log("Saved...");
     }
 
     public void ClearData()
@@ -92,13 +98,13 @@ public class DataPersistanceManager : Singleton<DataPersistanceManager>
         SaveGame();
     }
 
-    protected override void SetDefaultValue()
-    {
-        _fileName = "GameData.game";
-    }
-
     public void RegisterEventDataPersistance(IDataPersistence dataPersistence)
     {
         _dataPersistenceObjects.Add(dataPersistence);
+    }
+
+    protected override void SetDefaultValue()
+    {
+        _fileName = "GameData.game";
     }
 }
