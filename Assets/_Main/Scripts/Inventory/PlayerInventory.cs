@@ -21,46 +21,77 @@ public class PlayerInventory : Singleton<PlayerInventory>, IDataPersistence
     {
         if (CheckFullInventory()) return;
 
-        //if(!CheckInventoryEmpty())
-        //{
-        //    CreateAttributeItem(item);
-        //    return;
-        //}
+        if (InventoryEmpty())
+        {
+            CreateAttributeItem(item, item._Amount);
+        } else
+        {
+            AddAttributeItem(item);
+        }
 
-        AddAttributeItem(item);
+        SetSlotItem();
+    }
+
+    private void SetSlotItem()
+    {
+        for (int i = 0; i < 12; i++)
+        {
+            if(i < _inventory.Count)
+            {
+                _inventory[i].Slot = i;
+            } 
+        }
+    }
+
+    private bool InventoryEmpty()
+    {
+        if (_Inventory.Count == 0)
+        {
+            return true;
+        }
+        return false;
     }
 
     private void AddAttributeItem(BaseItem item)
     {
+       bool createEmpty = false;
+
         foreach (var i in _Inventory.ToList())
         {
             if (i.AttributeItem.Id == item._AttributeItem.Id)
             {
-                var total = i.AttributeItem.QuantityItem + item._PlusValue;
+                if (i.AttributeItem.QuantityItem == item._AttributeItem.MaxItem) continue;
+                createEmpty = true;
+
+                var total = i.AttributeItem.QuantityItem + item._Amount;
 
                 if (total <= item._AttributeItem.MaxItem)
                 {
                     i.AttributeItem.QuantityItem = total;
                 }
 
-                while (total >= item._AttributeItem.MaxItem)
+                while (total > item._AttributeItem.MaxItem)
                 {
-                    int temp = item._AttributeItem.MaxItem - i.AttributeItem.QuantityItem;
-                    i.AttributeItem.QuantityItem += temp;
-                    total -= (temp + item._PlusValue);
+                    int addValue = item._AttributeItem.MaxItem - i.AttributeItem.QuantityItem;
+                    i.AttributeItem.QuantityItem += addValue;
+                    total -= item._AttributeItem.MaxItem;
 
                     if (total < item._AttributeItem.MaxItem)
                     {
                         CreateAttributeItem(item, total);
-                        return;
                     }
-                    CreateAttributeItem(item, item._AttributeItem.MaxItem);
+                    else
+                    {
+                        CreateAttributeItem(item, item._AttributeItem.MaxItem);
+                    }
                 }
-                return;
             }
         }
 
-        CreateAttributeItem(item, item._PlusValue);
+        if(!createEmpty)
+        {
+            CreateAttributeItem(item, item._Amount);
+        }
     }
 
     private bool CheckFullInventory()
@@ -79,46 +110,6 @@ public class PlayerInventory : Singleton<PlayerInventory>, IDataPersistence
         attribueItem.QuantityItem = quantity;
         _inventory.Add(new AttributeSlot(attribueItem,-1));
         return attribueItem;
-    }
-
-
-    //public void AddItem(BaseItem item)
-    //{
-    //    var result = FindItem(item._AttributeItem);
-
-    //    if (result == null)
-    //    {
-    //        result = item._AttributeItem;
-    //        _inventory.Add(new AttributeISlot(result, -1));
-    //    }
-    //    else
-    //    {
-    //        if (result.MaxItem >= result.QuantityItem)
-    //        {
-    //            result.QuantityItem += item._Value;
-    //        }
-    //        else
-    //        {
-    //            result = item._AttributeItem;
-    //            _inventory.Add(new AttributeISlot(result, -1));
-    //        }
-    //    }
-    //}
-
-
-
-
-
-    private AttributeItem FindItem(AttributeItem item)
-    {
-        foreach (var i in _inventory)
-        {
-            if(i.AttributeItem.Id == item.Id)
-            {
-                return i.AttributeItem;
-            }
-        }
-        return null;
     }
 
     private void RemoveItem(int id)

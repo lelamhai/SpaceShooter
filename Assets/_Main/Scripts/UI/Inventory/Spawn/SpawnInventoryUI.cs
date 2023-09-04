@@ -7,17 +7,24 @@ public class SpawnInventoryUI : SingletonSpawn<SpawnInventoryUI>, IDataPersisten
     [Header("Spawn UI")]
     [SerializeField] protected Transform _slot;
     [SerializeField] private List<AttributeSlot> _listSlot = new List<AttributeSlot>();
+    [SerializeField] private List<AttributeSlot> _inventory;
 
     private GameData _gameData;
 
-    private void OnEnable()
+    private void Start()
     {
         DataPersistanceManager.Instance.RegisterEventDataPersistance(this);
         _gameData = DataPersistanceManager.Instance._GameData;
-        LoadInventory();
+        _inventory = PlayerInventory.Instance._Inventory;
+        LoadSlots();
     }
 
-    private void LoadInventory()
+    private void Update()
+    {
+        UpdateInventoryUI();
+    }
+
+    private void LoadSlots()
     {
         for (int i = 0; i < 12; i++)
         {
@@ -30,9 +37,23 @@ public class SpawnInventoryUI : SingletonSpawn<SpawnInventoryUI>, IDataPersisten
     public void LoadData(GameData data)
     {}
 
-    private void LoadSlots()
+    private void UpdateInventoryUI()
     {
-        if (_gameData.Inventory.Count <= 0) return;
+        var slots = _baseHolders.transform;
+
+        for (int i = 0; i < slots.childCount; i++)
+        {
+            if(_inventory[i].Slot == i)
+            {
+
+            }
+        }
+    }
+
+    private void LoadItem()
+    {
+        if (_listSlot.Count <= 0) return;
+
 
         for (int i = 0; i < 12; i++)
         {
@@ -43,7 +64,6 @@ public class SpawnInventoryUI : SingletonSpawn<SpawnInventoryUI>, IDataPersisten
             if (itemPrefab != null)
             {
                 slot._AttributeISlot.Slot = i;
-                //slot._AttributeISlot.Item = i;
                 SetActive(itemPrefab, true);
                 SetParent(itemPrefab, cloneSlot);
             }
@@ -65,7 +85,7 @@ public class SpawnInventoryUI : SingletonSpawn<SpawnInventoryUI>, IDataPersisten
     
     public void SaveData(GameData data)
     {
-        data.Inventory = _listSlot;
+        //data.Inventory = _listSlot;
     }
 
     protected override void SetDefaultValue()

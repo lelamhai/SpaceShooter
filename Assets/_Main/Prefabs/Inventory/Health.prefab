@@ -225,7 +225,7 @@ MonoBehaviour:
   _attributeItem:
     Id: 2
     TypeItem: 2
-    MaxItem: 7
+    MaxItem: 2
     QuantityItem: 0
     Description: 
-  _plusValue: 5
+  _plusValue: 1
